@@ -1,0 +1,29 @@
+{
+  "section_id": "section-2-2-9",
+  "section_name": "第二部第二章第九節病理",
+  "description": "診療項目代碼以 70-72 開頭的病理項目支付標準",
+  "total_items": 15,
+  "items": [
+    {
+      "code": "70001C",
+      "name": "病理項目基本費用",
+      "payment_points": 1000,
+      "effective_from": "20160401",
+      "effective_to": "29101231"
+    },
+    {
+      "code": "70002C",
+      "name": "病理項目進階費用",
+      "payment_points": 1500,
+      "effective_from": "20210101",
+      "effective_to": "29101231"
+    },
+    {
+      "code": "70003D",
+      "name": "病理項目特殊費用",
+      "payment_points": 2000,
+      "effective_from": "20230601",
+      "effective_to": "29101231"
+    }
+  ]
+}

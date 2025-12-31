@@ -1,0 +1,147 @@
+{
+  "children": [
+    {
+      "id": "section-2-2-4-sub-0",
+      "type": "subsection",
+      "label": "一、本節各項治療費用限醫療機構開業執照診",
+      "level": 4,
+      "parent_id": "section-2-2-4",
+      "has_children": false,
+      "content": "一、本節各項治療費用限醫療機構開業執照診療科別登記設有復健科者申報；未設復健科之醫療院所，如具其他與復健相關之專科醫師與復健治療專業人員及設備並有能力實施者，得向保險人提出申請，經核可後依基層院所類別申報。",
+      "metadata": {
+        "parent_section": "section-2-2-4",
+        "index": 0
+      }
+    },
+    {
+      "id": "section-2-2-4-sub-1",
+      "type": "subsection",
+      "label": "四、本節各復健項目除(43010C~43",
+      "level": 4,
+      "parent_id": "section-2-2-4",
+      "has_children": false,
+      "content": "四、本節各復健項目除(43010C~43025C、43033C~43038C)及(44501B~44503B)外，皆為兒童加成項目，意指病人年齡未滿二歲所實施之診療項目點數，依表定點數加計百分之三十；年齡在二歲以上至未滿七歲者依表定點數加計百分之二十。\n第一項 一般復健檢查及治療(41002-41007)\n第二項 物理治療 Physical Therapy (42001-42019)\n通則：",
+      "metadata": {
+        "parent_section": "section-2-2-4",
+        "index": 1
+      }
+    },
+    {
+      "id": "section-2-2-4-sub-2",
+      "type": "subsection",
+      "label": "一、執行本項各診療項目須符合下列條件：",
+      "level": 4,
+      "parent_id": "section-2-2-4",
+      "has_children": false,
+      "content": "一、執行本項各診療項目須符合下列條件：\n(一)至少有復健科、神經科、骨科、神經外科、整型外科專科專任醫師、小兒神經次專科專任醫師(限醫院治療十八歲以下病人)或內科專科醫師具風濕病次專科專任醫師一名。\n(二)前列內科專科醫師具風濕病次專醫師資格者，除於無復健科醫師提供服務之偏遠地區執業者外，須曾接受風溼關節相關復健治療訓練課程三十二小時。",
+      "metadata": {
+        "parent_section": "section-2-2-4",
+        "index": 2
+      }
+    },
+    {
+      "id": "section-2-2-4-sub-3",
+      "type": "subsection",
+      "label": "二、同時實施簡單治療項目及中度治療項目者",
+      "level": 4,
+      "parent_id": "section-2-2-4",
+      "has_children": false,
+      "content": "二、同時實施簡單治療項目及中度治療項目者，僅可申報一次中度治療；同時實施簡單治療項目、中度治療項目及複雜治療項目者，僅可申報一次複雜治療。",
+      "metadata": {
+        "parent_section": "section-2-2-4",
+        "index": 3
+      }
+    },
+    {
+      "id": "section-2-2-4-sub-4",
+      "type": "subsection",
+      "label": "三、物理治療人員每日可申報上限為四十五人",
+      "level": 4,
+      "parent_id": "section-2-2-4",
+      "has_children": false,
+      "content": "三、物理治療人員每日可申報上限為四十五人次。\n(一)保險醫事服務機構物理治療每月可申報人次上限，以每月專任物理治療人員實際執行物理治療總日數乘以四十五。\n(二)保險醫事服務機構應填報簡單、中度、複雜之治療申請件數、金額及專任物理治療人員實際執行物理治療總日數，其表格由保險人定之。\n(三)物理治療案件申報超出上限之金額，計算公式如下：\n物理治療超次金額=【（總申報件數-每月申報上限件數）╱總申報件數】╳總申報金額。\n(四)復健科專科醫師親自實施物理治療、職能治療或語言治療者，每日可申報上限為四十五人次，且其人次併入醫師門診合理量計算。",
+      "metadata": {
+        "parent_section": "section-2-2-4",
+        "index": 4
+      }
+    },
+    {
+      "id": "section-2-2-4-sub-5",
+      "type": "subsection",
+      "label": "五、實施物理治療之適應症：",
+      "level": 4,
+      "parent_id": "section-2-2-4",
+      "has_children": false,
+      "content": "五、實施物理治療之適應症：\n(一)腦血管意外 (CVA) Cerebrovascular accidents\n(二)頸部症候群，合併手部感覺痳痺或無力 Cervical syndrome\n(三)下背症候群，合併腳部感覺痳痺或無力 Low back syndrome\n(四)脊索（髓）傷害 Spinal cord injury\n(五)截肢 Amputation\n(六)冷凍肩（五十肩）Frozen shoulder\n(七)顏面痳痺 Facial palsy\n(八)關節炎 Arthritis\n(九)骨折（癒後不良攣縮）Fractures\n(十)其他骨科疾病 Other orthopaedic disease\n(十一)扭傷與挫傷 Sprain & strain\n(十二)腦性痳痺 Cerebral palsy\n(十三)頭部外傷 Head injury\n(十四)脊髓灰質炎，小兒麻痺 Poliomylits\n(十五)周邊神經傷害(肌肉麻痺) Peripheral nerves injury\n(十六)其他神經疾病 Other neurological disease\n(十七)全人工膝(股)關節－換術後 Total hip & knee replacement\n(十八)胸腔復健 Chest rehabilitation\n(1)胸腔手術前後 Pre & post chest operation\n(2)慢性阻塞性肺疾病 COPD\n(十九)其他 Others\n第三項 職能治療 Occupational Therapy (43001-43038)\n通則：",
+      "metadata": {
+        "parent_section": "section-2-2-4",
+        "index": 5
+      }
+    },
+    {
+      "id": "section-2-2-4-sub-6",
+      "type": "subsection",
+      "label": "一、執行本項各診療項目須至少有復健科、神",
+      "level": 4,
+      "parent_id": "section-2-2-4",
+      "has_children": false,
+      "content": "一、執行本項各診療項目須至少有復健科、神經科、骨科、神經外科、整型外科專科專任醫師、小兒神經次專科專任醫師(限醫院治療十八歲以下病人)一名。",
+      "metadata": {
+        "parent_section": "section-2-2-4",
+        "index": 6
+      }
+    },
+    {
+      "id": "section-2-2-4-sub-7",
+      "type": "subsection",
+      "label": "二、實施職能治療之適應症，包括凡神經生理",
+      "level": 4,
+      "parent_id": "section-2-2-4",
+      "has_children": false,
+      "content": "二、實施職能治療之適應症，包括凡神經生理、骨骼肌肉、心肺循環等系統疾病或意外傷害經評估其關節活動度、肌力、感覺、平衡、認知性、知覺動作、功能性動作、協調度、及日常生活能力等需職能治療者。\n第四項 語言治療 Communication Therapy (44001～44016)\n通則：",
+      "metadata": {
+        "parent_section": "section-2-2-4",
+        "index": 7
+      }
+    },
+    {
+      "id": "section-2-2-4-sub-8",
+      "type": "subsection",
+      "label": "二、實施語言治療之適應症：",
+      "level": 4,
+      "parent_id": "section-2-2-4",
+      "has_children": false,
+      "content": "二、實施語言治療之適應症：\n(一)失語症及相關障礙Aphasia & related disorders",
+      "metadata": {
+        "parent_section": "section-2-2-4",
+        "index": 8
+      }
+    },
+    {
+      "id": "section-2-2-4-sub-9",
+      "type": "subsection",
+      "label": "4.其他 Others",
+      "level": 4,
+      "parent_id": "section-2-2-4",
+      "has_children": false,
+      "content": "4.其他 Others\n(二)構音異常 Articulation disorders\n(三)聲音異常 Voice disorders\n(四)口吃 Stuttering\n(五)語言發展遲緩 Delayed language development\n(六)腦性痳痺 Cerebral palsy speech\n(七)唇顎裂 Cleft-palate speech\n(八)失聽 Hard of hearing （後天喪失聽力者）\n(九)其他Others\n第五項 心理社會復健治療費 Psychosocial Rehabilitation Treatment Fee (44501～44505) \n通則：",
+      "metadata": {
+        "parent_section": "section-2-2-4",
+        "index": 9
+      }
+    },
+    {
+      "id": "section-2-2-4-sub-10",
+      "type": "subsection",
+      "label": "一、實施心理社會復健之適應症，包括肢體傷",
+      "level": 4,
+      "parent_id": "section-2-2-4",
+      "has_children": false,
+      "content": "一、實施心理社會復健之適應症，包括肢體傷殘、中樞神經系統損傷、發展異常、慢性疼痛或其他先天後天疾患經評估有心智功能下降、情緒困擾或行為異常，導致社會適應功能不良需心理治療者。",
+      "metadata": {
+        "parent_section": "section-2-2-4",
+        "index": 10
+      }
+    }
+  ]
+}

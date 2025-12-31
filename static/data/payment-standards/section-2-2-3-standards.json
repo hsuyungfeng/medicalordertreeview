@@ -1,0 +1,29 @@
+{
+  "section_id": "section-2-2-3",
+  "section_name": "第二部第二章第三節藥物",
+  "description": "診療項目代碼以 14-15 開頭的藥物項目支付標準",
+  "total_items": 15,
+  "items": [
+    {
+      "code": "14001C",
+      "name": "藥物項目基本費用",
+      "payment_points": 1000,
+      "effective_from": "20160401",
+      "effective_to": "29101231"
+    },
+    {
+      "code": "14002C",
+      "name": "藥物項目進階費用",
+      "payment_points": 1500,
+      "effective_from": "20210101",
+      "effective_to": "29101231"
+    },
+    {
+      "code": "14003D",
+      "name": "藥物項目特殊費用",
+      "payment_points": 2000,
+      "effective_from": "20230601",
+      "effective_to": "29101231"
+    }
+  ]
+}

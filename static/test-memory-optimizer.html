@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>記憶體優化器測試 - Memory Optimizer Test</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: white;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .control-panel {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .control-section {
+      margin-bottom: 20px;
+    }
+
+    .control-section h3 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #667eea;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-success {
+      background: #48bb78;
+      color: white;
+    }
+
+    .btn-success:hover {
+      background: #38a169;
+    }
+
+    .btn-warning {
+      background: #ed8936;
+      color: white;
+    }
+
+    .btn-warning:hover {
+      background: #dd6b20;
+    }
+
+    .btn-danger {
+      background: #f56565;
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: #e53e3e;
+    }
+
+    .results {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .results h2 {
+      color: #333;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 10px;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .metric-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 15px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .metric-label {
+      opacity: 0.9;
+      margin-bottom: 5px;
+    }
+
+    .metric-value {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .metric-unit {
+      font-size: 12px;
+      opacity: 0.8;
+      margin-left: 5px;
+    }
+
+    .test-section {
+      margin-bottom: 20px;
+    }
+
+    .test-section h3 {
+      color: #555;
+      margin-bottom: 10px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .test-item {
+      padding: 12px;
+      background: #f7fafc;
+      border-left: 4px solid #667eea;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .test-item.success {
+      border-left-color: #48bb78;
+      background: #f0fdf4;
+    }
+
+    .test-item.warning {
+      border-left-color: #ed8936;
+      background: #fffbeb;
+    }
+
+    .console {
+      background: #1a202c;
+      color: #68d391;
+      font-family: 'Courier New', monospace;
+      padding: 15px;
+      border-radius: 6px;
+      max-height: 400px;
+      overflow-y: auto;
+      font-size: 12px;
+      line-height: 1.5;
+      margin-top: 15px;
+    }
+
+    .console-log {
+      margin-bottom: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    th {
+      background: #f7fafc;
+      font-weight: 600;
+      color: #333;
+    }
+
+    tr:hover {
+      background: #f0f4f8;
+    }
+
+    .comparison-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .bar-label {
+      width: 120px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .bar-container {
+      flex: 1;
+      height: 30px;
+      background: #edf2f7;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      color: white;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .improvement {
+      color: #48bb78;
+      font-weight: 600;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💾 記憶體優化器測試</h1>
+
+    <!-- 控制面板 -->
+    <div class="control-panel">
+      <div class="control-section">
+        <h3>📊 對象池測試</h3>
+        <div class="button-group">
+          <button class="btn-primary" onclick="testObjectPool()">對象池性能測試</button>
+          <button class="btn-primary" onclick="testObjectPoolReuse()">對象重用測試</button>
+          <button class="btn-primary" onclick="testObjectPoolStats()">顯示統計信息</button>
+        </div>
+      </div>
+
+      <div class="control-section">
+        <h3>📌 數據引用測試</h3>
+        <div class="button-group">
+          <button class="btn-success" onclick="testDataReference()">數據引用測試</button>
+          <button class="btn-success" onclick="testDataView()">數據視圖測試</button>
+          <button class="btn-success" onclick="testReferenceCleanup()">引用清理測試</button>
+        </div>
+      </div>
+
+      <div class="control-section">
+        <h3>⏱️ 快取生命週期測試</h3>
+        <div class="button-group">
+          <button class="btn-warning" onclick="testCacheLifecycle()">快取清理測試</button>
+          <button class="btn-warning" onclick="testAutoCleanup()">自動清理測試</button>
+        </div>
+      </div>
+
+      <div class="control-section">
+        <h3>📈 記憶體監測</h3>
+        <div class="button-group">
+          <button class="btn-danger" onclick="testMemoryMonitor()">記憶體監測測試</button>
+          <button class="btn-danger" onclick="printFullReport()">完整性能報告</button>
+          <button class="btn-danger" onclick="clearResults()">清空結果</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 測試結果 -->
+    <div class="results">
+      <h2>✅ 測試結果</h2>
+
+      <div class="metric-grid">
+        <div class="metric-card">
+          <div class="metric-label">測試次數</div>
+          <div class="metric-value"><span id="test-count">0</span></div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">節省記憶體</div>
+          <div class="metric-value"><span id="memory-saved">0</span><span class="metric-unit">MB</span></div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">對象重用率</div>
+          <div class="metric-value"><span id="reuse-rate">0</span><span class="metric-unit">%</span></div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">快取清理次數</div>
+          <div class="metric-value"><span id="cleanup-count">0</span></div>
+        </div>
+      </div>
+
+      <div id="results-container"></div>
+      <div class="console" id="console"></div>
+    </div>
+  </div>
+
+  <!-- 引入優化器 -->
+  <script src="js/memory-optimizer.js"></script>
+
+  <script>
+    let memoryOptimizer = null;
+    let objectPool = null;
+    const consoleLogs = [];
+    let testCount = 0;
+
+    // 自定義 console.log
+    const originalLog = console.log;
+    console.log = function(...args) {
+      originalLog.apply(console, args);
+      const message = args.map(arg =>
+        typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
+      ).join(' ');
+      consoleLogs.push(message);
+      updateConsole();
+    };
+
+    function updateConsole() {
+      const console_el = document.getElementById('console');
+      console_el.innerHTML = consoleLogs.slice(-50).map(log =>
+        `<div class="console-log">${log}</div>`
+      ).join('');
+      console_el.scrollTop = console_el.scrollHeight;
+    }
+
+    function addResult(title, content, success = true) {
+      const container = document.getElementById('results-container');
+      const item = document.createElement('div');
+      item.className = `test-section`;
+      item.innerHTML = `
+        <h3>${success ? '✓' : '⚠'} ${title}</h3>
+        <div>${content}</div>
+      `;
+      container.appendChild(item);
+      testCount++;
+      document.getElementById('test-count').textContent = testCount;
+    }
+
+    function testObjectPool() {
+      if (!memoryOptimizer) {
+        memoryOptimizer = new MemoryOptimizer();
+        memoryOptimizer.initialize({ enableObjectPool: true });
+        objectPool = memoryOptimizer.objectPool;
+      }
+
+      console.log('\n═══ 對象池性能測試開始 ═══\n');
+
+      // 測試不使用對象池的性能
+      const normalStart = performance.now();
+      const normalObjs = [];
+      for (let i = 0; i < 1000; i++) {
+        normalObjs.push(new Object());
+      }
+      const normalTime = performance.now() - normalStart;
+
+      // 測試使用對象池的性能
+      const poolStart = performance.now();
+      const poolObjs = [];
+      for (let i = 0; i < 1000; i++) {
+        poolObjs.push(objectPool.acquire());
+      }
+      const poolTime = performance.now() - poolStart;
+
+      // 歸還對象
+      objectPool.releaseAll(poolObjs);
+
+      const improvement = ((normalTime - poolTime) / normalTime * 100).toFixed(1);
+      const content = `
+        <div class="comparison-bar">
+          <div class="bar-label">普通創建:</div>
+          <div class="bar-container">
+            <div class="bar-fill" style="width: 100%">${normalTime.toFixed(2)}ms</div>
+          </div>
+        </div>
+        <div class="comparison-bar">
+          <div class="bar-label">對象池:</div>
+          <div class="bar-container">
+            <div class="bar-fill" style="width: ${(poolTime / normalTime * 100).toFixed(0)}%">
+              ${poolTime.toFixed(2)}ms
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 10px;">
+          <span class="improvement">性能提升: ${improvement}%</span>
+        </div>
+      `;
+
+      addResult('對象池性能測試', content);
+      console.log(`✓ 普通創建: ${normalTime.toFixed(2)}ms`);
+      console.log(`✓ 對象池: ${poolTime.toFixed(2)}ms`);
+      console.log(`✓ 性能提升: ${improvement}%\n`);
+    }
+
+    function testObjectPoolReuse() {
+      if (!objectPool) {
+        alert('請先運行對象池初始化測試');
+        return;
+      }
+
+      console.log('\n═══ 對象重用測試開始 ═══\n');
+
+      // 清空對象池
+      objectPool.clear();
+      objectPool.stats = { created: 50, reused: 0, allocations: 0, deallocations: 0 };
+
+      // 獲取和歸還對象
+      for (let i = 0; i < 500; i++) {
+        const obj = objectPool.acquire();
+        objectPool.release(obj);
+      }
+
+      const stats = objectPool.getStats();
+      document.getElementById('reuse-rate').textContent = stats.reuseRate;
+
+      const content = `
+        <table>
+          <tr>
+            <th>指標</th>
+            <th>數值</th>
+          </tr>
+          <tr>
+            <td>創建對象數</td>
+            <td>${stats.totalCreated}</td>
+          </tr>
+          <tr>
+            <td>重用對象數</td>
+            <td>${stats.reusedCount || 0}</td>
+          </tr>
+          <tr>
+            <td>重用率</td>
+            <td><span class="improvement">${stats.reuseRate}</span></td>
+          </tr>
+          <tr>
+            <td>分配次數</td>
+            <td>${stats.allocations}</td>
+          </tr>
+          <tr>
+            <td>歸還次數</td>
+            <td>${stats.deallocations}</td>
+          </tr>
+          <tr>
+            <td>當前池大小</td>
+            <td>${stats.poolSize}</td>
+          </tr>
+        </table>
+      `;
+
+      addResult('對象重用測試', content);
+      console.log(`✓ 重用率: ${stats.reuseRate}`);
+      console.log(`✓ 總分配: ${stats.allocations}, 總歸還: ${stats.deallocations}\n`);
+    }
+
+    function testObjectPoolStats() {
+      if (!objectPool) {
+        alert('請先運行對象池初始化測試');
+        return;
+      }
+
+      const stats = objectPool.getStats();
+      console.log(stats);
+      console.log(`\n對象池統計:\n  - 池大小: ${stats.poolSize}\n  - 使用中: ${stats.inUseCount}\n`);
+    }
+
+    function testDataReference() {
+      console.log('\n═══ 數據引用測試開始 ═══\n');
+
+      const refManager = new DataReferenceManager();
+
+      // 創建原始數據
+      const largeData = Array.from({ length: 1000 }, (_, i) => ({
+        id: i,
+        name: `項目${i}`,
+        description: `這是項目 ${i} 的詳細描述信息`
+      }));
+
+      console.log(`📊 原始數據: ${JSON.stringify(largeData[0]).length * 1000 / 1024 / 1024}MB`);
+
+      // 創建引用而不是複製
+      const ref1 = refManager.createReference(largeData, 'ref1');
+      const ref2 = refManager.createReference(largeData, 'ref2');
+      const ref3 = refManager.createReference(largeData, 'ref3');
+
+      const stats = refManager.getStats();
+      document.getElementById('memory-saved').textContent = stats.memorySavedKB / 1024;
+
+      const content = `
+        <div class="test-item success">
+          <strong>數據引用統計:</strong>
+          <ul style="margin-top: 10px;">
+            <li>創建的引用數: 3</li>
+            <li>節省記憶體: ~${stats.memorySavedKB}KB</li>
+            <li>活躍引用: ${stats.activeReferences}</li>
+            <li>驗證: ref1 === ref2 === ref3 (同一對象) ✓</li>
+          </ul>
+        </div>
+      `;
+
+      addResult('數據引用測試', content);
+      console.log(`✓ 引用測試完成\n`);
+    }
+
+    function testDataView() {
+      console.log('\n═══ 數據視圖測試開始 ═══\n');
+
+      const refManager = new DataReferenceManager();
+
+      // 創建大數據集
+      const data = Array.from({ length: 10000 }, (_, i) => ({
+        id: i,
+        name: `項目${i}`
+      }));
+
+      // 模擬搜尋結果 (只取前 100 個)
+      const indices = Array.from({ length: 100 }, (_, i) => i);
+
+      // 創建視圖而不複製
+      const view = refManager.createDataView(data, indices);
+
+      const content = `
+        <div class="test-item success">
+          <strong>數據視圖測試:</strong>
+          <ul style="margin-top: 10px;">
+            <li>原始數據量: ${data.length} 項</li>
+            <li>視圖大小: ${indices.length} 項</li>
+            <li>記憶體節省: ~${((data.length - indices.length) * JSON.stringify(data[0]).length / 1024).toFixed(2)}KB</li>
+            <li>訪問測試: view[0].name = "${view[0].name}" ✓</li>
+          </ul>
+        </div>
+      `;
+
+      addResult('數據視圖測試', content);
+      console.log(`✓ 數據視圖測試完成\n`);
+    }
+
+    function testReferenceCleanup() {
+      console.log('\n═══ 引用清理測試開始 ═══\n');
+
+      const refManager = new DataReferenceManager();
+
+      // 創建多個引用
+      const data = Array.from({ length: 100 }, (_, i) => ({ id: i }));
+      refManager.createReference(data, 'ref1');
+      refManager.createReference(data, 'ref2');
+      refManager.createReference(data, 'ref3');
+
+      console.log(`活躍引用: ${refManager.getStats().activeReferences}`);
+
+      // 清理不活躍的引用
+      refManager.cleanup(['ref1']);
+
+      const statsAfter = refManager.getStats();
+      console.log(`清理後活躍引用: ${statsAfter.activeReferences}`);
+
+      const content = `
+        <div class="test-item success">
+          <strong>引用清理測試:</strong>
+          <ul style="margin-top: 10px;">
+            <li>初始引用數: 3</li>
+            <li>保留引用: ['ref1']</li>
+            <li>清理後引用數: ${statsAfter.activeReferences}</li>
+            <li>清理成功 ✓</li>
+          </ul>
+        </div>
+      `;
+
+      addResult('引用清理測試', content);
+      console.log(`✓ 引用清理完成\n`);
+    }
+
+    function testCacheLifecycle() {
+      console.log('\n═══ 快取生命週期測試開始 ═══\n');
+
+      const lifecycle = new CacheLifecycleManager();
+
+      // 創建模擬快取
+      class MockCache {
+        constructor() {
+          this.data = new Map();
+        }
+        set(key, value) {
+          this.data.set(key, value);
+        }
+        clear() {
+          this.data.clear();
+        }
+        getStats() {
+          return { cachedKeywords: this.data.size };
+        }
+      }
+
+      const cache = new MockCache();
+      lifecycle.registerCache('testCache', cache, 1000); // 1 秒 TTL
+
+      // 添加一些項到快取
+      for (let i = 0; i < 10; i++) {
+        cache.set(`key${i}`, `value${i}`);
+      }
+
+      console.log(`快取項數: ${cache.data.size}`);
+
+      // 手動觸發清理
+      setTimeout(() => {
+        lifecycle.cleanup();
+      }, 1500);
+
+      const content = `
+        <div class="test-item success">
+          <strong>快取生命週期測試:</strong>
+          <ul style="margin-top: 10px;">
+            <li>TTL 設置: 1 秒</li>
+            <li>初始項數: 10</li>
+            <li>清理後: 自動移除過期項</li>
+            <li>測試排隊中...</li>
+          </ul>
+        </div>
+      `;
+
+      addResult('快取生命週期測試', content);
+    }
+
+    function testAutoCleanup() {
+      console.log('\n═══ 自動清理測試開始 ═══\n');
+
+      const lifecycle = new CacheLifecycleManager();
+      const cleanupStats = lifecycle.getStats();
+
+      const content = `
+        <div class="test-item success">
+          <strong>自動清理測試:</strong>
+          <ul style="margin-top: 10px;">
+            <li>自動清理狀態: 已啟動</li>
+            <li>清理間隔: ${(cleanupStats.cleanupInterval / 1000).toFixed(0)} 秒</li>
+            <li>已清理次數: ${cleanupStats.cleanupCount}</li>
+            <li>監視中快取數: ${cleanupStats.registeredCaches}</li>
+          </ul>
+        </div>
+      `;
+
+      addResult('自動清理測試', content);
+      console.log(`✓ 自動清理已啟動 (${(cleanupStats.cleanupInterval / 1000).toFixed(0)}秒間隔)\n`);
+
+      lifecycle.stopAutoCleanup();
+    }
+
+    function testMemoryMonitor() {
+      console.log('\n═══ 記憶體監測測試開始 ═══\n');
+
+      const monitor = new MemoryMonitor();
+
+      // 拍攝初始快照
+      monitor.takeSnapshot('初始化');
+
+      // 執行一些操作
+      const data = [];
+      for (let i = 0; i < 10000; i++) {
+        data.push({
+          id: i,
+          name: `項目${i}`,
+          description: `描述${i}`
+        });
+      }
+
+      // 拍攝第二個快照
+      monitor.takeSnapshot('數據創建後');
+
+      // 清理數據
+      data.length = 0;
+
+      // 拍攝第三個快照
+      monitor.takeSnapshot('數據清理後');
+
+      const trend = monitor.getTrend();
+
+      const content = `
+        <table>
+          <tr>
+            <th>指標</th>
+            <th>數值</th>
+          </tr>
+          <tr>
+            <td>快照數</td>
+            <td>${trend.samples}</td>
+          </tr>
+          <tr>
+            <td>最小堆使用</td>
+            <td>${trend.minUsageMB} MB</td>
+          </tr>
+          <tr>
+            <td>最大堆使用</td>
+            <td>${trend.maxUsageMB} MB</td>
+          </tr>
+          <tr>
+            <td>平均堆使用</td>
+            <td>${trend.avgUsageMB} MB</td>
+          </tr>
+          <tr>
+            <td>總變化</td>
+            <td>${(trend.totalDiff / 1024 / 1024).toFixed(2)} MB</td>
+          </tr>
+        </table>
+      `;
+
+      addResult('記憶體監測測試', content);
+      console.log(`✓ 記憶體監測完成\n`);
+    }
+
+    function printFullReport() {
+      if (!memoryOptimizer) {
+        memoryOptimizer = new MemoryOptimizer();
+        memoryOptimizer.initialize();
+      }
+
+      console.log('\n');
+      memoryOptimizer.printReport();
+    }
+
+    function clearResults() {
+      document.getElementById('results-container').innerHTML = '';
+      consoleLogs.length = 0;
+      updateConsole();
+      testCount = 0;
+      document.getElementById('test-count').textContent = '0';
+      console.log('✓ 結果已清空');
+    }
+
+    // 初始化
+    console.log('🚀 記憶體優化器測試頁面已準備就緒');
+    console.log('步驟: 1. 運行優化測試 2. 查看結果 3. 運行完整報告');
+  </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+{
+  "2-2-1": {
+    "section_name": "Ｉ、西醫及牙醫",
+    "filename": "2-2-1第二部第二章第一節檢查-114.09.01.json",
+    "items_count": 11,
+    "items": [
+      {
+        "number": "一",
+        "title": "一般尿液檢查",
+        "codes": "06001-06017",
+        "note": "註：尿常規檢查各項點數累積超過75點者，以75點支付。",
+        "row_start": 5,
+        "row_end": 22
+      },
+      {
+        "number": "二",
+        "title": "特殊尿液檢查",
+        "codes": "06503-06513",
+        "note": "",
+        "row_start": 23,
+        "row_end": 991
+      },
+      {
+        "number": "一",
+        "title": "屈光檢查 Refrauction Ex.",
+        "codes": "23001~23004",
+        "note": "",
+        "row_start": 992,
+        "row_end": 996
+      },
+      {
+        "number": "二",
+        "title": "視網膜檢查 Retina Function Ex.",
+        "codes": "23101~23104",
+        "note": "",
+        "row_start": 997,
+        "row_end": 1001
+      },
+      {
+        "number": "三",
+        "title": "斜視檢查 Strabismus Ex.",
+        "codes": "23201~23208",
+        "note": "",
+        "row_start": 1002,
+        "row_end": 1010
+      },
+      {
+        "number": "四",
+        "title": "青光眼檢查 Glaucoma Ex.",
+        "codes": "23301~23308",
+        "note": "",
+        "row_start": 1011,
+        "row_end": 1019
+      },
+      {
+        "number": "五",
+        "title": "細隙燈檢查 Slit Lamp Ex.",
+        "codes": "23401~23405",
+        "note": "",
+        "row_start": 1020,
+        "row_end": 1025
+      },
+      {
+        "number": "六",
+        "title": "眼底檢查 Fundus Ex..",
+        "codes": "23501~23506",
+        "note": "",
+        "row_start": 1026,
+        "row_end": 1032
+      },
+      {
+        "number": "七",
+        "title": "視神經檢查 Medical & Neuro-ophthalmological Ex.",
+        "codes": "23601~23610",
+        "note": "",
+        "row_start": 1033,
+        "row_end": 1041
+      },
+      {
+        "number": "八",
+        "title": "網膜電氣圖 Nasolacrimal Apparatus",
+        "codes": "23701~23707",
+        "note": "",
+        "row_start": 1042,
+        "row_end": 1049
+      },
+      {
+        "number": "九",
+        "title": "其他 Others",
+        "codes": "23801~23813",
+        "note": "",
+        "row_start": 1050,
+        "row_end": 1443
+      }
+    ]
+  },
+  "2-2-2": {
+    "section_name": "Ｉ、西醫及牙醫",
+    "filename": "2-2-2第二部第二章第二節放射線診療-114.09.01.json",
+    "items_count": 0,
+    "items": []
+  },
+  "2-2-3": {
+    "section_name": "Ｉ、西醫及牙醫",
+    "filename": "2-2-3第二部第二章第三節注射-114.05.01.json",
+    "items_count": 0,
+    "items": []
+  },
+  "2-2-4": {
+    "section_name": "Ｉ、西醫及牙醫",
+    "filename": "2-2-4第二部第二章第四節復健治療-114.05.01.json",
+    "items_count": 0,
+    "items": []
+  },
+  "2-2-5": {
+    "section_name": "Ｉ、西醫及牙醫",
+    "filename": "2-2-5第二部第二章第五節精神醫療治療費-114.05.01.json",
+    "items_count": 0,
+    "items": []
+  },
+  "2-2-6": {
+    "section_name": "Ｉ、西醫及牙醫",
+    "filename": "2-2-6第二部第二章第六節治療處置-114.09.01.json",
+    "items_count": 0,
+    "items": []
+  },
+  "2-2-7": {
+    "section_name": "2-2-7第二部第二章第七節手術-114.09.01",
+    "filename": "2-2-7第二部第二章第七節手術-114.09.01.json",
+    "items_count": 0,
+    "items": []
+  },
+  "2-2-8": {
+    "section_name": "Ｉ、西醫及牙醫",
+    "filename": "2-2-8第二部第二章第八節輸血及造血幹細胞移植-114.09.01.json",
+    "items_count": 0,
+    "items": []
+  },
+  "2-2-9": {
+    "section_name": "Ｉ、西醫及牙醫",
+    "filename": "2-2-9第二部第二章第九節石膏繃帶-093.06.14.json",
+    "items_count": 0,
+    "items": []
+  },
+  "2-2-10": {
+    "section_name": "Ｉ、西醫及牙醫",
+    "filename": "2-2-10第二部第二章第十節麻醉費-114.05.01.json",
+    "items_count": 0,
+    "items": []
+  }
+}

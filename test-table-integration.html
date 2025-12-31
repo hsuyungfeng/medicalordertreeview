@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格集成測試</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .test-result {
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #4CAF50;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        .test-result.error {
+            border-left-color: #f44336;
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        .test-result.warning {
+            border-left-color: #ff9800;
+            background-color: #fff3e0;
+            color: #e65100;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>✅ 表格集成測試</h1>
+
+    <div id="test-results"></div>
+
+    <script>
+        const results = [];
+
+        async function test() {
+            // Test 1: Check doc-table-mapping.json
+            console.log('🧪 Test 1: 檢查 doc-table-mapping.json...');
+            try {
+                const mappingResponse = await fetch('data/doc-table-mapping.json');
+                if (!mappingResponse.ok) {
+                    throw new Error(`HTTP ${mappingResponse.status}`);
+                }
+                const mapping = await mappingResponse.json();
+                const nodeCount = Object.keys(mapping.mappings || {}).length;
+                results.push({
+                    title: 'doc-table-mapping.json',
+                    status: 'success',
+                    message: `✅ 已加載 ${nodeCount} 個節點的表格映射`
+                });
+
+                // Test 2: Check specific node mapping
+                console.log('🧪 Test 2: 檢查 part-0 映射...');
+                if (mapping.mappings['part-0']) {
+                    const part0 = mapping.mappings['part-0'];
+                    const hasTablesArray = Array.isArray(part0.tables);
+                    results.push({
+                        title: 'part-0 映射檢查',
+                        status: 'success',
+                        message: `✅ part-0 有 ${part0.tables ? part0.tables.length : 0} 個表格ID`
+                    });
+                } else {
+                    results.push({
+                        title: 'part-0 映射檢查',
+                        status: 'error',
+                        message: `❌ 未找到 part-0 的映射`
+                    });
+                }
+
+                // Test 3: Check doc-tables symlink
+                console.log('🧪 Test 3: 檢查 doc-tables 文件...');
+                try {
+                    const docTableResponse = await fetch('data/doc-tables/0目錄1-114.09.01.json');
+                    if (docTableResponse.ok) {
+                        const docTableData = await docTableResponse.json();
+                        const tableCount = (docTableData.sections || []).reduce(
+                            (sum, s) => sum + (s.tables ? s.tables.length : 0),
+                            0
+                        );
+                        results.push({
+                            title: 'doc-tables 文件訪問',
+                            status: 'success',
+                            message: `✅ 可訪問文件，包含 ${tableCount} 個表格`
+                        });
+                    } else {
+                        results.push({
+                            title: 'doc-tables 文件訪問',
+                            status: 'error',
+                            message: `❌ HTTP ${docTableResponse.status}`
+                        });
+                    }
+                } catch (error) {
+                    results.push({
+                        title: 'doc-tables 文件訪問',
+                        status: 'error',
+                        message: `❌ 無法訪問: ${error.message}`
+                    });
+                }
+
+                // Test 4: Check tree-structure.json
+                console.log('🧪 Test 4: 檢查樹結構...');
+                try {
+                    const treeResponse = await fetch('data/tree-structure.json');
+                    if (treeResponse.ok) {
+                        const tree = await treeResponse.json();
+                        let nodesWithTables = 0;
+                        let totalNodes = 0;
+
+                        function countNodes(node) {
+                            totalNodes++;
+                            if (node.tables && Array.isArray(node.tables) && node.tables.length > 0) {
+                                nodesWithTables++;
+                            }
+                            if (node.children) {
+                                node.children.forEach(countNodes);
+                            }
+                        }
+
+                        if (tree.root) {
+                            countNodes(tree.root);
+                        }
+
+                        results.push({
+                            title: '樹結構中的表格',
+                            status: 'success',
+                            message: `✅ ${nodesWithTables} / ${totalNodes} 個節點有表格字段`
+                        });
+                    }
+                } catch (error) {
+                    results.push({
+                        title: '樹結構檢查',
+                        status: 'error',
+                        message: `❌ ${error.message}`
+                    });
+                }
+
+            } catch (error) {
+                results.push({
+                    title: '映射文件加載',
+                    status: 'error',
+                    message: `❌ ${error.message}`
+                });
+            }
+
+            // Render results
+            const resultsDiv = document.getElementById('test-results');
+            results.forEach(result => {
+                const div = document.createElement('div');
+                div.className = `test-container`;
+                div.innerHTML = `
+                    <div class="test-title">${result.title}</div>
+                    <div class="test-result ${result.status}">
+                        ${result.message}
+                    </div>
+                `;
+                resultsDiv.appendChild(div);
+            });
+
+            // Summary
+            const successCount = results.filter(r => r.status === 'success').length;
+            const errorCount = results.filter(r => r.status === 'error').length;
+
+            const summaryDiv = document.createElement('div');
+            summaryDiv.className = 'test-container';
+            summaryDiv.innerHTML = `
+                <div class="test-title">📋 測試摘要</div>
+                <div class="test-result ${errorCount === 0 ? '' : 'warning'}">
+                    <strong>通過: ${successCount} / ${results.length}</strong><br>
+                    ✅ 成功: ${successCount}<br>
+                    ❌ 失敗: ${errorCount}
+                </div>
+            `;
+            resultsDiv.appendChild(summaryDiv);
+
+            console.log('✅ 所有測試完成！');
+        }
+
+        // Run tests when page loads
+        document.addEventListener('DOMContentLoaded', test);
+    </script>
+</body>
+</html>

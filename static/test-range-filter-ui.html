@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日期/數值範圍篩選 UI 測試 - Range Filter UI Test</title>
+  <link rel="stylesheet" href="css/range-filter.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container { max-width: 1000px; margin: 0 auto; }
+    h1 {
+      color: white;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+    .demo-section {
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .demo-section h2 {
+      color: #333;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 10px;
+    }
+    .controls {
+      background: #f7fafc;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .control-group {
+      margin-bottom: 15px;
+    }
+    .control-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+      margin-right: 10px;
+    }
+    .btn-primary { background: #667eea; color: white; }
+    .btn-primary:hover { background: #5568d3; }
+    .btn-danger { background: #f56565; color: white; }
+    .btn-danger:hover { background: #e53e3e; }
+    .console {
+      background: #1a202c;
+      color: #68d391;
+      font-family: 'Courier New', monospace;
+      padding: 15px;
+      border-radius: 6px;
+      max-height: 250px;
+      overflow-y: auto;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+    .output {
+      background: #f0fdf4;
+      border-left: 4px solid #48bb78;
+      padding: 15px;
+      border-radius: 4px;
+      margin-top: 15px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📅 日期/數值範圍篩選 UI 增強</h1>
+
+    <!-- 日期範圍選擇器演示 -->
+    <div class="demo-section">
+      <h2>📆 日期範圍選擇器</h2>
+      <p style="margin-bottom: 20px; color: #666;">支持手動輸入和快速預設範圍</p>
+      <div id="date-selector"></div>
+      <div class="controls">
+        <button class="btn-primary" onclick="showDateRange()">顯示選定範圍</button>
+        <button class="btn-danger" onclick="resetDateRange()">重置</button>
+      </div>
+      <div id="date-output"></div>
+    </div>
+
+    <!-- 數值範圍滑塊演示 -->
+    <div class="demo-section">
+      <h2>🎚️ 數值範圍滑塊</h2>
+      <p style="margin-bottom: 20px; color: #666;">支持滑塊和直接輸入的互動式數值選擇</p>
+      
+      <div style="margin-bottom: 30px;">
+        <h3 style="font-size: 14px; margin-bottom: 15px; color: #333;">示例 1: 診療點數 (100-2000)</h3>
+        <div id="points-slider"></div>
+      </div>
+
+      <div style="margin-bottom: 30px;">
+        <h3 style="font-size: 14px; margin-bottom: 15px; color: #333;">示例 2: 患者年齡 (0-100)</h3>
+        <div id="age-slider"></div>
+      </div>
+
+      <div class="controls">
+        <button class="btn-primary" onclick="showAllRanges()">顯示所有範圍</button>
+        <button class="btn-danger" onclick="resetAllSliders()">重置全部</button>
+      </div>
+      <div id="slider-output"></div>
+    </div>
+
+    <!-- 實時日誌 -->
+    <div class="demo-section">
+      <h2>📊 實時日誌</h2>
+      <div class="console" id="console"></div>
+    </div>
+  </div>
+
+  <script src="js/range-filter-ui.js"></script>
+  <script>
+    let dateSelector = null;
+    let pointsSlider = null;
+    let ageSlider = null;
+    const consoleLogs = [];
+
+    const originalLog = console.log;
+    console.log = function(...args) {
+      originalLog.apply(console, args);
+      consoleLogs.push(args.join(' '));
+      updateConsole();
+    };
+
+    function updateConsole() {
+      const el = document.getElementById('console');
+      el.innerHTML = consoleLogs.slice(-30).map((log, i) =>
+        `<div>[${new Date().toLocaleTimeString()}] ${log}</div>`
+      ).join('');
+      el.scrollTop = el.scrollHeight;
+    }
+
+    function initializeDateSelector() {
+      const today = new Date();
+      const startOfYear = new Date(today.getFullYear(), 0, 1);
+
+      dateSelector = new DateRangeSelector('#date-selector');
+      dateSelector.initialize({
+        startDate: startOfYear,
+        endDate: today,
+        showPresets: true
+      });
+
+      dateSelector.onChange((range) => {
+        console.log(`📅 日期變更: ${range.startDate.toLocaleDateString()} ~ ${range.endDate.toLocaleDateString()}`);
+      });
+
+      console.log('✓ 日期範圍選擇器已初始化');
+    }
+
+    function initializeSliders() {
+      // 診療點數滑塊
+      pointsSlider = new NumericRangeSlider('#points-slider');
+      pointsSlider.initialize({
+        min: 100,
+        max: 2000,
+        currentMin: 200,
+        currentMax: 1500,
+        step: 50,
+        label: '診療點數',
+        showPresets: true
+      });
+
+      pointsSlider.onChange((range) => {
+        console.log(`💰 診療點數: ${range.min} ~ ${range.max}`);
+      });
+
+      // 患者年齡滑塊
+      ageSlider = new NumericRangeSlider('#age-slider');
+      ageSlider.initialize({
+        min: 0,
+        max: 100,
+        currentMin: 20,
+        currentMax: 65,
+        step: 1,
+        label: '患者年齡',
+        showPresets: true
+      });
+
+      ageSlider.onChange((range) => {
+        console.log(`👤 患者年齡: ${range.min} ~ ${range.max} 歲`);
+      });
+
+      console.log('✓ 數值範圍滑塊已初始化');
+    }
+
+    function showDateRange() {
+      const range = dateSelector.getRange();
+      const output = document.getElementById('date-output');
+      output.innerHTML = `
+        <div class="output">
+          <strong>✓ 選定範圍:</strong><br>
+          開始日期: ${range.startDate.toLocaleDateString()}<br>
+          結束日期: ${range.endDate.toLocaleDateString()}<br>
+          天數: ${Math.ceil((range.endDate - range.startDate) / (1000 * 60 * 60 * 24))} 天
+        </div>
+      `;
+      console.log(`📊 日期範圍: ${range.startDate.toLocaleDateString()} - ${range.endDate.toLocaleDateString()}`);
+    }
+
+    function resetDateRange() {
+      dateSelector.applyPreset('year');
+      document.getElementById('date-output').innerHTML = '';
+      console.log('🔄 日期範圍已重置');
+    }
+
+    function showAllRanges() {
+      const pointsRange = pointsSlider.getRange();
+      const ageRange = ageSlider.getRange();
+
+      const output = document.getElementById('slider-output');
+      output.innerHTML = `
+        <div class="output">
+          <strong>✓ 當前範圍:</strong><br>
+          診療點數: ${pointsRange.min} ~ ${pointsRange.max}<br>
+          患者年齡: ${ageRange.min} ~ ${ageRange.max} 歲
+        </div>
+      `;
+      console.log(`📊 點數: ${pointsRange.min}-${pointsRange.max}, 年齡: ${ageRange.min}-${ageRange.max}`);
+    }
+
+    function resetAllSliders() {
+      pointsSlider.setRange(100, 2000);
+      ageSlider.setRange(0, 100);
+      document.getElementById('slider-output').innerHTML = '';
+      console.log('🔄 所有滑塊已重置');
+    }
+
+    // 初始化
+    window.addEventListener('load', () => {
+      console.log('🚀 範圍篩選 UI 測試頁面已加載');
+      initializeDateSelector();
+      initializeSliders();
+    });
+  </script>
+</body>
+</html>

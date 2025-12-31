@@ -1,0 +1,134 @@
+{
+  "children": [
+    {
+      "id": "section-2-2-6-sub-0",
+      "type": "subsection",
+      "label": "二、本節共分五項，各項處置費點數包括一般",
+      "level": 4,
+      "parent_id": "section-2-2-6",
+      "has_children": false,
+      "content": "二、本節共分五項，各項處置費點數包括一般材料，表面麻醉、浸潤麻醉及簡單之傳導麻醉等費用在內，不另給付。治療處置過程如需用到特殊治療材料、特殊藥劑或其他麻醉時得另加算其費用，但另有規定者除外。",
+      "metadata": {
+        "parent_section": "section-2-2-6",
+        "index": 0
+      }
+    },
+    {
+      "id": "section-2-2-6-sub-1",
+      "type": "subsection",
+      "label": "三、前項所謂一般材料係指全民健康保險藥物",
+      "level": 4,
+      "parent_id": "section-2-2-6",
+      "has_children": false,
+      "content": "三、前項所謂一般材料係指全民健康保險藥物給付項目及支付標準所列以外之各種治療材料，如治療處置過程所需之敷料、一般縫合線、刀片、外用消毒藥劑、生理鹽水、導尿管、鼻胃管……等均屬之。",
+      "metadata": {
+        "parent_section": "section-2-2-6",
+        "index": 1
+      }
+    },
+    {
+      "id": "section-2-2-6-sub-2",
+      "type": "subsection",
+      "label": "六、本節所謂兒童加成項目分為：",
+      "level": 4,
+      "parent_id": "section-2-2-6",
+      "has_children": false,
+      "content": "六、本節所謂兒童加成項目分為：\n(一)兒童加成項目：病人年齡未滿六個月者，依表定點數加計百分之六十；年齡在六個月以上至未滿二歲者，依表定點數加計百分之三十；年齡在二歲以上至未滿七歲者，依表定點數加計百分之二十。\n(二)提升兒童加成項目：病人年齡未滿六個月者，依表定點數加計百分之百；年齡在六個月以上至未滿二歲者，依表定點數加計百分之八十；年齡在二歲以上至未滿七歲者，依表定點數加計百分之六十。\n第一項 處置費  Treatment",
+      "metadata": {
+        "parent_section": "section-2-2-6",
+        "index": 2
+      }
+    },
+    {
+      "id": "section-2-2-6-sub-3",
+      "type": "subsection",
+      "label": "一、一般處置  General Trea",
+      "level": 4,
+      "parent_id": "section-2-2-6",
+      "has_children": false,
+      "content": "一、一般處置  General Treatment (47001-47108)\n通則：本項各處置項目皆為兒童加成項目，另部分診療項目項下加註「提升兒童加成項目」者，其加成率適用本節通則六、(二)之規定。",
+      "metadata": {
+        "parent_section": "section-2-2-6",
+        "index": 3
+      }
+    },
+    {
+      "id": "section-2-2-6-sub-4",
+      "type": "subsection",
+      "label": "二、創傷處置Wound Treatmen",
+      "level": 4,
+      "parent_id": "section-2-2-6",
+      "has_children": false,
+      "content": "二、創傷處置Wound Treatment (48001-48035)\n通則：本項各處置項目皆為兒童加成項目，另部分診療項目項下加註「提升兒童加成項目」者，其加成率適用本節通則六、(二)之規定。",
+      "metadata": {
+        "parent_section": "section-2-2-6",
+        "index": 4
+      }
+    },
+    {
+      "id": "section-2-2-6-sub-5",
+      "type": "subsection",
+      "label": "三、蒸餾水、生理食鹽水、可重複消毒使用之",
+      "level": 4,
+      "parent_id": "section-2-2-6",
+      "has_children": false,
+      "content": "三、蒸餾水、生理食鹽水、可重複消毒使用之器材（如延長管、張口器、面罩、蓋罩、套管）等，已含於相關費用內，不另支付。",
+      "metadata": {
+        "parent_section": "section-2-2-6",
+        "index": 5
+      }
+    },
+    {
+      "id": "section-2-2-6-sub-6",
+      "type": "subsection",
+      "label": "十二、嬰幼兒處置 (57101-5712",
+      "level": 4,
+      "parent_id": "section-2-2-6",
+      "has_children": false,
+      "content": "十二、嬰幼兒處置 (57101-57126)\n通則：本節各項目限為未滿七歲嬰幼兒施行時申報。\n第二項 透析治療Dialysis Therapy  (58001-58031)\n通則：血液透析採定額支付，惟如有下列特殊病例得核實申報：",
+      "metadata": {
+        "parent_section": "section-2-2-6",
+        "index": 6
+      }
+    },
+    {
+      "id": "section-2-2-6-sub-7",
+      "type": "subsection",
+      "label": "一、如每人每月使用EPO劑量連續三個月均",
+      "level": 4,
+      "parent_id": "section-2-2-6",
+      "has_children": false,
+      "content": "一、如每人每月使用EPO劑量連續三個月均達20,000單位，但Hb值小於8.5g/dl時，應尋找抗性原因，若其URR≧65%、血清ferritin≧300ng/ml，而且無引起貧血之非腎臟因素時，得以檢附病人臨床相關資料及說明使用理由專案申請增加每月注射劑量，經同意後始能提高EPO注射劑量。",
+      "metadata": {
+        "parent_section": "section-2-2-6",
+        "index": 7
+      }
+    },
+    {
+      "id": "section-2-2-6-sub-8",
+      "type": "subsection",
+      "label": "二、特殊透析病患：在夜間透析(非屬醫院例",
+      "level": 4,
+      "parent_id": "section-2-2-6",
+      "has_children": false,
+      "content": "二、特殊透析病患：在夜間透析(非屬醫院例行排班性透析)之肺水腫、藥物難以控制之嚴重高血鉀症或藥物難以控制代謝性酸中毒之透析病患。\n第三項 高壓氧治療 Hyperbaric Oxygen Therapy (59002-59016)\n通則：",
+      "metadata": {
+        "parent_section": "section-2-2-6",
+        "index": 8
+      }
+    },
+    {
+      "id": "section-2-2-6-sub-9",
+      "type": "subsection",
+      "label": "四、休閒潛水或其他屬預防性治療不予支付。",
+      "level": 4,
+      "parent_id": "section-2-2-6",
+      "has_children": false,
+      "content": "四、休閒潛水或其他屬預防性治療不予支付。\n第四項 眼科雷射治療 Ocular Laser Therapy (60001-60016)\n通則：以門診手術為原則，限眼科專科醫師施行後申報\n第五項 骨骼外固定器使用Application of External Fixation Apparatus (61001-61020)\n通則：",
+      "metadata": {
+        "parent_section": "section-2-2-6",
+        "index": 9
+      }
+    }
+  ]
+}

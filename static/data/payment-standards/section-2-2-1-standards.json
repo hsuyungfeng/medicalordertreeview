@@ -1,0 +1,78 @@
+{
+  "section_id": "section-2-2-1",
+  "section_name": "第二部第二章第一節檢查",
+  "description": "診療項目代碼以 01-09 開頭的檢查項目支付標準",
+  "total_items": 127,
+  "items": [
+    {
+      "code": "01024C",
+      "name": "山地離島地區醫療報酬–山地離島地區醫師巡迴醫療費（半天）",
+      "payment_points": 1090,
+      "effective_from": "20160401",
+      "effective_to": "29101231"
+    },
+    {
+      "code": "01028C",
+      "name": "山地離島地區醫療報酬–支援二、三、四級離島無醫師地區醫療費（一天）",
+      "payment_points": 2180,
+      "effective_from": "20160401",
+      "effective_to": "29101231"
+    },
+    {
+      "code": "01030D",
+      "name": "助產所產後檢查",
+      "payment_points": 320,
+      "effective_from": "20250501",
+      "effective_to": "29101231"
+    },
+    {
+      "code": "01033C",
+      "name": "山地離島地區醫療報酬–山地離島地區藥事人員巡迴醫療費（半天）",
+      "payment_points": 872,
+      "effective_from": "20160401",
+      "effective_to": "29101231"
+    },
+    {
+      "code": "01036C",
+      "name": "辦理轉診費_上轉-使用保險人電子轉診平台",
+      "payment_points": 150,
+      "effective_from": "20250901",
+      "effective_to": "29101231"
+    },
+    {
+      "code": "01039C",
+      "name": "腎臟移植諮詢費",
+      "payment_points": 600,
+      "effective_from": "20240301",
+      "effective_to": "29101231"
+    },
+    {
+      "code": "01075C",
+      "name": "職業性醫學科診斷性會談費",
+      "payment_points": 1031,
+      "effective_from": "20130601",
+      "effective_to": "29101231"
+    },
+    {
+      "code": "01081C",
+      "name": "處置費–全身虛脫之電解質輸液",
+      "payment_points": 280,
+      "effective_from": "20160401",
+      "effective_to": "29101231"
+    },
+    {
+      "code": "01096D",
+      "name": "居家醫療整合照護諮詢費",
+      "payment_points": 500,
+      "effective_from": "20240101",
+      "effective_to": "29101231"
+    },
+    {
+      "code": "01099D",
+      "name": "遠距初診（含診療、處置與藥事服務）",
+      "payment_points": 1200,
+      "effective_from": "20210701",
+      "effective_to": "29101231"
+    }
+  ]
+}

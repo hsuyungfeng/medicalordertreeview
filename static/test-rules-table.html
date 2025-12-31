@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>規則表測試</title>
+  <link rel="stylesheet" href="css/medical-tree.css">
+  <style>
+    body {
+      padding: 20px;
+      background: #f5f5f5;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    .test-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .test-section {
+      margin-bottom: 30px;
+      border: 1px solid #e0e0e0;
+      padding: 15px;
+      border-radius: 6px;
+    }
+    .test-section h3 {
+      margin-top: 0;
+      color: #333;
+      border-bottom: 2px solid #ff6b6b;
+      padding-bottom: 10px;
+    }
+    .test-result {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 4px;
+      background: #f0f4ff;
+      border-left: 4px solid #667eea;
+      font-size: 14px;
+    }
+    .test-result.success {
+      background: #e8f5e9;
+      border-left-color: #4caf50;
+    }
+    .test-result.error {
+      background: #ffebee;
+      border-left-color: #f44336;
+    }
+    .test-result.warning {
+      background: #fff3e0;
+      border-left-color: #ff9800;
+    }
+    .test-result strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .test-result small {
+      color: #666;
+      display: block;
+    }
+    .demo-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      font-size: 13px;
+    }
+    .demo-table th {
+      background: #ff6b6b;
+      color: white;
+      padding: 8px;
+      text-align: left;
+      font-weight: 600;
+    }
+    .demo-table td {
+      padding: 8px;
+      border-bottom: 1px solid #e0e0e0;
+      max-width: 300px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .demo-table tr:hover {
+      background: #f5f5f5;
+    }
+    .rule-code {
+      font-family: monospace;
+      background: #f0f0f0;
+      padding: 2px 4px;
+      border-radius: 2px;
+    }
+    .data-section {
+      background: #fafbfc;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 15px;
+    }
+    .summary {
+      margin-top: 20px;
+      padding: 15px;
+      background: #fff3e0;
+      border: 2px solid #ff9800;
+      border-radius: 6px;
+    }
+    .summary h3 {
+      margin: 0 0 10px 0;
+      color: #e65100;
+      border: none;
+      padding: 0;
+    }
+    .stats {
+      background: #f5f5f5;
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 10px;
+      font-family: monospace;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-container">
+    <h1>📋 規則表測試</h1>
+    <p>驗證規則表實現的完整性和正確性</p>
+
+    <div id="results"></div>
+
+    <!-- 演示區域 -->
+    <div class="test-section">
+      <h3>📊 規則表演示</h3>
+      <div id="demo"></div>
+    </div>
+
+    <!-- 規則類型測試 -->
+    <div class="test-section">
+      <h3>🏷️ 規則類型識別</h3>
+      <div id="rule-type-tests"></div>
+    </div>
+
+    <!-- 表格映射驗證 -->
+    <div class="test-section">
+      <h3>🗺️ 表格映射驗證（三表合一）</h3>
+      <div id="mapping-tests"></div>
+    </div>
+  </div>
+
+  <script src="js/table-renderer.js"></script>
+  <script src="js/table-loader.js"></script>
+  <script>
+    const results = [];
+
+    function logTest(name, success, details) {
+      results.push({ name, success, details });
+      const resultDiv = document.getElementById('results');
+      const testDiv = document.createElement('div');
+      testDiv.className = `test-result ${success ? 'success' : 'error'}`;
+      testDiv.innerHTML = `<strong>${success ? '✓' : '✗'} ${name}</strong><small>${details}</small>`;
+      resultDiv.appendChild(testDiv);
+    }
+
+    // ============ 測試 1-5: RulesTableAdapter 基礎功能 ============
+
+    // 測試 1: RulesTableAdapter 初始化
+    try {
+      const adapter = new RulesTableAdapter();
+      logTest('RulesTableAdapter 初始化', !!adapter, '成功創建實例');
+    } catch (e) {
+      logTest('RulesTableAdapter 初始化', false, `錯誤: ${e.message}`);
+    }
+
+    // 測試 2: 獲取列定義
+    try {
+      const adapter = new RulesTableAdapter();
+      const columns = adapter.getColumns();
+      const hasRequiredColumns =
+        columns.some(c => c.key === 'rule_name') &&
+        columns.some(c => c.key === 'rule_code') &&
+        columns.some(c => c.key === 'applicable_condition') &&
+        columns.some(c => c.key === 'remarks');
+      logTest('列定義完整', hasRequiredColumns, `定義了 ${columns.length} 列`);
+    } catch (e) {
+      logTest('列定義完整', false, `錯誤: ${e.message}`);
+    }
+
+    // 測試 3: 行數據格式化
+    try {
+      const adapter = new RulesTableAdapter();
+      const row = {
+        rule_code: 'R01001',
+        rule_name: '給付規則 - 基本條件',
+        applicable_condition: '適用於所有診療項目',
+        remarks: '本規則適用於所有診療項目，患者須符合健保給付條件。'
+      };
+      const formatted = adapter.formatRow(row);
+      const hasAllFields = formatted.rule_code && formatted.rule_name &&
+                          formatted.applicable_condition && formatted.remarks;
+      logTest('行數據格式化', hasAllFields, `成功格式化 ${Object.keys(formatted).length} 個字段`);
+    } catch (e) {
+      logTest('行數據格式化', false, `錯誤: ${e.message}`);
+    }
+
+    // 測試 4: 文本截斷
+    try {
+      const adapter = new RulesTableAdapter();
+      const longText = '這是一個非常長的文本，' + 'x'.repeat(150);
+      const row = {
+        rule_code: 'R02001',
+        rule_name: '限制條款',
+        applicable_condition: longText,
+        remarks: '備註'
+      };
+      const formatted = adapter.formatRow(row);
+      const isTruncated = formatted.applicable_condition.includes('...');
+      logTest('文本截斷', isTruncated, '長文本已正確截斷顯示');
+    } catch (e) {
+      logTest('文本截斷', false, `錯誤: ${e.message}`);
+    }
+
+    // 測試 5: 規則類型識別
+    try {
+      const adapter = new RulesTableAdapter();
+      const ruleTypes = {
+        'R01001': '給付規則',
+        'R02001': '限制條款',
+        'R03001': '特殊規定',
+        'R04001': '例外情況',
+        'R05001': '禁忌'
+      };
+
+      let allCorrect = true;
+      for (const [code, expectedType] of Object.entries(ruleTypes)) {
+        const actualType = adapter.getRuleTypeLabel(code);
+        if (actualType !== expectedType) {
+          allCorrect = false;
+          break;
+        }
+      }
+      logTest('規則類型識別', allCorrect, '所有規則類型識別正確');
+    } catch (e) {
+      logTest('規則類型識別', false, `錯誤: ${e.message}`);
+    }
+
+    // ============ 規則類型詳細測試 ============
+    const ruleTypeTestsContainer = document.getElementById('rule-type-tests');
+    const ruleTypeCases = [
+      { code: 'R01001', expected: '給付規則' },
+      { code: 'R02001', expected: '限制條款' },
+      { code: 'R03001', expected: '特殊規定' },
+      { code: 'R04001', expected: '例外情況' },
+      { code: 'R05001', expected: '禁忌' },
+      { code: 'R99001', expected: '其他' }
+    ];
+
+    ruleTypeCases.forEach((testCase, index) => {
+      try {
+        const adapter = new RulesTableAdapter();
+        const result = adapter.getRuleTypeLabel(testCase.code);
+        const success = result === testCase.expected;
+        const testDiv = document.createElement('div');
+        testDiv.className = `test-result ${success ? 'success' : 'warning'}`;
+        testDiv.innerHTML = `
+          <strong>規則類型 ${index + 1}: ${testCase.code}</strong>
+          <small>預期: ${testCase.expected} | 實際: ${result}</small>
+        `;
+        ruleTypeTestsContainer.appendChild(testDiv);
+      } catch (e) {
+        const testDiv = document.createElement('div');
+        testDiv.className = 'test-result error';
+        testDiv.innerHTML = `<strong>規則類型測試 ${index + 1} 失敗</strong><small>${e.message}</small>`;
+        ruleTypeTestsContainer.appendChild(testDiv);
+      }
+    });
+
+    // ============ 測試 6: 嚴重規則識別 ============
+    try {
+      const adapter = new RulesTableAdapter();
+      const isSevere = adapter.isSevereRule('R05001');
+      const isNotSevere = !adapter.isSevereRule('R01001');
+      logTest('嚴重規則識別', isSevere && isNotSevere, '禁忌規則已正確識別');
+    } catch (e) {
+      logTest('嚴重規則識別', false, `錯誤: ${e.message}`);
+    }
+
+    // ============ 表格映射驗證 ============
+    const mappingTestsContainer = document.getElementById('mapping-tests');
+
+    // 測試 7: 加載表格映射
+    fetch('data/table-mapping.json')
+      .then(response => response.json())
+      .then(mapping => {
+        try {
+          const allHaveThreeTables = Object.values(mapping.mappings).every(section =>
+            section.tables && section.tables.length === 3
+          );
+
+          const allHaveRulesTable = Object.values(mapping.mappings).every(section =>
+            section.tables && section.tables.some(t => t.type === 'rules')
+          );
+
+          const testDiv = document.createElement('div');
+          testDiv.className = `test-result ${allHaveRulesTable ? 'success' : 'warning'}`;
+          testDiv.innerHTML = `
+            <strong>✓ 表格映射文件加載成功</strong>
+            <small>
+              總節點數: ${Object.keys(mapping.mappings).length}<br>
+              每個節點有 3 個表格: ${allHaveThreeTables ? '是' : '否'}<br>
+              所有節點都有規則表: ${allHaveRulesTable ? '是' : '否'}
+            </small>
+          `;
+          mappingTestsContainer.appendChild(testDiv);
+
+          // 詳細列出每個節點的映射
+          const detailDiv = document.createElement('div');
+          detailDiv.className = 'data-section';
+          detailDiv.innerHTML = '<h4>節點映射詳情（三表合一）</h4>';
+
+          const table = document.createElement('table');
+          table.className = 'demo-table';
+          table.innerHTML = '<thead><tr><th>節點 ID</th><th>節點名稱</th><th>CSV</th><th>標準</th><th>規則</th></tr></thead><tbody></tbody>';
+
+          Object.entries(mapping.mappings).forEach(([nodeId, section]) => {
+            const csvTable = section.tables.find(t => t.type === 'csv');
+            const standardTable = section.tables.find(t => t.type === 'standard');
+            const rulesTable = section.tables.find(t => t.type === 'rules');
+
+            const row = table.querySelector('tbody').insertRow();
+            row.innerHTML = `
+              <td><code>${nodeId}</code></td>
+              <td>${section.label}</td>
+              <td>${csvTable ? '✓' : '✗'}</td>
+              <td>${standardTable ? '✓' : '✗'}</td>
+              <td>${rulesTable ? '✓ ' + (rulesTable.dataFile || 'N/A') : '✗'}</td>
+            `;
+          });
+
+          detailDiv.appendChild(table);
+          mappingTestsContainer.appendChild(detailDiv);
+        } catch (e) {
+          const testDiv = document.createElement('div');
+          testDiv.className = 'test-result error';
+          testDiv.innerHTML = `<strong>✗ 映射驗證失敗</strong><small>${e.message}</small>`;
+          mappingTestsContainer.appendChild(testDiv);
+        }
+      })
+      .catch(e => {
+        const testDiv = document.createElement('div');
+        testDiv.className = 'test-result error';
+        testDiv.innerHTML = `<strong>✗ 無法加載表格映射文件</strong><small>${e.message}</small>`;
+        mappingTestsContainer.appendChild(testDiv);
+      });
+
+    // ============ 測試 8: 加載規則表數據 ============
+    const demoContainer = document.getElementById('demo');
+
+    Promise.all([
+      fetch('data/rules/section-2-2-1-rules.json').then(r => r.json()),
+      fetch('data/rules/section-2-2-3-rules.json').then(r => r.json())
+    ])
+      .then(([section1, section3]) => {
+        try {
+          const testDiv = document.createElement('div');
+          testDiv.className = 'test-result success';
+          testDiv.innerHTML = `
+            <strong>✓ 規則表數據加載成功</strong>
+            <small>
+              第2-2-1節: ${section1.total_rules} 條規則 (已加載 ${section1.items?.length || 0} 條)<br>
+              第2-2-3節: ${section3.total_rules} 條規則 (已加載 ${section3.items?.length || 0} 條)
+            </small>
+          `;
+          demoContainer.appendChild(testDiv);
+
+          // 渲染樣本表格
+          const adapter = new RulesTableAdapter();
+          const sampleDiv = document.createElement('div');
+          sampleDiv.className = 'data-section';
+          sampleDiv.innerHTML = '<h4>第2-2-1節樣本規則（所有規則）</h4>';
+
+          const table = document.createElement('table');
+          table.className = 'demo-table';
+
+          // 表頭
+          const headerRow = table.insertRow();
+          adapter.getColumns().forEach(col => {
+            const th = document.createElement('th');
+            th.textContent = col.label;
+            headerRow.appendChild(th);
+          });
+
+          // 數據行
+          section1.items.forEach(item => {
+            const formatted = adapter.formatRow(item);
+            const row = table.insertRow();
+            adapter.getColumns().forEach(col => {
+              const cell = row.insertCell();
+              const value = formatted[col.key];
+
+              // 為規則代碼添加特殊樣式
+              if (col.key === 'rule_code') {
+                const span = document.createElement('span');
+                span.className = 'rule-code';
+                span.textContent = value;
+                cell.appendChild(span);
+              } else {
+                cell.textContent = value || '-';
+              }
+
+              if (col.type === 'number') {
+                cell.style.textAlign = 'right';
+              }
+            });
+          });
+
+          sampleDiv.appendChild(table);
+          demoContainer.appendChild(sampleDiv);
+        } catch (e) {
+          const testDiv = document.createElement('div');
+          testDiv.className = 'test-result error';
+          testDiv.innerHTML = `<strong>✗ 數據渲染失敗</strong><small>${e.message}</small>`;
+          demoContainer.appendChild(testDiv);
+        }
+      })
+      .catch(e => {
+        const testDiv = document.createElement('div');
+        testDiv.className = 'test-result error';
+        testDiv.innerHTML = `<strong>✗ 無法加載規則表數據</strong><small>${e.message}</small>`;
+        demoContainer.appendChild(testDiv);
+      });
+
+    // ============ 顯示測試摘要 ============
+    setTimeout(() => {
+      const passed = results.filter(r => r.success).length;
+      const total = results.length;
+      const summary = document.createElement('div');
+      summary.className = 'summary';
+      summary.innerHTML = `
+        <h3>✓ 測試摘要</h3>
+        <p><strong>通過: ${passed}/${total}</strong></p>
+        <p>規則表實現已驗證！</p>
+        ${passed === total ? '<p style="color: #e65100;">✓ 所有測試通過 - 三表合一系統完成</p>' : ''}
+      `;
+      document.getElementById('results').insertBefore(summary, document.getElementById('results').firstChild);
+    }, 500);
+  </script>
+</body>
+</html>

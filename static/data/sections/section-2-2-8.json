@@ -1,0 +1,82 @@
+{
+  "children": [
+    {
+      "id": "section-2-2-8-sub-0",
+      "type": "subsection",
+      "label": "內容 1",
+      "level": 4,
+      "parent_id": "section-2-2-8",
+      "has_children": false,
+      "content": "第八節 輸血及造血幹細胞移植Blood Transfusion and Hematopoietic Stem Cell Transplantation\n通則：",
+      "metadata": {
+        "parent_section": "section-2-2-8",
+        "index": 0
+      }
+    },
+    {
+      "id": "section-2-2-8-sub-1",
+      "type": "subsection",
+      "label": "二、保險對象在同一特約醫療院所門診或住院",
+      "level": 4,
+      "parent_id": "section-2-2-8",
+      "has_children": false,
+      "content": "二、保險對象在同一特約醫療院所門診或住院第一次輸血時，得申報血型測定(ABO typing) 及Rh血型檢查(Rh type)各一次。如有必要得申報不規則抗體篩檢(antibody screening)(編號11004C)一次。第二次以後各次輸血時，不得再申報血型測定及Rh血型檢查；如有必要，每次輸血得申報不規則抗體篩檢(編號11004C)一次。",
+      "metadata": {
+        "parent_section": "section-2-2-8",
+        "index": 1
+      }
+    },
+    {
+      "id": "section-2-2-8-sub-2",
+      "type": "subsection",
+      "label": "三、使用冷凍沈澱品(cryoprecip",
+      "level": 4,
+      "parent_id": "section-2-2-8",
+      "has_children": false,
+      "content": "三、使用冷凍沈澱品(cryoprecipitate)、血小板(plate-let)或血漿(plasma)時，不得申報交叉試驗費用，但血漿得做A、B、O血型測定。",
+      "metadata": {
+        "parent_section": "section-2-2-8",
+        "index": 2
+      }
+    },
+    {
+      "id": "section-2-2-8-sub-3",
+      "type": "subsection",
+      "label": "四、輸血以使用捐血機構或血液銀行血液為原",
+      "level": 4,
+      "parent_id": "section-2-2-8",
+      "has_children": false,
+      "content": "四、輸血以使用捐血機構或血液銀行血液為原則，不得再申報血袋之Rh血型檢查、B型肝炎表面抗原檢查(HBs Ag)、C型肝炎病毒抗體檢查(Anti-HC)、血色素檢查(Hb)、或血球容積比(Hct)、血清麩胺酸、丙酮酸、轉氨基檢查(SGPT或ALT)、梅毒檢查(VDRL)或後天免疫不全症候群(AIDs)篩檢。",
+      "metadata": {
+        "parent_section": "section-2-2-8",
+        "index": 3
+      }
+    },
+    {
+      "id": "section-2-2-8-sub-4",
+      "type": "subsection",
+      "label": "六、特約醫療院所申請輸血費，應於病歷上註",
+      "level": 4,
+      "parent_id": "section-2-2-8",
+      "has_children": false,
+      "content": "六、特約醫療院所申請輸血費，應於病歷上註明血液來源(含供血者姓名、身分證號、詳細住址、血型及供血數量)。\n第一項 輸血費  (93001~93023)\n第二項  輸血技術費(94001-94005)\n第三項 造血幹細胞移植技術費Hematopoietic Stem Cell Transplantation (94201～94209)\n通則：",
+      "metadata": {
+        "parent_section": "section-2-2-8",
+        "index": 4
+      }
+    },
+    {
+      "id": "section-2-2-8-sub-5",
+      "type": "subsection",
+      "label": "一、適應症如下：",
+      "level": 4,
+      "parent_id": "section-2-2-8",
+      "has_children": false,
+      "content": "一、適應症如下：\n(一)急慢性骨髓性白血病。\n(二)急性淋巴性白血病。\n(三)嚴重再生不良性貧血。\n(四)淋巴瘤。\n(五)惡性固態腫瘤。\n(六)骨髓形成不良症候群。\n(七)重症海洋性貧血。\n(八)其他嚴重免疫及造血系統疾病。",
+      "metadata": {
+        "parent_section": "section-2-2-8",
+        "index": 5
+      }
+    }
+  ]
+}

@@ -1,0 +1,304 @@
+/**
+ * 範圍篩選 UI 樣式
+ */
+
+/* 日期範圍選擇器 */
+.date-range-selector {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px 0;
+}
+
+.date-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.date-input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-input-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.date-input-group input[type="date"] {
+  padding: 10px 12px;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.date-input-group input[type="date"]:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* 日期預設按鈕 */
+.date-presets {
+  padding-top: 15px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.date-presets h4 {
+  font-size: 12px;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.date-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+/* 數值範圍滑塊 */
+.numeric-range-slider {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px 0;
+}
+
+.numeric-range-slider h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 15px;
+}
+
+.range-display {
+  background: white;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.range-values {
+  font-size: 18px;
+  font-weight: 600;
+  color: #667eea;
+}
+
+/* 滑塊容器 */
+.slider-container {
+  position: relative;
+  margin: 30px 0 20px 0;
+  height: 40px;
+}
+
+.slider-track {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: #e2e8f0;
+  border-radius: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.slider-fill {
+  position: absolute;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+input[type="range"] {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  top: 0;
+  pointer-events: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  z-index: 3;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid #667eea;
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid #667eea;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+}
+
+/* 滑塊輸入框 */
+.slider-inputs {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 10px;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.slider-inputs input[type="number"] {
+  padding: 8px 10px;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  font-size: 13px;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+
+.slider-inputs input[type="number"]:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.slider-inputs span {
+  font-weight: 600;
+  color: #4a5568;
+  text-align: center;
+}
+
+/* 預設按鈕 */
+.preset-btn {
+  padding: 8px 12px;
+  border: 1px solid #cbd5e0;
+  background: white;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.preset-btn:hover {
+  border-color: #667eea;
+  background: #f0f4f8;
+  color: #667eea;
+  transform: translateY(-1px);
+}
+
+.preset-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 範圍預設 */
+.range-presets {
+  padding-top: 15px;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 15px;
+}
+
+.range-presets h4 {
+  font-size: 12px;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.range-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .date-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .slider-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .slider-inputs span {
+    display: none;
+  }
+}
+
+/* 暗色模式支持 */
+@media (prefers-color-scheme: dark) {
+  .date-range-selector,
+  .numeric-range-slider {
+    background: #1a202c;
+    border-color: #2d3748;
+  }
+
+  .date-input-group label,
+  .range-presets h4,
+  .numeric-range-slider h4 {
+    color: #cbd5e0;
+  }
+
+  .date-input-group input[type="date"],
+  .slider-inputs input[type="number"],
+  .preset-btn {
+    background: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0;
+  }
+
+  .date-input-group input[type="date"]:focus,
+  .slider-inputs input[type="number"]:focus {
+    border-color: #667eea;
+  }
+
+  .range-display {
+    background: #2d3748;
+    border-color: #4a5568;
+  }
+
+  .preset-btn:hover {
+    background: #2d3748;
+  }
+}

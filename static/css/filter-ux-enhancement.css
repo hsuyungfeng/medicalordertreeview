@@ -1,0 +1,576 @@
+/**
+ * 篩選 UX 增強樣式
+ * 動畫、過渡、通知、狀態反饋
+ */
+
+/* ============================================
+   通知系統樣式
+   ============================================ */
+
+.filter-notification {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.5px;
+}
+
+.notification-success {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  color: white;
+}
+
+.notification-error {
+  background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+  color: white;
+}
+
+.notification-info {
+  background: linear-gradient(135deg, #667eea 0%, #5568d3 100%);
+  color: white;
+}
+
+.notification-warning {
+  background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+  color: white;
+}
+
+/* ============================================
+   動畫關鍵幀定義
+   ============================================ */
+
+/* 右滑入動畫 */
+@keyframes slideInRight {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* 右滑出動畫 */
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+}
+
+/* 上滑入動畫 */
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 下滑出動畫 */
+@keyframes slideOutDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+/* 淡入動畫 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 淡出動畫 */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* 縮放入動畫 */
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 脈動動畫 */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* 震顫動畫 */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-4px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(4px);
+  }
+}
+
+/* 旋轉進入 */
+@keyframes rotateIn {
+  from {
+    transform: rotate(-10deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+/* 彈性進入 */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   增強的條件項目動畫
+   ============================================ */
+
+.condition-item {
+  animation: slideInUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.2s ease;
+}
+
+.condition-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.condition-item.removing {
+  animation: slideOutDown 0.3s ease-out forwards;
+}
+
+/* ============================================
+   按鈕狀態動畫
+   ============================================ */
+
+.btn-add-condition,
+.btn-apply,
+.btn-clear,
+.btn-save-template,
+.btn-remove-condition {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 按鈕 ripple 效果 */
+.btn-add-condition::before,
+.btn-apply::before,
+.btn-clear::before,
+.btn-save-template::before,
+.btn-remove-condition::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.btn-add-condition:active::before,
+.btn-apply:active::before,
+.btn-clear:active::before,
+.btn-save-template:active::before,
+.btn-remove-condition:active::before {
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+  to {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+/* 按鈕懸停效果 */
+.btn-add-condition:hover,
+.btn-apply:hover,
+.btn-clear:hover,
+.btn-save-template:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 按鈕按壓效果 */
+.btn-add-condition:active,
+.btn-apply:active,
+.btn-clear:active,
+.btn-save-template:active,
+.btn-remove-condition:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   輸入框增強
+   ============================================ */
+
+.field-select,
+.operator-select,
+.value-input {
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.field-select:focus,
+.operator-select:focus,
+.value-input:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+/* 輸入框下劃線動畫 */
+.field-select::after,
+.operator-select::after,
+.value-input::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transition: width 0.3s ease;
+}
+
+.field-select:focus::after,
+.operator-select:focus::after,
+.value-input:focus::after {
+  width: 100%;
+}
+
+/* ============================================
+   編輯器容器動畫
+   ============================================ */
+
+.composite-filter-editor {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.editor-header {
+  animation: slideInUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.conditions-container {
+  animation: slideInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.editor-actions {
+  animation: slideInUp 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ============================================
+   狀態指示器動畫
+   ============================================ */
+
+.state-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: #f0fdf4;
+  border-left: 3px solid #48bb78;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #166534;
+  animation: slideInRight 0.3s ease-out;
+}
+
+.state-indicator.saving {
+  background: #fef3c7;
+  border-left-color: #f59e0b;
+  color: #92400e;
+}
+
+.state-indicator.saved {
+  background: #f0fdf4;
+  border-left-color: #48bb78;
+  color: #166534;
+}
+
+.state-indicator.error {
+  background: #fee2e2;
+  border-left-color: #f56565;
+  color: #7f1d1d;
+}
+
+.state-indicator::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.state-indicator.saved::before {
+  animation: none;
+}
+
+/* ============================================
+   模板卡片動畫
+   ============================================ */
+
+.template-item {
+  animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.3s ease;
+}
+
+.template-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.template-item.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ============================================
+   歷史記錄面板
+   ============================================ */
+
+.history-panel {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  animation: slideInRight 0.4s ease-out;
+  z-index: 1000;
+}
+
+.history-item {
+  padding: 8px;
+  margin-bottom: 8px;
+  background: #f7fafc;
+  border-left: 3px solid #667eea;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.history-item:hover {
+  background: #edf2f7;
+  transform: translateX(4px);
+}
+
+.history-item.current {
+  background: #e6f3ff;
+  border-left-color: #3182ce;
+  font-weight: 600;
+}
+
+/* ============================================
+   快捷鍵提示
+   ============================================ */
+
+.shortcut-hint {
+  display: inline-block;
+  padding: 2px 8px;
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 3px;
+  font-size: 11px;
+  color: #667eea;
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  user-select: none;
+}
+
+.shortcut-hint::before {
+  content: '⌨️ ';
+}
+
+/* ============================================
+   加載動畫
+   ============================================ */
+
+.loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ============================================
+   響應式調整
+   ============================================ */
+
+@media (max-width: 768px) {
+  .filter-notification {
+    right: 10px !important;
+    left: 10px !important;
+    top: 10px !important;
+  }
+
+  .history-panel {
+    right: 10px;
+    bottom: 10px;
+    width: 250px;
+    max-height: 300px;
+  }
+
+  .btn-add-condition:hover,
+  .btn-apply:hover,
+  .btn-clear:hover,
+  .btn-save-template:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* ============================================
+   暗色模式動畫調整
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  .state-indicator {
+    background: #064e3b;
+    color: #86efac;
+  }
+
+  .state-indicator.saving {
+    background: #713f12;
+    color: #fbbf24;
+  }
+
+  .state-indicator.error {
+    background: #7f1d1d;
+    color: #fca5a5;
+  }
+
+  .history-panel {
+    background: #1a202c;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  .history-item {
+    background: #2d3748;
+    border-left-color: #667eea;
+    color: #cbd5e0;
+  }
+
+  .history-item:hover {
+    background: #4a5568;
+  }
+
+  .history-item.current {
+    background: #2c5282;
+    color: #bee3f8;
+  }
+
+  .shortcut-hint {
+    background: rgba(102, 126, 234, 0.2);
+    border-color: rgba(102, 126, 234, 0.5);
+    color: #a5b4fc;
+  }
+}
+
+/* ============================================
+   性能優化：降低動畫
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .filter-notification,
+  .condition-item,
+  .btn-add-condition,
+  .btn-apply,
+  .btn-clear,
+  .btn-save-template,
+  .field-select,
+  .operator-select,
+  .value-input,
+  .composite-filter-editor,
+  .editor-header,
+  .conditions-container,
+  .template-item,
+  .history-panel,
+  .state-indicator {
+    animation: none !important;
+    transition: none !important;
+  }
+}

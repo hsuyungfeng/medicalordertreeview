@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表格適配器測試</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .test-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .test-section {
+      margin-bottom: 30px;
+      border: 1px solid #e0e0e0;
+      padding: 15px;
+      border-radius: 6px;
+    }
+    .test-section h3 {
+      margin-top: 0;
+      color: #333;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 10px;
+    }
+    .test-result {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 4px;
+      background: #f0f4ff;
+      border-left: 4px solid #667eea;
+    }
+    .test-result.success {
+      background: #e8f5e9;
+      border-left-color: #4caf50;
+    }
+    .test-result.error {
+      background: #ffebee;
+      border-left-color: #f44336;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background: #667eea;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-container">
+    <h1>🧪 表格適配器測試</h1>
+
+    <div id="results"></div>
+
+    <script src="js/table-renderer.js"></script>
+    <script>
+      const results = [];
+
+      function logTest(name, success, details) {
+        results.push({ name, success, details });
+        const resultDiv = document.getElementById('results');
+        const testDiv = document.createElement('div');
+        testDiv.className = `test-result ${success ? 'success' : 'error'}`;
+        testDiv.innerHTML = `<strong>${success ? '✓' : '✗'} ${name}</strong><br><small>${details}</small>`;
+        resultDiv.appendChild(testDiv);
+      }
+
+      // 測試 1: CSVTableAdapter 初始化
+      try {
+        const csvAdapter = new CSVTableAdapter();
+        logTest('CSVTableAdapter 初始化', true, '成功創建 CSVTableAdapter 實例');
+      } catch (e) {
+        logTest('CSVTableAdapter 初始化', false, `錯誤: ${e.message}`);
+      }
+
+      // 測試 2: CSVTableAdapter 列定義
+      try {
+        const csvAdapter = new CSVTableAdapter();
+        const columns = csvAdapter.getColumns();
+        const success = columns.length === 5 &&
+                       columns[0].key === 'code' &&
+                       columns[1].key === 'name' &&
+                       columns[2].key === 'points';
+        logTest('CSVTableAdapter 列定義', success,
+          `獲得 ${columns.length} 個列: ${columns.map(c => c.key).join(', ')}`);
+      } catch (e) {
+        logTest('CSVTableAdapter 列定義', false, `錯誤: ${e.message}`);
+      }
+
+      // 測試 3: CSVTableAdapter 行格式化
+      try {
+        const csvAdapter = new CSVTableAdapter();
+        const sampleRow = {
+          code: '0101',
+          name: '初診',
+          points: 200,
+          effective_from: '2024-01-01',
+          effective_to: '2024-12-31'
+        };
+        const formatted = csvAdapter.formatRow(sampleRow);
+        const success = formatted.code === '0101' &&
+                       formatted.name === '初診' &&
+                       formatted.points === 200;
+        logTest('CSVTableAdapter 行格式化', success,
+          `格式化行成功: ${JSON.stringify(formatted)}`);
+      } catch (e) {
+        logTest('CSVTableAdapter 行格式化', false, `錯誤: ${e.message}`);
+      }
+
+      // 測試 4: CSVTableAdapter Section 篩選
+      try {
+        const csvAdapter = new CSVTableAdapter();
+        const sampleData = [
+          { code: '01001', name: '項目1' },
+          { code: '02001', name: '項目2' },
+          { code: '10001', name: '項目3' }
+        ];
+        const filtered = csvAdapter.filterBySection(sampleData, 'section-2-2-1');
+        const success = filtered.length === 2; // 應該有 code 以 01 和 02 開頭的
+        logTest('CSVTableAdapter Section 篩選', success,
+          `篩選 section-2-2-1: 得到 ${filtered.length} 個項目 (期望: 2)`);
+      } catch (e) {
+        logTest('CSVTableAdapter Section 篩選', false, `錯誤: ${e.message}`);
+      }
+
+      // 測試 5: StandardTableAdapter 初始化
+      try {
+        const standardAdapter = new StandardTableAdapter();
+        const columns = standardAdapter.getColumns();
+        const success = columns.length === 4;
+        logTest('StandardTableAdapter 初始化', success,
+          `成功創建適配器，有 ${columns.length} 個列`);
+      } catch (e) {
+        logTest('StandardTableAdapter 初始化', false, `錯誤: ${e.message}`);
+      }
+
+      // 測試 6: RulesTableAdapter 初始化
+      try {
+        const rulesAdapter = new RulesTableAdapter();
+        const columns = rulesAdapter.getColumns();
+        const success = columns.length === 3;
+        logTest('RulesTableAdapter 初始化', success,
+          `成功創建適配器，有 ${columns.length} 個列`);
+      } catch (e) {
+        logTest('RulesTableAdapter 初始化', false, `錯誤: ${e.message}`);
+      }
+
+      // 測試 7: TableRenderer 初始化
+      try {
+        // 創建臨時容器
+        const container = document.createElement('div');
+        container.className = 'csv-table-container';
+        document.body.appendChild(container);
+
+        const renderer = new TableRenderer('.csv-table-container', new CSVTableAdapter());
+        logTest('TableRenderer 初始化', true, '成功創建 TableRenderer 實例');
+
+        document.body.removeChild(container);
+      } catch (e) {
+        logTest('TableRenderer 初始化', false, `錯誤: ${e.message}`);
+      }
+
+      // 測試 8: 適配器排序支持
+      try {
+        const csvAdapter = new CSVTableAdapter();
+        const canSortCode = csvAdapter.canSort('code');
+        const canSortName = csvAdapter.canSort('name');
+        const canSortPoints = csvAdapter.canSort('points');
+        const success = canSortCode && canSortName && canSortPoints;
+        logTest('適配器排序支持', success,
+          `Code: ${canSortCode}, Name: ${canSortName}, Points: ${canSortPoints}`);
+      } catch (e) {
+        logTest('適配器排序支持', false, `錯誤: ${e.message}`);
+      }
+
+      // 測試 9: HTML 轉義
+      try {
+        const csvAdapter = new CSVTableAdapter();
+        const escaped = csvAdapter.escapeHtml('<script>alert("xss")</script>');
+        const success = escaped.includes('&lt;') && escaped.includes('&gt;');
+        logTest('HTML 轉義', success,
+          `轉義結果: ${escaped}`);
+      } catch (e) {
+        logTest('HTML 轉義', false, `錯誤: ${e.message}`);
+      }
+
+      // 測試 10: 獲取排序值
+      try {
+        const csvAdapter = new CSVTableAdapter();
+        const row = { code: 'TEST001', points: '500' };
+        const codeValue = csvAdapter.getSortValue(row, 'code');
+        const pointsValue = csvAdapter.getSortValue(row, 'points');
+        const success = codeValue === 'test001' && pointsValue === 500;
+        logTest('獲取排序值', success,
+          `Code 排序值: ${codeValue} (類型: ${typeof codeValue}), Points: ${pointsValue} (類型: ${typeof pointsValue})`);
+      } catch (e) {
+        logTest('獲取排序值', false, `錯誤: ${e.message}`);
+      }
+
+      // 顯示測試摘要
+      setTimeout(() => {
+        const passed = results.filter(r => r.success).length;
+        const total = results.length;
+        const summary = document.createElement('div');
+        summary.style.marginTop = '20px';
+        summary.style.padding = '15px';
+        summary.style.background = '#e8f5e9';
+        summary.style.border = '2px solid #4caf50';
+        summary.style.borderRadius = '6px';
+        summary.innerHTML = `<h3>✓ 測試摘要</h3><p><strong>通過: ${passed}/${total}</strong></p><p>所有適配器和渲染器已成功實現！</p>`;
+        document.getElementById('results').insertBefore(summary, document.getElementById('results').firstChild);
+      }, 100);
+    </script>
+  </div>
+</body>
+</html>

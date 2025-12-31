@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文檔容器測試</title>
+  <link rel="stylesheet" href="css/medical-tree.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .test-section {
+      background: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .test-section h2 {
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 10px;
+      margin-top: 0;
+    }
+    .status {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .status.pass { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+    .status.fail { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+    .status.warn { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
+    #tree { max-width: 600px; }
+    .tree-node { margin: 5px 0; }
+    code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+    .debug-log {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px;
+      max-height: 200px;
+      overflow-y: auto;
+      font-size: 12px;
+      font-family: monospace;
+      margin-top: 10px;
+    }
+    .debug-log > div {
+      padding: 2px 0;
+    }
+    .log-info { color: #2196F3; }
+    .log-warn { color: #FF9800; }
+    .log-error { color: #F44336; }
+    .log-success { color: #4CAF50; }
+  </style>
+</head>
+<body>
+  <h1>🧪 文檔容器實現測試</h1>
+
+  <div class="test-section">
+    <h2>1️⃣ 環境檢查</h2>
+    <div id="env-checks"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>2️⃣ DOM 結構檢查</h2>
+    <div id="dom-tree"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>3️⃣ 樹狀節點測試</h2>
+    <div id="tree" style="border: 1px solid #ddd; padding: 10px; background: white; max-height: 400px; overflow-y: auto;"></div>
+    <div id="debug-log" class="debug-log"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>4️⃣ 事件綁定檢查</h2>
+    <div id="event-checks"></div>
+  </div>
+
+  <!-- 依賴的模塊 -->
+  <script src="js/document-content-extractor.js"></script>
+  <script src="js/tree-loader.js"></script>
+
+  <script>
+    // ========================================
+    // 1. 環境檢查
+    // ========================================
+    function checkEnvironment() {
+      const checks = document.getElementById('env-checks');
+      const results = [];
+
+      // 檢查 DocumentContentExtractor
+      const hasExtractor = !!window.DocumentContentExtractor;
+      results.push({
+        name: 'DocumentContentExtractor',
+        pass: hasExtractor,
+        message: hasExtractor ? '✓ 已加載' : '✗ 未加載'
+      });
+
+      // 檢查 LazyTreeLoader
+      const hasTreeLoader = !!window.LazyTreeLoader;
+      results.push({
+        name: 'LazyTreeLoader',
+        pass: hasTreeLoader,
+        message: hasTreeLoader ? '✓ 已加載' : '✗ 未加載'
+      });
+
+      // 檢查 CSS 樣式
+      const style = document.createElement('div');
+      style.className = 'tree-node-document';
+      document.body.appendChild(style);
+      const computed = window.getComputedStyle(style);
+      const hasCSSStyles = computed.maxHeight === '0px' && computed.opacity === '0';
+      document.body.removeChild(style);
+
+      results.push({
+        name: 'CSS 樣式 (.tree-node-document)',
+        pass: hasCSSStyles,
+        message: hasCSSStyles ?
+          `✓ 正確 (max-height: ${computed.maxHeight}, opacity: ${computed.opacity})` :
+          `✗ 不正確 (max-height: ${computed.maxHeight}, opacity: ${computed.opacity})`
+      });
+
+      // 渲染結果
+      checks.innerHTML = results.map(r => `
+        <div class="status ${r.pass ? 'pass' : 'fail'}">
+          ${r.name}: ${r.message}
+        </div>
+      `).join('');
+
+      return results.every(r => r.pass);
+    }
+
+    // ========================================
+    // 2. 測試節點創建
+    // ========================================
+    let logMessages = [];
+
+    function addLog(type, message) {
+      const timestamp = new Date().toLocaleTimeString();
+      logMessages.push({ type, message, timestamp });
+      updateDebugLog();
+    }
+
+    function updateDebugLog() {
+      const logDiv = document.getElementById('debug-log');
+      logDiv.innerHTML = logMessages.map(log => `
+        <div class="log-${log.type}">[${log.timestamp}] ${log.message}</div>
+      `).join('');
+      logDiv.scrollTop = logDiv.scrollHeight;
+    }
+
+    function testTreeLoader() {
+      if (!window.LazyTreeLoader) {
+        document.getElementById('tree').innerHTML = '<p style="color: red;">❌ LazyTreeLoader 未加載</p>';
+        return;
+      }
+
+      // 攔截 fetch 以使用測試數據
+      const originalFetch = window.fetch;
+      window.fetch = function(url) {
+        if (url.includes('tree-structure.json')) {
+          addLog('info', `📡 加載: ${url}`);
+          return Promise.resolve({
+            ok: true,
+            json: () => Promise.resolve({
+              root: {
+                children: [
+                  {
+                    id: 'test-section',
+                    type: 'section',
+                    label: '測試節點：有內容和子節點',
+                    level: 1,
+                    has_children: true,
+                    content: '通則：\n這是一個測試節點的文檔內容。\n此內容應該在左側樹狀結構下方展開。',
+                    subsections: [
+                      {
+                        title: '內容 1',
+                        content: '第一個子內容：展開按鈕應該可以點擊'
+                      },
+                      {
+                        title: '內容 2',
+                        content: '第二個子內容：檢查是否正確渲染'
+                      }
+                    ]
+                  },
+                  {
+                    id: 'test-doc-only',
+                    type: 'subsection',
+                    label: '測試節點：只有內容',
+                    level: 1,
+                    has_children: false,
+                    content: '說明：\n這個節點只有文檔內容，沒有子節點。'
+                  },
+                  {
+                    id: 'test-empty',
+                    type: 'subsection',
+                    label: '測試節點：無內容',
+                    level: 1,
+                    has_children: false,
+                    content: ''
+                  }
+                ]
+              }
+            })
+          });
+        }
+        return originalFetch(url);
+      };
+
+      const treeContainer = document.getElementById('tree');
+      const loader = new LazyTreeLoader(treeContainer, 'data');
+
+      // 原始的 console.log 會被重定向到我們的日誌系統
+      const originalLog = console.log;
+      console.log = function(...args) {
+        const message = args.map(arg =>
+          typeof arg === 'string' ? arg : JSON.stringify(arg)
+        ).join(' ');
+        addLog('info', message);
+        originalLog.apply(console, args);
+      };
+
+      loader.init().then(() => {
+        addLog('success', '✓ 樹狀結構已加載');
+
+        // 檢查 DOM 結構
+        setTimeout(() => {
+          checkDOMStructure();
+          checkEventBinding();
+        }, 100);
+      }).catch(err => {
+        addLog('error', `✗ 加載失敗: ${err.message}`);
+      });
+    }
+
+    // ========================================
+    // 3. 檢查 DOM 結構
+    // ========================================
+    function checkDOMStructure() {
+      addLog('info', '🔍 檢查 DOM 結構...');
+
+      const nodes = document.querySelectorAll('.tree-node');
+      addLog('info', `發現 ${nodes.length} 個樹節點`);
+
+      nodes.forEach((node, idx) => {
+        const nodeId = node.getAttribute('data-node-id');
+        const label = node.querySelector('.node-label')?.textContent || '無標籤';
+
+        // 檢查容器
+        const hasHeader = !!node.querySelector('.tree-node-header');
+        const hasDocContainer = !!node.querySelector('.tree-node-document');
+        const hasChildrenContainer = !!node.querySelector('.tree-node-children');
+        const hasDocIcon = !!node.querySelector('.document-icon');
+        const hasToggleIcon = !!node.querySelector('.toggle-icon');
+
+        addLog('info', `
+          節點 #${idx+1}: ${label}
+          ├─ Header: ${hasHeader ? '✓' : '✗'}
+          ├─ Document 容器: ${hasDocContainer ? '✓' : '✗'}
+          ├─ Children 容器: ${hasChildrenContainer ? '✓' : '✗'}
+          ├─ Document 圖標: ${hasDocIcon ? '✓' : '✗'}
+          └─ Toggle 圖標: ${hasToggleIcon ? '✓' : '✗'}
+        `);
+      });
+    }
+
+    // ========================================
+    // 4. 檢查事件綁定
+    // ========================================
+    function checkEventBinding() {
+      addLog('info', '🔗 檢查事件綁定...');
+
+      const documentIcons = document.querySelectorAll('.document-icon');
+      addLog('info', `發現 ${documentIcons.length} 個 document 圖標`);
+
+      documentIcons.forEach((icon, idx) => {
+        const hasListener = getEventListeners?.(icon)?.click?.length > 0;
+        addLog('warn', `Document 圖標 #${idx+1}: ${hasListener ? '✓ 已綁定事件' : '? 無法確認事件綁定'}`);
+      });
+
+      // 測試點擊事件
+      const firstIcon = document.querySelector('.document-icon');
+      if (firstIcon) {
+        addLog('info', '✓ 準備測試點擊事件，請點擊任何一個 📖 圖標...');
+
+        // 綁定臨時監聽器
+        document.addEventListener('click', (e) => {
+          if (e.target.classList?.contains('document-icon')) {
+            addLog('success', `✓ 已偵測到 document-icon 點擊事件!`);
+          }
+        });
+      }
+    }
+
+    // ========================================
+    // 5. 頁面初始化
+    // ========================================
+    window.addEventListener('load', () => {
+      addLog('info', '🚀 測試開始...');
+
+      const envOk = checkEnvironment();
+
+      if (envOk) {
+        testTreeLoader();
+      } else {
+        addLog('error', '❌ 環境檢查失敗，無法繼續測試');
+      }
+    });
+
+    // 監控全局 console 輸出
+    const originalConsoleWarn = console.warn;
+    const originalConsoleError = console.error;
+
+    console.warn = function(...args) {
+      const message = args.join(' ');
+      addLog('warn', message);
+      originalConsoleWarn.apply(console, args);
+    };
+
+    console.error = function(...args) {
+      const message = args.join(' ');
+      addLog('error', message);
+      originalConsoleError.apply(console, args);
+    };
+  </script>
+</body>
+</html>

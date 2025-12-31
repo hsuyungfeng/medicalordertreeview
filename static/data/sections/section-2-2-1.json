@@ -1,0 +1,225 @@
+{
+  "children": [
+    {
+      "id": "section-2-2-1-sub-0",
+      "type": "subsection",
+      "label": "內容 1",
+      "level": 4,
+      "parent_id": "section-2-2-1",
+      "has_children": false,
+      "content": "第二章 特定診療Specific Diagnosisand Treatment\n第一節 檢查Laboratory Examination\n通則：",
+      "metadata": {
+        "parent_section": "section-2-2-1",
+        "index": 0
+      }
+    },
+    {
+      "id": "section-2-2-1-sub-1",
+      "type": "subsection",
+      "label": "一、檢查之費用，包括人員、試藥、內服藥劑",
+      "level": 4,
+      "parent_id": "section-2-2-1",
+      "has_children": false,
+      "content": "一、檢查之費用，包括人員、試藥、內服藥劑、檢驗器材、一般材料、管理費及採取檢體之費用在內；如需使用特殊材料部分，另依全民健康保險藥物給付項目及支付標準申報。",
+      "metadata": {
+        "parent_section": "section-2-2-1",
+        "index": 1
+      }
+    },
+    {
+      "id": "section-2-2-1-sub-2",
+      "type": "subsection",
+      "label": "六、本節之各項檢查中，註有「兒童加成項目",
+      "level": 4,
+      "parent_id": "section-2-2-1",
+      "has_children": false,
+      "content": "六、本節之各項檢查中，註有「兒童加成項目」者，意指病人年齡未滿六個月者，依表定點數加計百分之六十；年齡在六個月以上至未滿二歲者，依表定點數加計百分之三十；年齡在二歲以上至未滿七歲者，依表定點數加計百分之二十；但所有特材一律不加計。",
+      "metadata": {
+        "parent_section": "section-2-2-1",
+        "index": 2
+      }
+    },
+    {
+      "id": "section-2-2-1-sub-3",
+      "type": "subsection",
+      "label": "七、本節第一項至第四項之檢查項目，除各類",
+      "level": 4,
+      "parent_id": "section-2-2-1",
+      "has_children": false,
+      "content": "七、本節第一項至第四項之檢查項目，除各類癌症、臟器移植、糖尿病及加護病房與燙傷病房(中心)病人所作檢查項目外，於每次門診或住診施行檢查，合併累計至一定項次數後，總給付金額予以折扣支付，累計項次數折扣數如下：\n第一項 尿液檢查 Urine Test\n第二項 糞便檢查 Stool Test (07001-07018)\n通則：糞便常規檢查各項點數累積超過75點者，以75點支付。\n第三項 血液學檢查Hematology Test (08001-08135)\n第四項 生化學檢查 Biochemistry Examination",
+      "metadata": {
+        "parent_section": "section-2-2-1",
+        "index": 3
+      }
+    },
+    {
+      "id": "section-2-2-1-sub-4",
+      "type": "subsection",
+      "label": "三、血中藥物濃度測定Therapeuti",
+      "level": 4,
+      "parent_id": "section-2-2-1",
+      "has_children": false,
+      "content": "三、血中藥物濃度測定Therapeutic Drug Monitoring (10501-10537)",
+      "metadata": {
+        "parent_section": "section-2-2-1",
+        "index": 4
+      }
+    },
+    {
+      "id": "section-2-2-1-sub-5",
+      "type": "subsection",
+      "label": "四、血中毒物濃度測定Toxicologi",
+      "level": 4,
+      "parent_id": "section-2-2-1",
+      "has_children": false,
+      "content": "四、血中毒物濃度測定Toxicologic Examination (10801-10819)\n第五項 輸血前檢查 Pre-tranfusion Examination (11001~11012)\n第六項 免疫學檢查Immunology Examination (12001-12219)\n第七項 細菌學與黴菌檢查Bacteriology & Fumgus Test (13001-13032)\n第八項 病毒學檢查Virology Examination (14001-14086)\n第九項 細胞學檢查Cytology Examination (15001-15022)\n第十項 穿剌液採取液檢查Fluid Examination (16001-16013)\n第十一項 呼吸機能檢查Respiratory Function Examination (17001-17024)\n第十二項 循環機能檢查Circulative Function Examination (18001-18047)\n通則：",
+      "metadata": {
+        "parent_section": "section-2-2-1",
+        "index": 5
+      }
+    },
+    {
+      "id": "section-2-2-1-sub-6",
+      "type": "subsection",
+      "label": "二、本項各檢查項目皆為兒童加成項目，意指",
+      "level": 4,
+      "parent_id": "section-2-2-1",
+      "has_children": false,
+      "content": "二、本項各檢查項目皆為兒童加成項目，意指病人年齡未滿六個月者，依表定點數加計百分之六十；年齡在六個月以上至未滿二歲者，依表定點數加計百分之三十；年齡在二歲以上至未滿七歲者，依表定點數加計百分之二十；但所有特材一律不加計。\n第十三項 超音波檢查Sonography(19001-19018)\n通則：須將診斷結果附於病歷，申報費用應檢附報告。\n第十四項 神經系統檢查Neurological Test (20001-20049)\n通則：本項各檢查項目皆為兒童加成項目，意指病人年齡未滿六個月者，依表定點數加計百分之六十；年齡在六個月以上至未滿二歲者，依表定點數加計百分之三十；年齡在二歲以上至未滿七歲者，依表定點數加計百分之二十；但所有特材一律不加計。\n第十五項 泌尿系統檢查 Urinology Test (21001-21012)\n通則：本項檢查限下列適應症實施：\n(1)不穩定性膀胱  (2)神經性膀胱 (3)良性前列腺肥大  \n(4)間質性膀胱炎  (5)尿道狹窄   (6)尿失禁\n第十六項 耳鼻喉系統檢查E.N.T. Examination (22001-22041)\n第十七項 眼部檢查Ophthalmology Examination (23001-23813)\n通則：本項各種檢查除眼底檢查外，其他各種檢查限由眼科專科醫師施行後申報。\n第十八項 負荷試驗Loading Test (24001-24029)\n第十九項 病理組織檢查Specimen Examination (25001-25026)\n通則：",
+      "metadata": {
+        "parent_section": "section-2-2-1",
+        "index": 6
+      }
+    },
+    {
+      "id": "section-2-2-1-sub-7",
+      "type": "subsection",
+      "label": "二、活體切片檢查如為委託他處檢查時，按表",
+      "level": 4,
+      "parent_id": "section-2-2-1",
+      "has_children": false,
+      "content": "二、活體切片檢查如為委託他處檢查時，按表定點數申報。編號為25001C至25004C、25024C至25025C者，包裝及郵寄費用得依表訂點數加計百分之十。\n第二十項 核子醫學檢查Radioisotope Scanning",
+      "metadata": {
+        "parent_section": "section-2-2-1",
+        "index": 7
+      }
+    },
+    {
+      "id": "section-2-2-1-sub-8",
+      "type": "subsection",
+      "label": "一、造影 Scanning (26001",
+      "level": 4,
+      "parent_id": "section-2-2-1",
+      "has_children": false,
+      "content": "一、造影 Scanning (26001-26078、P2105-P2108)\n通則：\n(一)本項所定點數包括放射性藥物、注射、技術費、底片費及診斷費在內。\n(二)本項各檢查項目，除編號P2105C、P2106C、P2107C及P2108C外，其餘皆為兒童加成項目，意指病人年齡未滿六個月者，依表定點數加計百分之六十；年齡在六個月以上至未滿二歲者，依表定點數加計百分之三十；年齡在二歲以上至未滿七歲者，依表定點數加計百分之二十；但所有特材一律不加計。\n(三)編號P2105C至P2108C適用下列規定：",
+      "metadata": {
+        "parent_section": "section-2-2-1",
+        "index": 8
+      }
+    },
+    {
+      "id": "section-2-2-1-sub-9",
+      "type": "subsection",
+      "label": "1.保險對象經醫師診治因病情需要，得由第",
+      "level": 4,
+      "parent_id": "section-2-2-1",
+      "has_children": false,
+      "content": "1.保險對象經醫師診治因病情需要，得由第二次處方院所檢具「全民健康保險特殊造影檢查影像及報告申請同意書」向原檢查醫院申請特殊造影檢查影像報告，以供診斷疾病之參考，若參考後仍重新施行檢查，則不得申報本項費用。本項申請程序、同意書格式、受理與回饋及作業流程圖等全民健康保險特殊造影檢查影像及報告作業說明，請至保險人全球資訊網(網址http://www.nhi.gov.tw)下載，資料路徑如下：首頁 > 健保表單下載 > 醫療相關表單 > 特殊造影檢查影像及報告申請(原特定檢查資源共享試辦計畫)。",
+      "metadata": {
+        "parent_section": "section-2-2-1",
+        "index": 9
+      }
+    },
+    {
+      "id": "section-2-2-1-sub-10",
+      "type": "subsection",
+      "label": "2.原檢查醫院提供特殊造影檢查影像及報告",
+      "level": 4,
+      "parent_id": "section-2-2-1",
+      "has_children": false,
+      "content": "2.原檢查醫院提供特殊造影檢查影像及報告費，所訂點數包含檢查報告、製作影像、傳輸影像、造影複製片、X光底片、行政管理及郵寄等費用在內；第二次處方院所申請特殊造影檢查影像及報告費，所訂點數除鼓勵資源共享外，並包含影像下載、診斷判定費、底片整理及相關行政等費用在內。",
+      "metadata": {
+        "parent_section": "section-2-2-1",
+        "index": 10
+      }
+    },
+    {
+      "id": "section-2-2-1-sub-11",
+      "type": "subsection",
+      "label": "3.保險對象特殊造影檢查影像及報告於原檢",
+      "level": 4,
+      "parent_id": "section-2-2-1",
+      "has_children": false,
+      "content": "3.保險對象特殊造影檢查影像及報告於原檢查醫院及第二次處方院所間之提供與申請，以乙次為限；病人自行攜帶複製片，經第二次處方院所使用並作成診斷報告，給予第二次處方院所申請特殊造影檢查影像及報告費。",
+      "metadata": {
+        "parent_section": "section-2-2-1",
+        "index": 11
+      }
+    },
+    {
+      "id": "section-2-2-1-sub-12",
+      "type": "subsection",
+      "label": "4.影像之提供得以PACS(Pictur",
+      "level": 4,
+      "parent_id": "section-2-2-1",
+      "has_children": false,
+      "content": "4.影像之提供得以PACS(Picture Archiving and Communication System，影像儲存及傳輸管理系統)、中央主管機關之全國醫療影像交換中心或複製片等方式提供。",
+      "metadata": {
+        "parent_section": "section-2-2-1",
+        "index": 12
+      }
+    },
+    {
+      "id": "section-2-2-1-sub-13",
+      "type": "subsection",
+      "label": "二、試管Tube Method (270",
+      "level": 4,
+      "parent_id": "section-2-2-1",
+      "has_children": false,
+      "content": "二、試管Tube Method (27001-27083)\n第二十一項 內視鏡檢查Endoscopy Examination (28001-28046)\n通則：1.本項所定點數包括材料費在內，申報費用應檢附報告。",
+      "metadata": {
+        "parent_section": "section-2-2-1",
+        "index": 13
+      }
+    },
+    {
+      "id": "section-2-2-1-sub-14",
+      "type": "subsection",
+      "label": "3.本項各檢查項目皆為兒童加成項目，意指",
+      "level": 4,
+      "parent_id": "section-2-2-1",
+      "has_children": false,
+      "content": "3.本項各檢查項目皆為兒童加成項目，意指病人年齡未滿六個月者，依表定點數加計百分之六十；年齡在六個月以上至未滿二歲者，依表定點數加計百分之三十；年齡在二歲以上至未滿七歲者，依表定點數加計百分之二十。\n第二十二項 診斷穿剌 Diagnostic Puncture (29001-29035)\n通則：本項各診療項目皆為兒童加成項目，意指病人年齡未滿六個月者，依表定點數加計百分之六十；年齡在六個月以上至未滿二歲者，依表定點數加計百分之三十；年齡在二歲以上至未滿七歲者，依表定點數加計百分之二十。\n第二十三項 過敏免疫檢查Allergy Immunologic Test (30001-30030)\n第二十四項 伴隨式診斷Companion Diagnostics (30101-30111)\n通則：本項各診療項目須按「全民健康保險鼓勵醫事服務機構即時查詢病患就醫資訊方案」格式，於檢驗（查）申報後一個月內上傳檢驗(查)結果報告，未上傳者本項不予支付；惟因特殊情形未在規定期限內完成上傳報告，可檢具理由後補上傳。\n第二十五項 次世代基因定序 Next Generation Sequencing (30301-30307)\n通則：",
+      "metadata": {
+        "parent_section": "section-2-2-1",
+        "index": 14
+      }
+    },
+    {
+      "id": "section-2-2-1-sub-15",
+      "type": "subsection",
+      "label": "一、各診療項目於檢測前，須於健保資訊網服",
+      "level": 4,
+      "parent_id": "section-2-2-1",
+      "has_children": false,
+      "content": "一、各診療項目於檢測前，須於健保資訊網服務系統(VPN)取得NGS檢測編號，並於申報時應填報於醫令段「事前審查受理編號」欄位，未填報者不予支付。",
+      "metadata": {
+        "parent_section": "section-2-2-1",
+        "index": 15
+      }
+    },
+    {
+      "id": "section-2-2-1-sub-16",
+      "type": "subsection",
+      "label": "二、各診療項目檢測結果須於申報後一個月內",
+      "level": 4,
+      "parent_id": "section-2-2-1",
+      "has_children": false,
+      "content": "二、各診療項目檢測結果須於申報後一個月內依指定格式上傳至保險人，未上傳者不予支付。\n附表2.2.1 實體腫瘤次世代基因定序(30301B-30303B)給付癌別列表\n附表2.2.2 血液腫瘤次世代基因定序(30304B-30305B)給付癌別列表\n第二十六項 其他檢查Other Test (30501-30526)",
+      "metadata": {
+        "parent_section": "section-2-2-1",
+        "index": 16
+      }
+    }
+  ]
+}

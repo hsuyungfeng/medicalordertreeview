@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>醫療服務給付項目樹狀導航系統</title>
+  <link rel="stylesheet" href="css/medical-tree.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 頁眉 -->
+    <div class="header">
+      <h1>📋 醫療服務給付項目樹狀導航</h1>
+      <p>全台灣健保給付診療項目查詢系統</p>
+    </div>
+
+    <!-- 搜尋欄 -->
+    <div class="search-bar">
+      <input
+        type="text"
+        class="search-input"
+        placeholder="搜尋診療項目代碼、名稱或 CSV 項目... (例: 檢查、手術、麻醉)"
+        autocomplete="off"
+      >
+      <button class="search-button">🔍 搜尋</button>
+      <button class="clear-button">✕ 清空</button>
+    </div>
+
+    <!-- 麵包屑導航 -->
+    <div class="breadcrumb">
+      <span class="breadcrumb-item active">根目錄</span>
+    </div>
+
+    <!-- 搜尋結果面板 -->
+    <div class="search-results-panel" style="display: none;">
+      <div class="search-results-header">
+        <h3>🔍 搜尋結果 <span class="result-count">(0)</span></h3>
+        <button class="close-search-results">✕</button>
+      </div>
+      <div class="search-results-list"></div>
+    </div>
+
+    <!-- 主容器 -->
+    <div class="main-container">
+      <!-- 樹狀面板 -->
+      <div class="tree-panel">
+        <div class="tree-container">
+          <!-- 骨架屏加載器（初始顯示，加載完成後移除） -->
+          <div class="skeleton-container" id="tree-skeleton">
+            <div class="skeleton-loader skeleton-tree-node"></div>
+            <div class="skeleton-loader skeleton-tree-node"></div>
+            <div class="skeleton-loader skeleton-tree-node"></div>
+            <div class="skeleton-loader skeleton-tree-node"></div>
+            <div class="skeleton-loader skeleton-tree-node"></div>
+            <div class="skeleton-loader skeleton-tree-node"></div>
+          </div>
+          <!-- 樹節點將動態插入此處 -->
+        </div>
+      </div>
+
+      <!-- 詳情面板 - 點擊終端節點時顯示 -->
+      <div class="details-panel"></div>
+
+      <!-- 表格面板 - 右側顯示關聯的表格（新佈局：表格 + 說明文字分離） -->
+      <div class="csv-panel">
+        <!-- 面板頭部 -->
+        <div class="csv-panel-header">
+          <h3>📊 相關表格 <span class="csv-item-count">(0)</span></h3>
+          <button class="close-csv-panel" title="關閉表格">✕</button>
+        </div>
+
+        <!-- 表格標籤欄 -->
+        <div class="table-tabs" style="display: none;">
+          <div class="tabs-container">
+            <!-- 標籤按鈕動態生成 -->
+          </div>
+        </div>
+
+        <!-- 表格容器 - 直接放置，填充剩餘空間 -->
+        <div class="csv-table-container">
+          <table class="csv-table">
+            <thead>
+              <tr>
+                <th data-column="code">診療項目代碼</th>
+                <th data-column="name">項目名稱</th>
+                <th data-column="points">支付點數</th>
+                <th data-column="effective_from">生效起日</th>
+                <th data-column="effective_to">生效迄日</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <div class="csv-empty-state" style="display: none;">
+            <p>此章節無相關表格</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 引入 JavaScript 模塊 -->
+  <!-- 狀態管理模塊（首先引入） -->
+  <script src="js/session-state-manager.js"></script>
+
+  <!-- 性能優化和功能模塊 -->
+  <script src="js/search-optimizer.js"></script>
+  <script src="js/advanced-filter.js"></script>
+  <script src="js/memory-optimizer.js"></script>
+  <script src="js/virtual-scroller.js"></script>
+  <script src="js/filter-ux-enhancement.js"></script>
+  <script src="js/composite-filter-editor.js"></script>
+  <script src="js/range-filter-ui.js"></script>
+
+  <!-- 文檔處理模塊 -->
+  <script src="js/document-content-extractor.js"></script>
+
+  <!-- 核心功能模塊 -->
+  <script src="js/tree-loader.js"></script>
+  <script src="js/csv-handler.js"></script>
+  <script src="js/table-mapper.js"></script>
+  <script src="js/table-loader.js"></script>
+  <script src="js/table-renderer.js"></script>
+  <script src="js/table-tabs-manager.js"></script>
+  <script src="js/csv-table-renderer.js"></script>
+
+  <!-- 文檔表格系統（新系統） -->
+  <script src="js/doc-table-adapter.js"></script>
+  <script src="js/doc-table-renderer.js"></script>
+
+  <!-- 應用主入口（最後引入） -->
+  <script src="js/app.js"></script>
+</body>
+</html>

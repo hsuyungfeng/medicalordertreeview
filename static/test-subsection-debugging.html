@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subsection 代碼範圍診斷工具</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .header h1 { font-size: 28px; margin-bottom: 10px; }
+    .section { background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .section h2 { color: #667eea; margin-bottom: 15px; font-size: 18px; border-bottom: 2px solid #667eea; padding-bottom: 10px; }
+    .test-group { margin-bottom: 20px; }
+    .test-item {
+      background: #f8f9fa;
+      border-left: 4px solid #667eea;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+    }
+    .test-label { font-weight: bold; color: #667eea; margin-bottom: 8px; }
+    .test-input, .test-button {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-right: 10px;
+      font-size: 14px;
+    }
+    .test-button {
+      background: #667eea;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .test-button:hover { background: #5568d3; }
+    .test-button.danger { background: #e74c3c; }
+    .test-button.danger:hover { background: #c0392b; }
+    .output {
+      background: #f0f4f8;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 15px;
+      margin-top: 10px;
+      max-height: 300px;
+      overflow-y: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+    }
+    .output-success { color: #27ae60; font-weight: bold; }
+    .output-error { color: #e74c3c; font-weight: bold; }
+    .output-warning { color: #f39c12; font-weight: bold; }
+    .output-info { color: #3498db; }
+    .status-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      margin: 5px 5px 5px 0;
+    }
+    .status-ok { background: #d4edda; color: #155724; }
+    .status-error { background: #f8d7da; color: #721c24; }
+    .status-warning { background: #fff3cd; color: #856404; }
+    .code-example {
+      background: #f0f4f8;
+      border-left: 4px solid #667eea;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🔧 Subsection 代碼範圍篩選診斷工具</h1>
+      <p>用於診斷和測試 subsection 節點的代碼範圍提取和表格篩選功能</p>
+    </div>
+
+    <div class="grid-2">
+      <!-- 左側：測試工具 -->
+      <div>
+        <div class="section">
+          <h2>📝 測試代碼範圍提取</h2>
+
+          <div class="test-group">
+            <div class="test-item">
+              <div class="test-label">輸入標籤文字：</div>
+              <input type="text" class="test-input" id="labelInput"
+                value="二、創傷處置Wound Treatmen"
+                placeholder="例: 二、創傷處置 (48001-48035)">
+              <button class="test-button" onclick="testExtractFromLabel()">測試提取（標籤）</button>
+            </div>
+          </div>
+
+          <div class="test-group">
+            <div class="test-item">
+              <div class="test-label">輸入內容文字：</div>
+              <input type="text" class="test-input" id="contentInput"
+                value="二、創傷處置Wound Treatment (48001-48035)"
+                placeholder="例: 二、創傷處置Wound Treatment (48001-48035)">
+              <button class="test-button" onclick="testExtractFromContent()">測試提取（內容）</button>
+            </div>
+          </div>
+
+          <div class="test-group">
+            <div class="test-item">
+              <div class="test-label">提取結果：</div>
+              <div class="output" id="extractOutput">等待測試...</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>📊 測試表格篩選</h2>
+
+          <div class="test-group">
+            <div class="test-item">
+              <div class="test-label">代碼範圍：</div>
+              <input type="text" class="test-input" id="startCodeInput" value="48001" placeholder="起始代碼">
+              <input type="text" class="test-input" id="endCodeInput" value="48035" placeholder="結束代碼">
+              <button class="test-button" onclick="testFilterByCodeRange()">測試篩選</button>
+            </div>
+          </div>
+
+          <div class="test-group">
+            <div class="test-item">
+              <div class="test-label">篩選結果：</div>
+              <div class="output" id="filterOutput">等待測試...</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>🐛 系統狀態檢查</h2>
+          <div class="test-group">
+            <div class="test-item">
+              <button class="test-button" onclick="checkSystemStatus()">檢查系統狀態</button>
+              <button class="test-button danger" onclick="resetDebugConsole()">清空日誌</button>
+            </div>
+          </div>
+          <div class="output" id="statusOutput">等待檢查...</div>
+        </div>
+      </div>
+
+      <!-- 右側：實時日誌和說明 -->
+      <div>
+        <div class="section">
+          <h2>📋 實時 Console 日誌</h2>
+          <div class="output" id="consoleOutput" style="max-height: 400px;">
+            <div class="output-info">初始化完成，開始診斷...</div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>📖 測試說明</h2>
+          <p><strong>步驟 1：測試代碼範圍提取</strong></p>
+          <p>檢查 extractCodeRangeFromLabel() 是否能從標籤或內容中提取代碼範圍。應該能從內容中提取 48001-48035。</p>
+
+          <p style="margin-top: 15px;"><strong>步驟 2：測試表格篩選</strong></p>
+          <p>檢查 filterByCodeRange() 是否能正確篩選 CSV 數據。應該篩選出 26 筆記錄（代碼 48001C 到 48035C）。</p>
+
+          <p style="margin-top: 15px;"><strong>步驟 3：檢查系統狀態</strong></p>
+          <p>驗證 csvTableRenderer、樹形加載器、CSV 數據等是否正確初始化。</p>
+
+          <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;"><strong>✅ 預期結果：</strong></p>
+          <ul style="margin-left: 20px; margin-top: 10px;">
+            <li>步驟 1：提取出 {start: '48001', end: '48035'}</li>
+            <li>步驟 2：篩選出 26 筆記錄</li>
+            <li>步驟 3：所有組件都已初始化</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 引入依賴腳本 -->
+  <script src="js/table-renderer.js"></script>
+  <script src="js/csv-table-renderer.js"></script>
+  <script src="js/tree-loader.js"></script>
+
+  <script>
+    // 日誌收集器
+    const debugLogs = [];
+    const originalLog = console.log;
+    const originalError = console.error;
+    const originalWarn = console.warn;
+
+    console.log = function(...args) {
+      originalLog.apply(console, args);
+      addDebugLog(args.join(' '));
+    };
+
+    console.error = function(...args) {
+      originalError.apply(console, args);
+      addDebugLog('❌ ' + args.join(' '));
+    };
+
+    console.warn = function(...args) {
+      originalWarn.apply(console, args);
+      addDebugLog('⚠️ ' + args.join(' '));
+    };
+
+    function addDebugLog(message) {
+      debugLogs.push(message);
+      updateConsoleOutput();
+    }
+
+    function updateConsoleOutput() {
+      const output = document.getElementById('consoleOutput');
+      const lastLogs = debugLogs.slice(-20);
+      output.innerHTML = lastLogs.map(log => {
+        if (log.includes('❌')) return `<div class="output-error">${log}</div>`;
+        if (log.includes('⚠️')) return `<div class="output-warning">${log}</div>`;
+        if (log.includes('✅')) return `<div class="output-success">${log}</div>`;
+        return `<div class="output-info">${log}</div>`;
+      }).join('');
+      output.scrollTop = output.scrollHeight;
+    }
+
+    // 測試函數
+    function testExtractFromLabel() {
+      const output = document.getElementById('extractOutput');
+      const label = document.getElementById('labelInput').value;
+
+      console.log(`測試從標籤提取: "${label}"`);
+
+      const treeLoader = new LazyTreeLoader('.tree-container');
+      const result = treeLoader.extractCodeRangeFromLabel(label);
+
+      if (result && result.start && result.end) {
+        output.innerHTML = `
+          <div class="output-success">✅ 成功從標籤提取！</div>
+          <div class="output-info">
+            起始代碼: ${result.start}<br>
+            結束代碼: ${result.end}
+          </div>
+        `;
+      } else {
+        output.innerHTML = `
+          <div class="output-warning">⚠️ 標籤中未找到代碼範圍</div>
+          <div class="output-info">結果: ${JSON.stringify(result)}</div>
+        `;
+      }
+    }
+
+    function testExtractFromContent() {
+      const output = document.getElementById('extractOutput');
+      const content = document.getElementById('contentInput').value;
+
+      console.log(`測試從內容提取: "${content}"`);
+
+      const treeLoader = new LazyTreeLoader('.tree-container');
+      const result = treeLoader.extractCodeRangeFromLabel(content);
+
+      if (result && result.start && result.end) {
+        output.innerHTML = `
+          <div class="output-success">✅ 成功從內容提取！</div>
+          <div class="output-info">
+            起始代碼: ${result.start}<br>
+            結束代碼: ${result.end}
+          </div>
+        `;
+      } else {
+        output.innerHTML = `
+          <div class="output-error">❌ 內容中未找到代碼範圍</div>
+          <div class="output-info">結果: ${JSON.stringify(result)}</div>
+        `;
+      }
+    }
+
+    function testFilterByCodeRange() {
+      const output = document.getElementById('filterOutput');
+      const startCode = document.getElementById('startCodeInput').value;
+      const endCode = document.getElementById('endCodeInput').value;
+
+      console.log(`測試篩選範圍: ${startCode}-${endCode}`);
+
+      if (!window.csvTableRenderer) {
+        output.innerHTML = `<div class="output-error">❌ csvTableRenderer 未初始化！</div>`;
+        return;
+      }
+
+      if (!window.csvTableRenderer.csvData || window.csvTableRenderer.csvData.length === 0) {
+        output.innerHTML = `
+          <div class="output-error">❌ CSV 數據未加載</div>
+          <div class="output-info">csvData 長度: ${window.csvTableRenderer.csvData?.length || 0}</div>
+        `;
+        return;
+      }
+
+      // 手動測試篩選邏輯
+      const startNum = parseInt(startCode);
+      const endNum = parseInt(endCode);
+      const filtered = window.csvTableRenderer.csvData.filter(item => {
+        const itemCode = parseInt(item.code || 0);
+        return itemCode >= startNum && itemCode <= endNum;
+      });
+
+      output.innerHTML = `
+        <div class="output-info">
+          CSV 總記錄數: ${window.csvTableRenderer.csvData.length}<br>
+          篩選範圍: ${startCode}-${endCode}<br>
+          <strong class="output-success">篩選結果: ${filtered.length} 筆記錄</strong>
+        </div>
+        <div style="margin-top: 10px;">
+          <strong>樣本記錄：</strong><br>
+          ${filtered.slice(0, 5).map(item => `${item.code} - ${item.name}`).join('<br>')}
+          ${filtered.length > 5 ? `<br>... 還有 ${filtered.length - 5} 筆` : ''}
+        </div>
+      `;
+
+      // 調用實際的篩選方法
+      console.log(`調用 filterByCodeRange('${startCode}', '${endCode}')`);
+      window.csvTableRenderer.filterByCodeRange(startCode, endCode);
+    }
+
+    function checkSystemStatus() {
+      const output = document.getElementById('statusOutput');
+      let html = '';
+
+      // 檢查 csvTableRenderer
+      const rendererOk = !!window.csvTableRenderer;
+      html += `<div class="status-badge ${rendererOk ? 'status-ok' : 'status-error'}">
+        ${rendererOk ? '✅' : '❌'} csvTableRenderer: ${rendererOk ? '已初始化' : '未初始化'}
+      </div>`;
+
+      // 檢查 CSV 數據
+      const csvDataOk = window.csvTableRenderer?.csvData?.length > 0;
+      const csvDataCount = window.csvTableRenderer?.csvData?.length || 0;
+      html += `<div class="status-badge ${csvDataOk ? 'status-ok' : 'status-error'}">
+        ${csvDataOk ? '✅' : '❌'} CSV 數據: ${csvDataCount} 筆
+      </div>`;
+
+      // 檢查代碼 48001-48035
+      if (csvDataOk) {
+        const codesInRange = window.csvTableRenderer.csvData.filter(item => {
+          const code = parseInt(item.code || 0);
+          return code >= 48001 && code <= 48035;
+        });
+        const rangeOk = codesInRange.length > 0;
+        html += `<div class="status-badge ${rangeOk ? 'status-ok' : 'status-warning'}">
+          ${rangeOk ? '✅' : '⚠️'} 代碼 48001-48035: ${codesInRange.length} 筆
+        </div>`;
+      }
+
+      // 檢查樹形加載器
+      const treeLoaderOk = window.LazyTreeLoader !== undefined;
+      html += `<div class="status-badge ${treeLoaderOk ? 'status-ok' : 'status-error'}">
+        ${treeLoaderOk ? '✅' : '❌'} LazyTreeLoader: ${treeLoaderOk ? '已加載' : '未加載'}
+      </div>`;
+
+      // 檢查表格容器
+      const tablePanel = document.querySelector('.csv-panel');
+      const tablePanelOk = !!tablePanel;
+      html += `<div class="status-badge ${tablePanelOk ? 'status-ok' : 'status-error'}">
+        ${tablePanelOk ? '✅' : '❌'} 表格面板: ${tablePanelOk ? '存在' : '不存在'}
+      </div>`;
+
+      output.innerHTML = html;
+      console.log('系統狀態檢查完成');
+    }
+
+    function resetDebugConsole() {
+      debugLogs.length = 0;
+      document.getElementById('consoleOutput').innerHTML = '<div class="output-info">日誌已清空</div>';
+    }
+
+    // 初始化
+    console.log('診斷工具已加載，請執行測試...');
+    checkSystemStatus();
+  </script>
+</body>
+</html>

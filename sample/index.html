@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>醫療服務給付項目文檔檢視器</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📄</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .content {
+            display: flex;
+            height: calc(100vh - 200px);
+        }
+
+        .sidebar {
+            width: 350px;
+            border-right: 1px solid #e0e0e0;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        .main {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+            background: white;
+        }
+
+        .tree {
+            list-style: none;
+        }
+
+        .tree-item {
+            margin-bottom: 8px;
+        }
+
+        .tree-label {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s;
+            user-select: none;
+        }
+
+        .tree-label:hover {
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .tree-label.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+        }
+
+        .tree-toggle {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+            font-size: 12px;
+            transition: transform 0.2s;
+        }
+
+        .tree-toggle.collapsed {
+            transform: rotate(-90deg);
+        }
+
+        .tree-children {
+            margin-left: 20px;
+            max-height: 1000px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .tree-children.collapsed {
+            max-height: 0;
+        }
+
+        .file-info {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f0f2f5;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .file-info h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .file-info p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .file-info .actions {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .stats {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f5e9;
+            border-radius: 6px;
+            border-left: 4px solid #4caf50;
+            font-size: 13px;
+            color: #2e7d32;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: #999;
+            padding: 40px 20px;
+        }
+
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .level-0 {
+            font-weight: 700;
+            color: #000;
+        }
+
+        .level-1 {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .level-2 {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .level-3 {
+            font-weight: 400;
+            color: #666;
+        }
+
+        /* 搜尋欄樣式 */
+        .search-section {
+            padding: 15px 20px;
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .search-input::placeholder {
+            color: #999;
+        }
+
+        /* 建議下拉列表 */
+        .suggestions-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 20px;
+            right: 20px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-top: none;
+            border-radius: 0 0 6px 6px;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .suggestions-dropdown.visible {
+            display: block;
+        }
+
+        .suggestion-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.15s;
+        }
+
+        .suggestion-item:hover {
+            background: #f8f9fa;
+        }
+
+        .suggestion-text {
+            display: block;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .suggestion-freq {
+            display: block;
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* 搜尋結果樣式 */
+        .search-results {
+            margin-bottom: 20px;
+        }
+
+        .result-header {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .result-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .result-item:hover {
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+        }
+
+        .result-item h4 {
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .result-score {
+            display: inline-block;
+            font-size: 12px;
+            background: #667eea;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-left: 10px;
+        }
+
+        .match-snippet {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+            margin-top: 8px;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 4px;
+        }
+
+        mark {
+            background-color: #ffeb3b;
+            padding: 2px 4px;
+            border-radius: 2px;
+            font-weight: 500;
+        }
+
+        .clear-search {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #999;
+            font-size: 18px;
+            display: none;
+            z-index: 500;
+        }
+
+        .clear-search.visible {
+            display: block;
+        }
+
+        .clear-search:hover {
+            color: #333;
+        }
+
+        /* CSV 項目特殊樣式 */
+        .csv-item {
+            background: linear-gradient(135deg, #f5f7fa 0%, #f0f3f8 100%);
+            border-left: 4px solid #667eea;
+        }
+
+        .csv-item h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .csv-metadata {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .csv-metadata .badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .csv-metadata .badge.points {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .payment-rules {
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .payment-rules h4 {
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .rules-content {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #666;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .effective-dates {
+            background: rgba(102, 126, 234, 0.05);
+            padding: 10px 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .effective-dates p {
+            font-size: 13px;
+            color: #667eea;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📄 醫療服務給付項目</h1>
+            <p>文檔層級檢視器</p>
+        </div>
+
+        <div class="content">
+            <!-- 左侧导航 -->
+            <div class="sidebar">
+                <!-- 搜尋欄 -->
+                <div class="search-section">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" class="search-input" placeholder="🔍 搜尋醫療項目（支援中英文）...">
+                        <button id="clearSearch" class="clear-search">✕</button>
+                        <div id="suggestionsDropdown" class="suggestions-dropdown"></div>
+                    </div>
+                </div>
+
+                <!-- 樹狀導航或搜尋結果 -->
+                <div id="treeContainer">
+                    <div id="tree" class="tree">
+                        <div class="loading">載入中...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧内容 -->
+            <div class="main">
+                <div id="details" class="empty-state">
+                    <div class="empty-state-icon">📋</div>
+                    <p>請選擇一份文檔查看詳情</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:5000';
+
+        class DocumentBrowser {
+            constructor() {
+                this.documents = [];
+                this.tree = {};
+                this.selectedFile = null;
+                this.init();
+            }
+
+            async init() {
+                await this.fetchDocuments();
+                this.buildTree();
+                this.renderTree();
+            }
+
+            async fetchDocuments() {
+                try {
+                    const res = await fetch(`${API_BASE}/api/v1/documents`);
+                    const data = await res.json();
+                    this.documents = data.data || [];
+                } catch (error) {
+                    console.error('載入文檔列表失敗:', error);
+                    document.getElementById('tree').innerHTML = '<div class="empty-state"><p>⚠️ 無法連接到伺服器</p></div>';
+                }
+            }
+
+            buildTree() {
+                this.tree = {};
+                this.documents.forEach(doc => {
+                    // 檢查是否為 CSV 文檔（包含"醫療服務給付項目"）
+                    if (doc.filename && doc.filename.includes('csv')) {
+                        // CSV 文檔特殊處理
+                        const csvKey = 'csv-payment-items';
+                        if (!this.tree[csvKey]) {
+                            this.tree[csvKey] = {
+                                label: '📊 醫療服務給付項目 (CSV)',
+                                children: {},
+                                isCSV: true,
+                                file: doc,
+                                isFile: true
+                            };
+                        }
+                    } else {
+                        // 原有的 .doc/.docx 文件處理邏輯
+                        const level = this.parseLevel(doc.name);
+                        if (!this.tree[level.part]) {
+                            this.tree[level.part] = { label: level.partLabel, children: {} };
+                        }
+                        if (level.chapter) {
+                            if (!this.tree[level.part].children[level.chapter]) {
+                                this.tree[level.part].children[level.chapter] = {
+                                    label: level.chapterLabel,
+                                    children: {}
+                                };
+                            }
+                            if (level.section) {
+                                this.tree[level.part].children[level.chapter].children[level.section] = {
+                                    label: doc.name,
+                                    file: doc,
+                                    isFile: true
+                                };
+                            } else {
+                                this.tree[level.part].children[level.chapter].file = doc;
+                                this.tree[level.part].children[level.chapter].isFile = true;
+                            }
+                        } else {
+                            this.tree[level.part].file = doc;
+                            this.tree[level.part].isFile = true;
+                        }
+                    }
+                });
+            }
+
+            parseLevel(name) {
+                // 0目錄1 -> part: 0
+                // 1第一部 -> part: 1
+                // 2-0第二部西醫 -> part: 2-0
+                // 2-1第一章基本診療 -> part: 2, chapter: 1
+                // 2-2-1第二章第一節檢查 -> part: 2, chapter: 2, section: 1
+                const match = name.match(/^([\d\-]+)/);
+                if (!match) return { part: 'other' };
+
+                const code = match[1];
+                const parts = code.split('-');
+
+                if (parts.length === 1) {
+                    return { part: code, partLabel: name };
+                } else if (parts.length === 2) {
+                    return {
+                        part: parts[0],
+                        chapter: parts[1],
+                        partLabel: `第${this.numberToChinese(parts[0])}部`,
+                        chapterLabel: name
+                    };
+                } else if (parts.length === 3) {
+                    return {
+                        part: parts[0],
+                        chapter: parts[1],
+                        section: parts[2],
+                        partLabel: `第${this.numberToChinese(parts[0])}部`,
+                        chapterLabel: `第${this.numberToChinese(parts[1])}章`,
+                        sectionLabel: name
+                    };
+                }
+            }
+
+            numberToChinese(num) {
+                const nums = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
+                return nums[parseInt(num)] || num;
+            }
+
+            renderTree() {
+                const treeHtml = document.getElementById('tree');
+                const partKeys = Object.keys(this.tree).sort((a, b) => {
+                    const aNum = parseFloat(a.replace('-', '.'));
+                    const bNum = parseFloat(b.replace('-', '.'));
+                    return aNum - bNum;
+                });
+
+                treeHtml.innerHTML = partKeys.map((partKey, idx) =>
+                    this.renderPart(partKey, this.tree[partKey], idx)
+                ).join('');
+
+                // Add event listeners
+                document.querySelectorAll('.tree-toggle').forEach(toggle => {
+                    toggle.addEventListener('click', this.toggleNode.bind(this));
+                });
+
+                document.querySelectorAll('.tree-label').forEach(label => {
+                    label.addEventListener('click', this.selectFile.bind(this));
+                });
+            }
+
+            renderPart(partKey, part, level) {
+                const hasChildren = Object.keys(part.children || {}).length > 0;
+                const children = part.children || {};
+                const childrenKeys = Object.keys(children).sort();
+
+                const toggleHTML = hasChildren ?
+                    '<div class="tree-toggle">▶</div>' :
+                    '<div class="tree-toggle" style="visibility: hidden;"></div>';
+
+                const childrenHTML = hasChildren ?
+                    `<div class="tree-children">${childrenKeys.map(chapterKey =>
+                        this.renderChapter(partKey, chapterKey, children[chapterKey])
+                    ).join('')}</div>` : '';
+
+                const isClickable = part.isFile;
+                const fileData = part.file ? JSON.stringify(part.file).replace(/"/g, '&quot;') : '';
+
+                return `
+                    <div class="tree-item">
+                        <div class="tree-label ${isClickable ? 'clickable' : ''} level-${level % 4}"
+                             ${isClickable ? `data-file='${fileData}'` : ''}>
+                            ${toggleHTML}
+                            <span>${part.label}</span>
+                        </div>
+                        ${childrenHTML}
+                    </div>
+                `;
+            }
+
+            renderChapter(partKey, chapterKey, chapter) {
+                const hasChildren = Object.keys(chapter.children || {}).length > 0;
+                const children = chapter.children || {};
+                const sectionKeys = Object.keys(children).sort();
+
+                const toggleHTML = hasChildren ?
+                    '<div class="tree-toggle">▶</div>' :
+                    '<div class="tree-toggle" style="visibility: hidden;"></div>';
+
+                const childrenHTML = hasChildren ?
+                    `<div class="tree-children">${sectionKeys.map(sectionKey => {
+                        const section = children[sectionKey];
+                        const fileData = section.file ? JSON.stringify(section.file).replace(/"/g, '&quot;') : '';
+                        return `
+                            <div class="tree-item">
+                                <div class="tree-label level-2" data-file='${fileData}'>
+                                    <div class="tree-toggle" style="visibility: hidden;"></div>
+                                    <span>${section.label}</span>
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}</div>` : '';
+
+                const isClickable = chapter.isFile;
+                const fileData = chapter.file ? JSON.stringify(chapter.file).replace(/"/g, '&quot;') : '';
+
+                return `
+                    <div class="tree-item">
+                        <div class="tree-label ${isClickable ? 'clickable' : ''} level-1"
+                             ${isClickable ? `data-file='${fileData}'` : ''}>
+                            ${toggleHTML}
+                            <span>${chapter.label}</span>
+                        </div>
+                        ${childrenHTML}
+                    </div>
+                `;
+            }
+
+            toggleNode(event) {
+                event.stopPropagation();
+                const toggle = event.target.closest('.tree-toggle');
+                if (!toggle) return;
+
+                const label = toggle.closest('.tree-label');
+                const childrenDiv = label.nextElementSibling;
+
+                if (childrenDiv && childrenDiv.classList.contains('tree-children')) {
+                    const isCollapsed = childrenDiv.classList.contains('collapsed');
+
+                    if (isCollapsed) {
+                        childrenDiv.classList.remove('collapsed');
+                        toggle.classList.remove('collapsed');
+                    } else {
+                        childrenDiv.classList.add('collapsed');
+                        toggle.classList.add('collapsed');
+                    }
+                }
+            }
+
+            selectFile(event) {
+                event.stopPropagation();
+
+                // Remove previous selection
+                document.querySelectorAll('.tree-label.active').forEach(el => {
+                    el.classList.remove('active');
+                });
+
+                // Add selection to clicked element
+                const label = event.currentTarget;
+                const fileData = label.getAttribute('data-file');
+
+                if (fileData) {
+                    label.classList.add('active');
+                    this.selectedFile = JSON.parse(fileData);
+                    this.showDetails(this.selectedFile);
+                } else {
+                    this.showEmpty();
+                }
+            }
+
+            showDetails(file) {
+                const size = (file.size / 1024).toFixed(2);
+                const details = document.getElementById('details');
+
+                details.innerHTML = `
+                    <div class="file-info">
+                        <h3>📄 ${file.name}</h3>
+                        <p><strong>檔案名稱：</strong> ${file.filename}</p>
+                        <p><strong>檔案大小：</strong> ${size} KB</p>
+                        <p><strong>檔案類型：</strong> ${file.ext}</p>
+                        <p><strong>路徑：</strong> ${file.path}</p>
+                        <div class="actions">
+                            <button class="btn btn-primary" onclick="window.open('${file.path}', '_blank')">
+                                📥 下載文檔
+                            </button>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <p>✓ 文檔已成功載入</p>
+                        <p>✓ 點擊「下載文檔」按鈕獲取檔案</p>
+                    </div>
+                `;
+            }
+
+            showEmpty() {
+                const details = document.getElementById('details');
+                details.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📋</div>
+                        <p>請選擇一份文檔查看詳情</p>
+                    </div>
+                `;
+            }
+        }
+
+        // 擴展 DocumentBrowser 類新增搜索功能
+        const originalInit = DocumentBrowser.prototype.init;
+        DocumentBrowser.prototype.init = async function() {
+            await originalInit.call(this);
+            this.initSearch();
+        };
+
+        DocumentBrowser.prototype.initSearch = function() {
+            this.searchInput = document.getElementById('searchInput');
+            this.clearButton = document.getElementById('clearSearch');
+            this.suggestionsDropdown = document.getElementById('suggestionsDropdown');
+            this.treeContainer = document.getElementById('treeContainer');
+            this.searchDebounceTimer = null;
+            this.isSearching = false;
+
+            // 搜尋輸入事件 - 300ms 防抖
+            this.searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.trim();
+
+                // 更新清除按鈕狀態
+                if (query) {
+                    this.clearButton.classList.add('visible');
+                } else {
+                    this.clearButton.classList.remove('visible');
+                    this.suggestionsDropdown.classList.remove('visible');
+                    this.showTree();
+                    return;
+                }
+
+                // 防抖處理建議
+                clearTimeout(this.searchDebounceTimer);
+                this.searchDebounceTimer = setTimeout(() => {
+                    this.showSuggestions(query);
+                }, 300);
+            });
+
+            // Enter 鍵執行搜索
+            this.searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    const query = this.searchInput.value.trim();
+                    if (query) {
+                        this.performSearch(query);
+                    }
+                }
+            });
+
+            // 清除搜索
+            this.clearButton.addEventListener('click', () => {
+                this.searchInput.value = '';
+                this.clearButton.classList.remove('visible');
+                this.suggestionsDropdown.classList.remove('visible');
+                this.showTree();
+                this.showEmpty();
+            });
+
+            // 點擊建議項
+            this.suggestionsDropdown.addEventListener('click', (e) => {
+                const suggestionItem = e.target.closest('.suggestion-item');
+                if (suggestionItem) {
+                    const text = suggestionItem.querySelector('.suggestion-text').textContent;
+                    this.searchInput.value = text;
+                    this.performSearch(text);
+                }
+            });
+
+            // 點擊外部關閉建議
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.search-box')) {
+                    this.suggestionsDropdown.classList.remove('visible');
+                }
+            });
+        };
+
+        DocumentBrowser.prototype.showSuggestions = async function(query) {
+            if (!query || query.length < 1) {
+                this.suggestionsDropdown.classList.remove('visible');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/api/v1/suggest?q=${encodeURIComponent(query)}&limit=10`);
+                const data = await response.json();
+                const suggestions = data.suggestions || [];
+
+                if (suggestions.length === 0) {
+                    this.suggestionsDropdown.innerHTML = '<div style="padding: 15px; color: #999;">無建議結果</div>';
+                } else {
+                    this.suggestionsDropdown.innerHTML = suggestions.map(item => `
+                        <div class="suggestion-item">
+                            <span class="suggestion-text">${this.escapeHtml(item.text)}</span>
+                            <span class="suggestion-freq">出現 ${item.frequency} 次</span>
+                        </div>
+                    `).join('');
+                }
+
+                this.suggestionsDropdown.classList.add('visible');
+            } catch (error) {
+                console.error('獲取建議失敗:', error);
+                this.suggestionsDropdown.classList.remove('visible');
+            }
+        };
+
+        DocumentBrowser.prototype.performSearch = async function(query) {
+            if (!query.trim()) return;
+
+            this.isSearching = true;
+            this.suggestionsDropdown.classList.remove('visible');
+
+            try {
+                const response = await fetch(`${API_BASE}/api/v1/search?q=${encodeURIComponent(query)}&limit=20`);
+                const data = await response.json();
+                const results = data.results || [];
+
+                if (results.length === 0) {
+                    this.treeContainer.innerHTML = '<div style="padding: 20px; color: #999;">❌ 未找到相符結果</div>';
+                } else {
+                    this.renderSearchResults(results, query);
+                    // 自動展開最相關的文檔
+                    if (results.length > 0) {
+                        this.expandDocInTree(results[0].doc_id);
+                    }
+                }
+            } catch (error) {
+                console.error('搜索失敗:', error);
+                this.treeContainer.innerHTML = '<div style="padding: 20px; color: #d32f2f;">⚠️ 搜索發生錯誤</div>';
+            } finally {
+                this.isSearching = false;
+            }
+        };
+
+        DocumentBrowser.prototype.renderSearchResults = function(results, query) {
+            const resultsHTML = `
+                <div class="search-results">
+                    <div class="result-header">🔍 搜索結果（共 ${results.length} 個文檔）</div>
+                    ${results.map(result => this.renderResultItem(result, query)).join('')}
+                </div>
+            `;
+            this.treeContainer.innerHTML = resultsHTML;
+
+            // 綁定結果項點擊事件
+            this.treeContainer.querySelectorAll('.result-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const docId = item.getAttribute('data-doc-id');
+                    const docTitle = item.getAttribute('data-doc-title');
+                    this.showSearchResultDetails(docId, docTitle);
+                });
+            });
+        };
+
+        DocumentBrowser.prototype.renderResultItem = function(result, query) {
+            const score = result.total_score.toFixed(1);
+            const matches = result.matches || [];
+
+            // 取第一個匹配片段作為預覽
+            const snippet = matches.length > 0 ? matches[0].snippet : '無預覽';
+
+            return `
+                <div class="result-item" data-doc-id="${result.doc_id}" data-doc-title="${result.doc_title}">
+                    <h4>
+                        ${this.escapeHtml(result.doc_title)}
+                        <span class="result-score">相關度: ${score}</span>
+                    </h4>
+                    <div class="match-snippet">${snippet}</div>
+                </div>
+            `;
+        };
+
+        DocumentBrowser.prototype.showSearchResultDetails = function(docId, docTitle) {
+            const details = document.getElementById('details');
+            details.innerHTML = `
+                <div class="file-info">
+                    <h3>🔎 ${this.escapeHtml(docTitle)}</h3>
+                    <p><strong>文檔 ID：</strong> ${this.escapeHtml(docId)}</p>
+                    <div class="loading">載入內容中...</div>
+                </div>
+            `;
+
+            // 載入完整文檔內容
+            this.fetchDocumentContent(docId, docTitle);
+        };
+
+        DocumentBrowser.prototype.fetchDocumentContent = async function(docId, docTitle) {
+            try {
+                const response = await fetch(`${API_BASE}/api/v1/documents/${docId}/content`);
+                if (!response.ok) {
+                    throw new Error('無法載入文檔內容');
+                }
+
+                const data = await response.json();
+                const doc = data;
+                const details = document.getElementById('details');
+
+                // 構建內容 HTML
+                let contentHTML = `
+                    <div class="file-info">
+                        <h3>📄 ${this.escapeHtml(doc.title || docTitle)}</h3>
+                        <p><strong>檔案名稱：</strong> ${this.escapeHtml(doc.filename)}</p>
+                        <div class="stats">
+                            <p>📊 字數: ${doc.metadata?.word_count || 0}</p>
+                            <p>📑 章節數: ${doc.sections?.length || 0}</p>
+                            <p>⏱️ 解析時間: ${new Date(doc.parsed_at).toLocaleString('zh-TW')}</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <h4>📋 文檔結構</h4>
+                `;
+
+                // 顯示章節
+                if (doc.sections && doc.sections.length > 0) {
+                    contentHTML += '<ul style="margin-left: 20px;">';
+                    doc.sections.slice(0, 10).forEach((section, idx) => {
+                        const tableCount = section.tables?.length || 0;
+                        contentHTML += `
+                            <li style="margin: 8px 0;">
+                                <strong>${this.escapeHtml(section.heading)}</strong>
+                                ${tableCount > 0 ? `<small>（含 ${tableCount} 個表格）</small>` : ''}
+                            </li>
+                        `;
+                    });
+                    if (doc.sections.length > 10) {
+                        contentHTML += `<li style="color: #999;">... 及其他 ${doc.sections.length - 10} 個章節</li>`;
+                    }
+                    contentHTML += '</ul>';
+                }
+
+                contentHTML += '</div>';
+                details.innerHTML = contentHTML;
+
+            } catch (error) {
+                console.error('載入文檔內容失敗:', error);
+                const details = document.getElementById('details');
+                details.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">⚠️</div>
+                        <p>無法載入文檔內容</p>
+                        <small>${error.message}</small>
+                    </div>
+                `;
+            }
+        };
+
+        DocumentBrowser.prototype.expandDocInTree = function(docId) {
+            // 找到樹中對應的文檔節點並自動展開
+            const treeElement = document.getElementById('tree');
+            if (!treeElement) return;
+
+            const labels = treeElement.querySelectorAll('.tree-label');
+            labels.forEach(label => {
+                const fileData = label.getAttribute('data-file');
+                if (fileData) {
+                    try {
+                        const file = JSON.parse(fileData);
+                        if (file.name === docId) {
+                            // 展開父節點
+                            let parent = label.closest('.tree-item');
+                            while (parent) {
+                                const children = parent.querySelector('.tree-children');
+                                if (children && children.classList.contains('collapsed')) {
+                                    children.classList.remove('collapsed');
+                                    const toggle = children.previousElementSibling.querySelector('.tree-toggle');
+                                    if (toggle) {
+                                        toggle.classList.remove('collapsed');
+                                    }
+                                }
+                                parent = parent.parentElement?.closest('.tree-item');
+                            }
+                        }
+                    } catch (e) {}
+                }
+            });
+        };
+
+        DocumentBrowser.prototype.showTree = function() {
+            this.treeContainer.innerHTML = `<div id="tree" class="tree"></div>`;
+            this.renderTree();
+        };
+
+        DocumentBrowser.prototype.escapeHtml = function(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        };
+
+        // DOM 準備好時初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            new DocumentBrowser();
+        });
+    </script>
+</body>
+
+</html>

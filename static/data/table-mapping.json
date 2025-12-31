@@ -1,0 +1,339 @@
+{
+  "version": "1.0.0",
+  "description": "節點到表格的映射配置 - 定義每個 section 節點對應的表格類型",
+  "generated_at": "2025-12-19T00:00:00Z",
+  "mappings": {
+    "section-2-2-1": {
+      "label": "第二部第二章第一節檢查",
+      "tables": [
+        {
+          "id": "csv-items",
+          "type": "csv",
+          "name": "診療項目",
+          "description": "與檢查相關的診療項目表",
+          "codePrefixes": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09"
+          ]
+        },
+        {
+          "id": "standard-items",
+          "type": "standard",
+          "name": "支付標準",
+          "description": "檢查項目的支付標準與點數",
+          "dataFile": "payment-standards/section-2-2-1-standards.json"
+        },
+        {
+          "id": "rules-items",
+          "type": "rules",
+          "name": "規則表",
+          "description": "第二部第二章第一節檢查 的給付規則和限制條款",
+          "dataFile": "rules/section-2-2-1-rules.json"
+        }
+      ]
+    },
+    "section-2-2-2": {
+      "label": "第二部第二章第二節檢查判斷",
+      "tables": [
+        {
+          "id": "csv-items",
+          "type": "csv",
+          "name": "診療項目",
+          "description": "與檢查判斷相關的診療項目表",
+          "codePrefixes": [
+            "10",
+            "11",
+            "12",
+            "13"
+          ]
+        },
+        {
+          "id": "standard-items",
+          "type": "standard",
+          "name": "支付標準",
+          "description": "檢查判斷項目的支付標準與點數",
+          "dataFile": "payment-standards/section-2-2-2-standards.json"
+        },
+        {
+          "id": "rules-items",
+          "type": "rules",
+          "name": "規則表",
+          "description": "第二部第二章第二節檢查判斷 的給付規則和限制條款",
+          "dataFile": "rules/section-2-2-2-rules.json"
+        }
+      ]
+    },
+    "section-2-2-3": {
+      "label": "第二部第二章第三節藥物",
+      "tables": [
+        {
+          "id": "csv-items",
+          "type": "csv",
+          "name": "診療項目",
+          "description": "與藥物相關的診療項目表",
+          "codePrefixes": [
+            "14",
+            "15"
+          ]
+        },
+        {
+          "id": "standard-items",
+          "type": "standard",
+          "name": "支付標準",
+          "description": "藥物項目的支付標準與點數",
+          "dataFile": "payment-standards/section-2-2-3-standards.json"
+        },
+        {
+          "id": "rules-items",
+          "type": "rules",
+          "name": "規則表",
+          "description": "第二部第二章第三節藥物 的給付規則和限制條款",
+          "dataFile": "rules/section-2-2-3-rules.json"
+        }
+      ]
+    },
+    "section-2-2-4": {
+      "label": "第二部第二章第四節治療",
+      "tables": [
+        {
+          "id": "csv-items",
+          "type": "csv",
+          "name": "診療項目",
+          "description": "與治療相關的診療項目表",
+          "codePrefixes": [
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26"
+          ]
+        },
+        {
+          "id": "standard-items",
+          "type": "standard",
+          "name": "支付標準",
+          "description": "治療項目的支付標準與點數",
+          "dataFile": "payment-standards/section-2-2-4-standards.json"
+        },
+        {
+          "id": "rules-items",
+          "type": "rules",
+          "name": "規則表",
+          "description": "第二部第二章第四節治療 的給付規則和限制條款",
+          "dataFile": "rules/section-2-2-4-rules.json"
+        }
+      ]
+    },
+    "section-2-2-5": {
+      "label": "第二部第二章第五節手術",
+      "tables": [
+        {
+          "id": "csv-items",
+          "type": "csv",
+          "name": "診療項目",
+          "description": "與手術相關的診療項目表",
+          "codePrefixes": [
+            "30",
+            "31"
+          ]
+        },
+        {
+          "id": "standard-items",
+          "type": "standard",
+          "name": "支付標準",
+          "description": "手術項目的支付標準與點數",
+          "dataFile": "payment-standards/section-2-2-5-standards.json"
+        },
+        {
+          "id": "rules-items",
+          "type": "rules",
+          "name": "規則表",
+          "description": "第二部第二章第五節手術 的給付規則和限制條款",
+          "dataFile": "rules/section-2-2-5-rules.json"
+        }
+      ]
+    },
+    "section-2-2-6": {
+      "label": "第二部第二章第六節神經",
+      "tables": [
+        {
+          "id": "csv-items",
+          "type": "csv",
+          "name": "診療項目",
+          "description": "與神經相關的診療項目表",
+          "codePrefixes": [
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48"
+          ]
+        },
+        {
+          "id": "standard-items",
+          "type": "standard",
+          "name": "支付標準",
+          "description": "神經項目的支付標準與點數",
+          "dataFile": "payment-standards/section-2-2-6-standards.json"
+        },
+        {
+          "id": "rules-items",
+          "type": "rules",
+          "name": "規則表",
+          "description": "第二部第二章第六節神經 的給付規則和限制條款",
+          "dataFile": "rules/section-2-2-6-rules.json"
+        }
+      ]
+    },
+    "section-2-2-7": {
+      "label": "第二部第二章第七節復健",
+      "tables": [
+        {
+          "id": "csv-items",
+          "type": "csv",
+          "name": "診療項目",
+          "description": "與復健相關的診療項目表",
+          "codePrefixes": [
+            "50",
+            "51",
+            "52"
+          ]
+        },
+        {
+          "id": "standard-items",
+          "type": "standard",
+          "name": "支付標準",
+          "description": "復健項目的支付標準與點數",
+          "dataFile": "payment-standards/section-2-2-7-standards.json"
+        },
+        {
+          "id": "rules-items",
+          "type": "rules",
+          "name": "規則表",
+          "description": "第二部第二章第七節復健 的給付規則和限制條款",
+          "dataFile": "rules/section-2-2-7-rules.json"
+        }
+      ]
+    },
+    "section-2-2-8": {
+      "label": "第二部第二章第八節放射",
+      "tables": [
+        {
+          "id": "csv-items",
+          "type": "csv",
+          "name": "診療項目",
+          "description": "與放射相關的診療項目表",
+          "codePrefixes": [
+            "60",
+            "61",
+            "62",
+            "63",
+            "64"
+          ]
+        },
+        {
+          "id": "standard-items",
+          "type": "standard",
+          "name": "支付標準",
+          "description": "放射項目的支付標準與點數",
+          "dataFile": "payment-standards/section-2-2-8-standards.json"
+        },
+        {
+          "id": "rules-items",
+          "type": "rules",
+          "name": "規則表",
+          "description": "第二部第二章第八節放射 的給付規則和限制條款",
+          "dataFile": "rules/section-2-2-8-rules.json"
+        }
+      ]
+    },
+    "section-2-2-9": {
+      "label": "第二部第二章第九節病理",
+      "tables": [
+        {
+          "id": "csv-items",
+          "type": "csv",
+          "name": "診療項目",
+          "description": "與病理相關的診療項目表",
+          "codePrefixes": [
+            "70",
+            "71",
+            "72"
+          ]
+        },
+        {
+          "id": "standard-items",
+          "type": "standard",
+          "name": "支付標準",
+          "description": "病理項目的支付標準與點數",
+          "dataFile": "payment-standards/section-2-2-9-standards.json"
+        },
+        {
+          "id": "rules-items",
+          "type": "rules",
+          "name": "規則表",
+          "description": "第二部第二章第九節病理 的給付規則和限制條款",
+          "dataFile": "rules/section-2-2-9-rules.json"
+        }
+      ]
+    },
+    "section-2-2-10": {
+      "label": "第二部第二章第十節麻醉費",
+      "tables": [
+        {
+          "id": "csv-items",
+          "type": "csv",
+          "name": "診療項目",
+          "description": "與麻醉相關的診療項目表",
+          "codePrefixes": [
+            "96"
+          ]
+        },
+        {
+          "id": "standard-items",
+          "type": "standard",
+          "name": "支付標準",
+          "description": "麻醉項目的支付標準與點數",
+          "dataFile": "payment-standards/section-2-2-10-standards.json"
+        },
+        {
+          "id": "rules-items",
+          "type": "rules",
+          "name": "規則表",
+          "description": "第二部第二章第十節麻醉費 的給付規則和限制條款",
+          "dataFile": "rules/section-2-2-10-rules.json"
+        }
+      ]
+    }
+  },
+  "tableTypes": {
+    "csv": {
+      "name": "CSV 診療項目表",
+      "description": "來自 CSV 數據的診療項目表",
+      "adapter": "CSVTableAdapter"
+    },
+    "standard": {
+      "name": "支付標準表",
+      "description": "醫療服務支付標準",
+      "adapter": "StandardTableAdapter"
+    },
+    "rules": {
+      "name": "規則表",
+      "description": "給付規則和限制條款",
+      "adapter": "RulesTableAdapter"
+    }
+  }
+}

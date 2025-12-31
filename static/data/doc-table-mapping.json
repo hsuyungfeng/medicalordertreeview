@@ -1,0 +1,2823 @@
+{
+  "version": "3.0.0",
+  "description": "完整的文檔表格映射配置",
+  "generated_at": "2025年12月29日 15:22:29",
+  "summary": {
+    "total_nodes_with_tables": 56,
+    "total_table_files": 24,
+    "subsections_with_tables": 18
+  },
+  "mappings": {
+    "part-0": {
+      "doc_id": "0目錄1-114.09.01",
+      "tables": [
+        "doc-table-0目錄1-114.09.01-s0-t0"
+      ],
+      "table_count": 1,
+      "section_count": 1,
+      "hierarchy": {
+        "level": 1,
+        "part": 0
+      }
+    },
+    "part-1": {
+      "doc_id": "1第一部總則-114.05.01",
+      "tables": [
+        "doc-table-1第一部總則-114.05.01-s0-t0"
+      ],
+      "table_count": 1,
+      "section_count": 1,
+      "hierarchy": {
+        "level": 1,
+        "part": 1
+      }
+    },
+    "chapter-2-0": {
+      "doc_id": "2-0第二部西醫-114.07.01",
+      "tables": [],
+      "table_count": 0,
+      "section_count": 0,
+      "hierarchy": {
+        "level": 2,
+        "part": 2,
+        "chapter": 0
+      }
+    },
+    "chapter-2-1": {
+      "doc_id": "2-1第二部第一章基本診療-114.09.01",
+      "tables": [
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t0",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t1",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t2",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t3",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t4",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t5",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t6",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t7",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t8",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t9",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t10",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t11",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t12",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t13",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t14",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t15",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t16",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t17",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t18",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t19",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t20",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t21",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t22",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t23",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t24",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t25",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t26",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t27",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t28",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t29",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t30",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t31",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t32",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t33",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t34"
+      ],
+      "table_count": 35,
+      "section_count": 1,
+      "hierarchy": {
+        "level": 2,
+        "part": 2,
+        "chapter": 1
+      }
+    },
+    "part-3": {
+      "doc_id": "3第三部牙醫-114.05.01",
+      "tables": [
+        "doc-table-3第三部牙醫-114.05.01-s0-t0",
+        "doc-table-3第三部牙醫-114.05.01-s0-t1",
+        "doc-table-3第三部牙醫-114.05.01-s0-t2",
+        "doc-table-3第三部牙醫-114.05.01-s0-t3",
+        "doc-table-3第三部牙醫-114.05.01-s0-t4",
+        "doc-table-3第三部牙醫-114.05.01-s0-t5",
+        "doc-table-3第三部牙醫-114.05.01-s0-t6",
+        "doc-table-3第三部牙醫-114.05.01-s0-t7",
+        "doc-table-3第三部牙醫-114.05.01-s0-t8",
+        "doc-table-3第三部牙醫-114.05.01-s0-t9",
+        "doc-table-3第三部牙醫-114.05.01-s0-t10",
+        "doc-table-3第三部牙醫-114.05.01-s0-t11"
+      ],
+      "table_count": 12,
+      "section_count": 1,
+      "hierarchy": {
+        "level": 1,
+        "part": 3
+      },
+      "code_range": "00121-96001"
+    },
+    "part-4": {
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t0",
+        "doc-table-4第四部中醫-114.05.01-s0-t1",
+        "doc-table-4第四部中醫-114.05.01-s0-t2",
+        "doc-table-4第四部中醫-114.05.01-s0-t3",
+        "doc-table-4第四部中醫-114.05.01-s0-t4",
+        "doc-table-4第四部中醫-114.05.01-s0-t5",
+        "doc-table-4第四部中醫-114.05.01-s0-t6",
+        "doc-table-4第四部中醫-114.05.01-s0-t7",
+        "doc-table-4第四部中醫-114.05.01-s0-t8",
+        "doc-table-4第四部中醫-114.05.01-s0-t9",
+        "doc-table-4第四部中醫-114.05.01-s0-t10",
+        "doc-table-4第四部中醫-114.05.01-s0-t11",
+        "doc-table-4第四部中醫-114.05.01-s0-t12",
+        "doc-table-4第四部中醫-114.05.01-s0-t13",
+        "doc-table-4第四部中醫-114.05.01-s0-t14",
+        "doc-table-4第四部中醫-114.05.01-s0-t15",
+        "doc-table-4第四部中醫-114.05.01-s0-t16",
+        "doc-table-4第四部中醫-114.05.01-s0-t17"
+      ],
+      "table_count": 18,
+      "section_count": 1,
+      "hierarchy": {
+        "level": 1,
+        "part": 4
+      }
+    },
+    "part-5": {
+      "doc_id": "5第五部居家照護-113.09.01",
+      "tables": [
+        "doc-table-5第五部居家照護-113.09.01-s0-t0",
+        "doc-table-5第五部居家照護-113.09.01-s0-t1",
+        "doc-table-5第五部居家照護-113.09.01-s0-t2",
+        "doc-table-5第五部居家照護-113.09.01-s0-t3",
+        "doc-table-5第五部居家照護-113.09.01-s0-t4",
+        "doc-table-5第五部居家照護-113.09.01-s0-t5",
+        "doc-table-5第五部居家照護-113.09.01-s0-t6",
+        "doc-table-5第五部居家照護-113.09.01-s0-t7",
+        "doc-table-5第五部居家照護-113.09.01-s0-t8",
+        "doc-table-5第五部居家照護-113.09.01-s0-t9",
+        "doc-table-5第五部居家照護-113.09.01-s0-t10",
+        "doc-table-5第五部居家照護-113.09.01-s0-t11",
+        "doc-table-5第五部居家照護-113.09.01-s0-t12",
+        "doc-table-5第五部居家照護-113.09.01-s0-t13",
+        "doc-table-5第五部居家照護-113.09.01-s0-t14",
+        "doc-table-5第五部居家照護-113.09.01-s0-t15",
+        "doc-table-5第五部居家照護-113.09.01-s0-t16",
+        "doc-table-5第五部居家照護-113.09.01-s0-t17",
+        "doc-table-5第五部居家照護-113.09.01-s0-t18",
+        "doc-table-5第五部居家照護-113.09.01-s0-t19",
+        "doc-table-5第五部居家照護-113.09.01-s0-t20"
+      ],
+      "table_count": 21,
+      "section_count": 1,
+      "hierarchy": {
+        "level": 1,
+        "part": 5
+      },
+      "code_range": "05301-10502",
+      "has_children": true
+    },
+    "chapter-6-1": {
+      "doc_id": "6-1第六部論病例計酬-114.09.01",
+      "tables": [
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t0",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t1",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t2",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t3",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t4",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t5",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t6",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t7",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t8",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t9",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t10",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t11",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t12",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t13",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t14",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t15",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t16",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t17",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t18",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t19",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t20",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t21",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t22",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t23",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t24",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t25",
+        "doc-table-6-1第六部論病例計酬-114.09.01-s0-t26"
+      ],
+      "table_count": 27,
+      "section_count": 1,
+      "hierarchy": {
+        "level": 2,
+        "part": 6,
+        "chapter": 1
+      }
+    },
+    "chapter-6-2": {
+      "doc_id": "6-2第六部附錄102.01.01(1)",
+      "tables": [
+        "doc-table-6-2第六部附錄102.01.01(1)-s0-t0",
+        "doc-table-6-2第六部附錄102.01.01(1)-s0-t1",
+        "doc-table-6-2第六部附錄102.01.01(1)-s0-t2",
+        "doc-table-6-2第六部附錄102.01.01(1)-s0-t3",
+        "doc-table-6-2第六部附錄102.01.01(1)-s0-t4",
+        "doc-table-6-2第六部附錄102.01.01(1)-s0-t5",
+        "doc-table-6-2第六部附錄102.01.01(1)-s0-t6",
+        "doc-table-6-2第六部附錄102.01.01(1)-s0-t7",
+        "doc-table-6-2第六部附錄102.01.01(1)-s0-t8",
+        "doc-table-6-2第六部附錄102.01.01(1)-s0-t9"
+      ],
+      "table_count": 10,
+      "section_count": 1,
+      "hierarchy": {
+        "level": 2,
+        "part": 6,
+        "chapter": 2
+      }
+    },
+    "chapter-7-1": {
+      "doc_id": "7-1-a 第七部第一章附表Tw-DRGs支付通則-113.12.01",
+      "tables": [
+        "doc-table-7-1-a 第七部第一章附表Tw-DRGs支付通則-113.12.01-s0-t0",
+        "doc-table-7-1-a 第七部第一章附表Tw-DRGs支付通則-113.12.01-s0-t1",
+        "doc-table-7-1-a 第七部第一章附表Tw-DRGs支付通則-113.12.01-s0-t2",
+        "doc-table-7-1-a 第七部第一章附表Tw-DRGs支付通則-113.12.01-s0-t3",
+        "doc-table-7-1-a 第七部第一章附表Tw-DRGs支付通則-113.12.01-s0-t4"
+      ],
+      "table_count": 5,
+      "section_count": 1,
+      "hierarchy": {
+        "level": 2,
+        "part": 7,
+        "chapter": 1
+      }
+    },
+    "chapter-7-2": {
+      "doc_id": "7-2 第七部第二章Tw-DRGs分類架構及原則-114.09.01",
+      "tables": [],
+      "table_count": 0,
+      "section_count": 0,
+      "hierarchy": {
+        "level": 2,
+        "part": 7,
+        "chapter": 2
+      }
+    },
+    "part-8": {
+      "doc_id": "8第八部 品質支付服務-114.05.01",
+      "tables": [
+        "doc-table-8第八部 品質支付服務-114.05.01-s0-t0",
+        "doc-table-8第八部 品質支付服務-114.05.01-s0-t1",
+        "doc-table-8第八部 品質支付服務-114.05.01-s0-t2",
+        "doc-table-8第八部 品質支付服務-114.05.01-s0-t3",
+        "doc-table-8第八部 品質支付服務-114.05.01-s0-t4",
+        "doc-table-8第八部 品質支付服務-114.05.01-s0-t5",
+        "doc-table-8第八部 品質支付服務-114.05.01-s0-t6",
+        "doc-table-8第八部 品質支付服務-114.05.01-s0-t7",
+        "doc-table-8第八部 品質支付服務-114.05.01-s0-t8",
+        "doc-table-8第八部 品質支付服務-114.05.01-s0-t9",
+        "doc-table-8第八部 品質支付服務-114.05.01-s0-t10",
+        "doc-table-8第八部 品質支付服務-114.05.01-s0-t11",
+        "doc-table-8第八部 品質支付服務-114.05.01-s0-t12",
+        "doc-table-8第八部 品質支付服務-114.05.01-s0-t13"
+      ],
+      "table_count": 14,
+      "section_count": 1,
+      "hierarchy": {
+        "level": 1,
+        "part": 8
+      }
+    },
+    "part-9": {
+      "doc_id": "9第九部 護理人員投入為主之診療項目表-103.04.01",
+      "tables": [
+        "doc-table-9第九部 護理人員投入為主之診療項目表-103.04.01-s0-t0"
+      ],
+      "table_count": 1,
+      "section_count": 1,
+      "hierarchy": {
+        "level": 1,
+        "part": 9
+      }
+    },
+    "section-2-2-1": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "section_count": 0,
+      "hierarchy": {
+        "level": 3,
+        "part": 2,
+        "chapter": 2,
+        "section": 1
+      }
+    },
+    "section-2-2-2": {
+      "doc_id": "2-2-2第二部第二章第二節放射線診療-114.09.01",
+      "tables": [
+        "2-2-2第二部第二章第二節放射線診療-114.09.01-section-sec_23-table-0",
+        "2-2-2第二部第二章第二節放射線診療-114.09.01-section-sec_23-table-1",
+        "2-2-2第二部第二章第二節放射線診療-114.09.01-section-sec_23-table-2",
+        "2-2-2第二部第二章第二節放射線診療-114.09.01-section-sec_23-table-3"
+      ],
+      "table_count": 4,
+      "section_count": 0,
+      "hierarchy": {
+        "level": 3,
+        "part": 2,
+        "chapter": 2,
+        "section": 2
+      }
+    },
+    "section-2-2-3": {
+      "doc_id": "2-2-3第二部第二章第三節注射-114.05.01",
+      "tables": [
+        "2-2-3第二部第二章第三節注射-114.05.01-section-sec_3-table-0"
+      ],
+      "table_count": 1,
+      "section_count": 0,
+      "hierarchy": {
+        "level": 3,
+        "part": 2,
+        "chapter": 2,
+        "section": 3
+      }
+    },
+    "section-2-2-4": {
+      "doc_id": "2-2-4第二部第二章第四節復健治療-114.05.01",
+      "tables": [
+        "2-2-4第二部第二章第四節復健治療-114.05.01-section-sec_66-table-0",
+        "2-2-4第二部第二章第四節復健治療-114.05.01-section-sec_66-table-1",
+        "2-2-4第二部第二章第四節復健治療-114.05.01-section-sec_66-table-2",
+        "2-2-4第二部第二章第四節復健治療-114.05.01-section-sec_66-table-3",
+        "2-2-4第二部第二章第四節復健治療-114.05.01-section-sec_66-table-4"
+      ],
+      "table_count": 5,
+      "section_count": 0,
+      "hierarchy": {
+        "level": 3,
+        "part": 2,
+        "chapter": 2,
+        "section": 4
+      }
+    },
+    "section-2-2-5": {
+      "doc_id": "2-2-5第二部第二章第五節精神醫療治療費-114.05.01",
+      "tables": [
+        "2-2-5第二部第二章第五節精神醫療治療費-114.05.01-section-sec_3-table-0"
+      ],
+      "table_count": 1,
+      "section_count": 0,
+      "hierarchy": {
+        "level": 3,
+        "part": 2,
+        "chapter": 2,
+        "section": 5
+      }
+    },
+    "section-2-2-6": {
+      "doc_id": "2-2-6第二部第二章第六節治療處置-114.09.01",
+      "tables": [
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-0",
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-1",
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-2",
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-3",
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-4",
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-5",
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-6",
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-7",
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-8",
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-9",
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-10",
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-11",
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-12",
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-13",
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-14",
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-15"
+      ],
+      "table_count": 16,
+      "section_count": 0,
+      "hierarchy": {
+        "level": 3,
+        "part": 2,
+        "chapter": 2,
+        "section": 6
+      }
+    },
+    "section-2-2-7": {
+      "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+      "tables": [
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-0",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-1",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-2",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-3",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-4",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-5",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-6",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-7",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-8",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-9",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-10",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-11",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-12",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-13",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-14",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-15",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-16",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-17",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-18",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-19",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-20",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-21",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-22",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-23",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-24",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-25",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-26",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-27",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-28",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-29",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-30",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-31",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-32",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-33",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-34",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-35",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-36",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-37",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-38",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-39",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-40",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-41",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-42",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-43",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-44",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-45",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-46",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-47",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-48",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-49",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-50",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-51",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-52",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-53",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-54",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-55"
+      ],
+      "table_count": 56,
+      "section_count": 0,
+      "hierarchy": {
+        "level": 3,
+        "part": 2,
+        "chapter": 2,
+        "section": 7
+      }
+    },
+    "section-2-2-8": {
+      "doc_id": "2-2-8第二部第二章第八節輸血及造血幹細胞移植-114.09.01",
+      "tables": [
+        "2-2-8第二部第二章第八節輸血及造血幹細胞移植-114.09.01-section-sec_21-table-0",
+        "2-2-8第二部第二章第八節輸血及造血幹細胞移植-114.09.01-section-sec_21-table-1",
+        "2-2-8第二部第二章第八節輸血及造血幹細胞移植-114.09.01-section-sec_21-table-2"
+      ],
+      "table_count": 3,
+      "section_count": 0,
+      "hierarchy": {
+        "level": 3,
+        "part": 2,
+        "chapter": 2,
+        "section": 8
+      }
+    },
+    "section-2-2-9": {
+      "doc_id": "2-2-9第二部第二章第九節石膏繃帶-093.06.14",
+      "tables": [
+        "2-2-9第二部第二章第九節石膏繃帶-093.06.14-section-sec_0-table-0"
+      ],
+      "table_count": 1,
+      "section_count": 0,
+      "hierarchy": {
+        "level": 3,
+        "part": 2,
+        "chapter": 2,
+        "section": 9
+      }
+    },
+    "section-2-2-10": {
+      "doc_id": "2-2-10第二部第二章第十節麻醉費-114.05.01",
+      "tables": [
+        "2-2-10第二部第二章第十節麻醉費-114.05.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "section_count": 0,
+      "hierarchy": {
+        "level": 3,
+        "part": 2,
+        "chapter": 2,
+        "section": 10
+      }
+    },
+    "chapter-2-2": {
+      "doc_id": "2-2",
+      "tables": [],
+      "table_count": 0,
+      "section_count": 10,
+      "hierarchy": {
+        "level": 2,
+        "part": 2,
+        "chapter": 2
+      }
+    },
+    "subsection-2-2-3-1": {
+      "doc_id": "2-2-3第二部第二章第三節注射-114.05.01",
+      "tables": [
+        "2-2-3第二部第二章第三節注射-114.05.01-section-sec_3-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "0-9"
+    },
+    "subsection-2-2-3-2": {
+      "doc_id": "2-2-3第二部第二章第三節注射-114.05.01",
+      "tables": [
+        "2-2-3第二部第二章第三節注射-114.05.01-section-sec_3-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "10-22"
+    },
+    "subsection-2-2-3-3": {
+      "doc_id": "2-2-3第二部第二章第三節注射-114.05.01",
+      "tables": [
+        "2-2-3第二部第二章第三節注射-114.05.01-section-sec_3-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "23-28"
+    },
+    "subsection-2-2-5-1": {
+      "doc_id": "2-2-5第二部第二章第五節精神醫療治療費-114.05.01",
+      "tables": [
+        "2-2-5第二部第二章第五節精神醫療治療費-114.05.01-section-sec_3-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "0-5"
+    },
+    "subsection-2-2-5-2": {
+      "doc_id": "2-2-5第二部第二章第五節精神醫療治療費-114.05.01",
+      "tables": [
+        "2-2-5第二部第二章第五節精神醫療治療費-114.05.01-section-sec_3-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "6-10"
+    },
+    "subsection-2-2-5-3": {
+      "doc_id": "2-2-5第二部第二章第五節精神醫療治療費-114.05.01",
+      "tables": [
+        "2-2-5第二部第二章第五節精神醫療治療費-114.05.01-section-sec_3-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "11-23"
+    },
+    "subsection-2-2-5-4": {
+      "doc_id": "2-2-5第二部第二章第五節精神醫療治療費-114.05.01",
+      "tables": [
+        "2-2-5第二部第二章第五節精神醫療治療費-114.05.01-section-sec_3-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "24-27"
+    },
+    "subsection-2-2-5-5": {
+      "doc_id": "2-2-5第二部第二章第五節精神醫療治療費-114.05.01",
+      "tables": [
+        "2-2-5第二部第二章第五節精神醫療治療費-114.05.01-section-sec_3-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "28-39"
+    },
+    "subsection-2-2-5-6": {
+      "doc_id": "2-2-5第二部第二章第五節精神醫療治療費-114.05.01",
+      "tables": [
+        "2-2-5第二部第二章第五節精神醫療治療費-114.05.01-section-sec_3-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "40-46"
+    },
+    "subsection-2-2-8-1": {
+      "doc_id": "2-2-8第二部第二章第八節輸血及造血幹細胞移植-114.09.01",
+      "tables": [
+        "2-2-8第二部第二章第八節輸血及造血幹細胞移植-114.09.01-section-sec_21-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "0-11"
+    },
+    "subsection-2-2-8-2": {
+      "doc_id": "2-2-8第二部第二章第八節輸血及造血幹細胞移植-114.09.01",
+      "tables": [
+        "2-2-8第二部第二章第八節輸血及造血幹細胞移植-114.09.01-section-sec_21-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "12-23"
+    },
+    "subsection-2-2-9-1": {
+      "doc_id": "2-2-9第二部第二章第九節石膏繃帶-093.06.14",
+      "tables": [
+        "2-2-9第二部第二章第九節石膏繃帶-093.06.14-section-sec_0-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "0-5"
+    },
+    "subsection-2-2-9-2": {
+      "doc_id": "2-2-9第二部第二章第九節石膏繃帶-093.06.14",
+      "tables": [
+        "2-2-9第二部第二章第九節石膏繃帶-093.06.14-section-sec_0-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "6-14"
+    },
+    "subsection-2-2-9-3": {
+      "doc_id": "2-2-9第二部第二章第九節石膏繃帶-093.06.14",
+      "tables": [
+        "2-2-9第二部第二章第九節石膏繃帶-093.06.14-section-sec_0-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "15-25"
+    },
+    "subsection-2-2-2-1": {
+      "doc_id": "2-2-2第二部第二章第二節放射線診療-114.09.01",
+      "tables": [
+        "2-2-2第二部第二章第二節放射線診療-114.09.01-section-sec_23-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "0-25"
+    },
+    "subsection-2-2-2-2": {
+      "doc_id": "2-2-2第二部第二章第二節放射線診療-114.09.01",
+      "tables": [
+        "2-2-2第二部第二章第二節放射線診療-114.09.01-section-sec_23-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "26-249"
+    },
+    "subsection-2-2-4-1": {
+      "doc_id": "2-2-4第二部第二章第四節復健治療-114.05.01",
+      "tables": [
+        "2-2-4第二部第二章第四節復健治療-114.05.01-section-sec_66-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "0-23"
+    },
+    "subsection-2-2-4-2": {
+      "doc_id": "2-2-4第二部第二章第四節復健治療-114.05.01",
+      "tables": [
+        "2-2-4第二部第二章第四節復健治療-114.05.01-section-sec_66-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "24-80"
+    },
+    "subsection-2-2-7-1": {
+      "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+      "tables": [
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "62001-63017",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 7,
+        "item": 1
+      },
+      "title": "第一項 皮膚與軟組織手術 Dermatological & Soft Tissue Surgery"
+    },
+    "subsection-2-2-7-2": {
+      "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+      "tables": [
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-1"
+      ],
+      "table_count": 1,
+      "code_range": "63001-63017",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 7,
+        "item": 2
+      },
+      "title": "第二項 乳腺與淋巴結手術 Breast & Lymph Node Surgery"
+    },
+    "subsection-2-2-7-3": {
+      "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+      "tables": [
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-2"
+      ],
+      "table_count": 1,
+      "code_range": "64001-64285",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 7,
+        "item": 3
+      },
+      "title": "第三項 骨科手術 Orthopedic Surgery"
+    },
+    "subsection-2-2-7-4": {
+      "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+      "tables": [
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-3",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-4"
+      ],
+      "table_count": 2,
+      "code_range": "65001-66032",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 7,
+        "item": 4
+      },
+      "title": "第四項 耳鼻喉與頸部手術 ENT & Neck Surgery"
+    },
+    "subsection-2-2-7-5": {
+      "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+      "tables": [
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-5",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-7"
+      ],
+      "table_count": 2,
+      "code_range": "67001-70420",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 7,
+        "item": 5
+      },
+      "title": "第五項 胸部與心臟手術 Thoracic & Cardiac Surgery"
+    },
+    "subsection-2-2-7-6": {
+      "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+      "tables": [
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-8"
+      ],
+      "table_count": 1,
+      "code_range": "68001-68060",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 7,
+        "item": 6
+      },
+      "title": "第六項 心包膜與大血管手術 Pericardium & Major Vessel Surgery"
+    },
+    "subsection-2-2-7-7": {
+      "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+      "tables": [
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-9"
+      ],
+      "table_count": 1,
+      "code_range": "69001-69043",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 7,
+        "item": 7
+      },
+      "title": "第七項 動脈栓塞清除術 Arterial Embolectomy"
+    },
+    "subsection-2-2-7-8": {
+      "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+      "tables": [
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-10",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-11"
+      ],
+      "table_count": 2,
+      "code_range": "70001-70216",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 7,
+        "item": 8
+      },
+      "title": "第八項 縱膈腔手術 Mediastinal Surgery"
+    },
+    "subsection-2-2-7-9": {
+      "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+      "tables": [
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-6",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-12",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-13"
+      ],
+      "table_count": 3,
+      "code_range": "71001-72059",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 7,
+        "item": 9
+      },
+      "title": "第九項 食道與胃腸手術 Esophageal & Gastrointestinal Surgery"
+    },
+    "subsection-2-2-7-10": {
+      "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+      "tables": [
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-14",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-15",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-18"
+      ],
+      "table_count": 3,
+      "code_range": "73001-74420",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 7,
+        "item": 10
+      },
+      "title": "第十項 腸系膜與闌尾手術 Mesenteric & Appendiceal Surgery"
+    },
+    "subsection-2-2-7-11": {
+      "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+      "tables": [
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-19",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-17",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-16"
+      ],
+      "table_count": 3,
+      "code_range": "75001-75826",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 7,
+        "item": 11
+      },
+      "title": "第十一項 腹部與腹膜手術 Abdominal & Peritoneal Surgery"
+    },
+    "subsection-2-2-7-12": {
+      "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+      "tables": [
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-20",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-21",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-22",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-23",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-24",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-25",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-26"
+      ],
+      "table_count": 7,
+      "code_range": "76001-78805",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 7,
+        "item": 12
+      },
+      "title": "第十二項 泌尿系統手術 Urinary System Surgery"
+    },
+    "subsection-2-2-7-13": {
+      "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+      "tables": [
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-27",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-28",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-29",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-30",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-31",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-32",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-33",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-34",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-35",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-36",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-37",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-38"
+      ],
+      "table_count": 12,
+      "code_range": "79001-81037",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 7,
+        "item": 13
+      },
+      "title": "第十三項 男性生殖與女性生殖手術 Reproductive Surgery"
+    },
+    "subsection-2-2-7-14": {
+      "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+      "tables": [
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-39"
+      ],
+      "table_count": 1,
+      "code_range": "82001-82019",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 7,
+        "item": 14
+      },
+      "title": "第十四項 甲狀腺手術 Thyroid Surgery"
+    },
+    "subsection-2-2-7-15": {
+      "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+      "tables": [
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-40"
+      ],
+      "table_count": 1,
+      "code_range": "83001-83105",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 7,
+        "item": 15
+      },
+      "title": "第十五項 神經外科手術 Neurosurgery"
+    },
+    "subsection-2-2-7-16": {
+      "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+      "tables": [
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-41"
+      ],
+      "table_count": 1,
+      "code_range": "84001-84038",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 7,
+        "item": 16
+      },
+      "title": "第十六項 耳科手術 Otologic Surgery"
+    },
+    "subsection-2-2-7-17": {
+      "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+      "tables": [
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-42",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-43",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-44",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-45",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-46",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-47",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-48",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-49",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-50",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-51",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-52",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-53",
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-54"
+      ],
+      "table_count": 13,
+      "code_range": "85001-87417",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 7,
+        "item": 17
+      },
+      "title": "第十七項 眼科手術 Ophthalmic Surgery"
+    },
+    "subsection-2-2-7-18": {
+      "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+      "tables": [
+        "2-2-7第二部第二章第七節手術-114.09.01-section-sec_119-table-55"
+      ],
+      "table_count": 1,
+      "code_range": "88001-88064",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 7,
+        "item": 18
+      },
+      "title": "第十八項 其他手術 Other Surgical Procedures"
+    },
+    "subsection-2-2-10-1": {
+      "doc_id": "2-2-10第二部第二章第十節麻醉費-114.05.01",
+      "tables": [
+        "2-2-10第二部第二章第十節麻醉費-114.05.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "0-7",
+      "code_range": "96000-96008",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 10,
+        "item": 1
+      }
+    },
+    "subsection-2-2-10-2": {
+      "doc_id": "2-2-10第二部第二章第十節麻醉費-114.05.01",
+      "tables": [
+        "2-2-10第二部第二章第十節麻醉費-114.05.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "8-13",
+      "code_range": "96009-96013",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 10,
+        "item": 2
+      }
+    },
+    "subsection-2-2-10-3": {
+      "doc_id": "2-2-10第二部第二章第十節麻醉費-114.05.01",
+      "tables": [
+        "2-2-10第二部第二章第十節麻醉費-114.05.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "14-23",
+      "code_range": "96017-96022",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 10,
+        "item": 3
+      }
+    },
+    "subsection-2-2-10-4": {
+      "doc_id": "2-2-10第二部第二章第十節麻醉費-114.05.01",
+      "tables": [
+        "2-2-10第二部第二章第十節麻醉費-114.05.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "row_range": "24-31",
+      "code_range": "96023-96028",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 10,
+        "item": 4
+      }
+    },
+    "subsection-2-2-1-1": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "06001-06513",
+      "title": "第一項 尿液檢查 Urine Test",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 1
+      },
+      "row_range": "6-33"
+    },
+    "subsection-2-2-1-2": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "07001-07018",
+      "title": "第二項 糞便檢查 Stool Test",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 2
+      },
+      "row_range": "34-51"
+    },
+    "subsection-2-2-1-3": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "08001-08135",
+      "title": "第三項 血液學檢查 Hematology Test",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 3
+      },
+      "row_range": "52-184"
+    },
+    "subsection-2-2-1-4": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "09001-10819",
+      "title": "第四項 生化學檢查 Biochemistry Exam",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 4
+      },
+      "row_range": "185-387"
+    },
+    "subsection-2-2-1-5": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "11001-11012",
+      "title": "第五項 輸血前檢查 Pre-transfusion",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 5
+      },
+      "row_range": "388-400"
+    },
+    "subsection-2-2-1-6": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "12001-12219",
+      "title": "第六項 免疫學檢查 Immunology",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 6
+      },
+      "row_range": "401-640"
+    },
+    "subsection-2-2-1-7": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "13001-13032",
+      "title": "第七項 細菌學與黴菌檢查 Bacteriology",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 7
+      },
+      "row_range": "641-674"
+    },
+    "subsection-2-2-1-8": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "14001-14086",
+      "title": "第八項 病毒學檢查 Virology",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 8
+      },
+      "row_range": "675-764"
+    },
+    "subsection-2-2-1-9": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "15001-15022",
+      "title": "第九項 細胞學檢查 Cytology",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 9
+      },
+      "row_range": "765-771"
+    },
+    "subsection-2-2-1-10": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "16001-16013",
+      "title": "第十項 穿剌液檢查 Fluid Exam",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 10
+      },
+      "row_range": "772-785"
+    },
+    "subsection-2-2-1-11": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "17001-17024",
+      "title": "第十一項 呼吸機能檢查 Respiratory Function",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 11
+      },
+      "row_range": "786-809"
+    },
+    "subsection-2-2-1-12": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "18001-18047",
+      "title": "第十二項 循環機能檢查 Circulative Function",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 12
+      },
+      "row_range": "810-858"
+    },
+    "subsection-2-2-1-13": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "19001-19018",
+      "title": "第十三項 超音波檢查 Sonography",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 13
+      },
+      "row_range": "859-875"
+    },
+    "subsection-2-2-1-14": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "20001-20049",
+      "title": "第十四項 神經系統檢查 Neurological Test",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 14
+      },
+      "row_range": "877-936"
+    },
+    "subsection-2-2-1-15": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "21003-21012",
+      "title": "第十五項 泌尿系統檢查 Urinology Test",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 15
+      },
+      "row_range": "937-947"
+    },
+    "subsection-2-2-1-16": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "22001-22041",
+      "title": "第十六項 耳鼻喉系統檢查 E.N.T.",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 16
+      },
+      "row_range": "949-991"
+    },
+    "subsection-2-2-1-17": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "23001-23813",
+      "title": "第十七項 眼部檢查 Ophthalmology",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 17
+      },
+      "row_range": "993-1062"
+    },
+    "subsection-2-2-1-18": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "24003-24029",
+      "title": "第十八項 負荷試驗 Loading Test",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 18
+      },
+      "row_range": "1063-1086"
+    },
+    "subsection-2-2-1-19": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "25001-25026",
+      "title": "第十九項 病理組織檢查 Specimen Exam",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 19
+      },
+      "row_range": "1088-1105"
+    },
+    "subsection-2-2-1-20": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "26001-27083",
+      "title": "第二十項 核子醫學檢查 Radioisotope Scanning",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 20
+      },
+      "row_range": "1106-1270"
+    },
+    "subsection-2-2-1-21": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "28001-28046",
+      "title": "第二十一項 內視鏡檢查 Endoscopy",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 21
+      },
+      "row_range": "1271-1313"
+    },
+    "subsection-2-2-1-22": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "29001-29035",
+      "title": "第二十二項 診斷穿剌 Diagnostic Puncture",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 22
+      },
+      "row_range": "1314-1345"
+    },
+    "subsection-2-2-1-23": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "30001-30030",
+      "title": "第二十三項 過敏免疫檢查 Allergy Immunologic",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 23
+      },
+      "row_range": "1347-1376"
+    },
+    "subsection-2-2-1-24": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "30101-30111",
+      "title": "第二十四項 伴隨式診斷 Companion Diagnostics",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 24
+      },
+      "row_range": "1377-1387"
+    },
+    "subsection-2-2-1-25": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "30301-30307",
+      "title": "第二十五項 次世代基因定序 NGS",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 25
+      },
+      "row_range": "1389-1398"
+    },
+    "subsection-2-2-1-26": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "30501-30526",
+      "title": "第二十六項 其他檢查 Other Test",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 26
+      },
+      "row_range": "1416-1443"
+    },
+    "subsection-2-2-1-1-1": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "06001-06017",
+      "title": "一般尿液檢查",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 1,
+        "subsection": 1
+      },
+      "row_range": "6-23"
+    },
+    "subsection-2-2-1-1-2": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "06503-06513",
+      "title": "特殊尿液檢查",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 1,
+        "subsection": 2
+      },
+      "row_range": "24-25"
+    },
+    "subsection-2-2-1-4-1": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "09001-09140",
+      "title": "一般生化學檢查",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 4,
+        "subsection": 1
+      },
+      "row_range": "186-322"
+    },
+    "subsection-2-2-1-4-2": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "10001-10012",
+      "title": "微量元素測定",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 4,
+        "subsection": 2
+      },
+      "row_range": "324-334"
+    },
+    "subsection-2-2-1-4-3": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "10501-10537",
+      "title": "血中藥物濃度測定 Therapeutic Drug Monitoring",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 4,
+        "subsection": 3
+      },
+      "row_range": "336-368"
+    },
+    "subsection-2-2-1-4-4": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "10801-10819",
+      "title": "血中毒物濃度測定 Toxicologic Exam",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 4,
+        "subsection": 4
+      },
+      "row_range": "370-387"
+    },
+    "subsection-2-2-1-17-1": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "23001-23004",
+      "title": "屈光檢查 Refraction Ex.",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 17,
+        "subsection": 1
+      },
+      "row_range": "993-997"
+    },
+    "subsection-2-2-1-17-2": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "23101-23104",
+      "title": "視網膜檢查 Retina Ex.",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 17,
+        "subsection": 2
+      },
+      "row_range": "998-1002"
+    },
+    "subsection-2-2-1-17-3": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "23201-23208",
+      "title": "斜視檢查 Strabismus Ex.",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 17,
+        "subsection": 3
+      },
+      "row_range": "1003-1011"
+    },
+    "subsection-2-2-1-17-4": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "23301-23308",
+      "title": "青光眼檢查 Glaucoma Ex.",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 17,
+        "subsection": 4
+      },
+      "row_range": "1012-1020"
+    },
+    "subsection-2-2-1-17-5": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "23401-23405",
+      "title": "細隙燈檢查 Slit Lamp Ex.",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 17,
+        "subsection": 5
+      },
+      "row_range": "1021-1026"
+    },
+    "subsection-2-2-1-17-6": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "23501-23506",
+      "title": "眼底檢查 Fundus Ex.",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 17,
+        "subsection": 6
+      },
+      "row_range": "1027-1033"
+    },
+    "subsection-2-2-1-17-7": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "23601-23610",
+      "title": "視神經檢查 Optic Nerve Ex.",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 17,
+        "subsection": 7
+      },
+      "row_range": "1034-1042"
+    },
+    "subsection-2-2-1-17-8": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "23701-23707",
+      "title": "網膜電氣圖 Electroretinogram",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 17,
+        "subsection": 8
+      },
+      "row_range": "1043-1050"
+    },
+    "subsection-2-2-1-17-9": {
+      "doc_id": "2-2-1第二部第二章第一節檢查-114.09.01",
+      "tables": [
+        "2-2-1第二部第二章第一節檢查-114.09.01-section-sec_8-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "23801-23813",
+      "title": "其他 Others",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 1,
+        "item": 17,
+        "subsection": 9
+      },
+      "row_range": "1051-1059"
+    },
+    "subsection-2-2-6-1": {
+      "doc_id": "2-2-6第二部第二章第六節治療處置-114.09.01",
+      "tables": [
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "47001-57126",
+      "title": "第一項 處置費 Treatment",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 6,
+        "item": 1
+      }
+    },
+    "subsection-2-2-6-1-1": {
+      "doc_id": "2-2-6第二部第二章第六節治療處置-114.09.01",
+      "tables": [
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-0"
+      ],
+      "table_count": 1,
+      "code_range": "47001-47108",
+      "title": "一、一般處置 General Treatment",
+      "hierarchy": {
+        "level": 5,
+        "part": 2,
+        "chapter": 2,
+        "section": 6,
+        "item": 1,
+        "subsection": 1
+      }
+    },
+    "subsection-2-2-6-1-2": {
+      "doc_id": "2-2-6第二部第二章第六節治療處置-114.09.01",
+      "tables": [
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-1"
+      ],
+      "table_count": 1,
+      "code_range": "48001-48035",
+      "title": "二、創傷處置 Wound Treatment",
+      "hierarchy": {
+        "level": 5,
+        "part": 2,
+        "chapter": 2,
+        "section": 6,
+        "item": 1,
+        "subsection": 2
+      }
+    },
+    "subsection-2-2-6-1-3": {
+      "doc_id": "2-2-6第二部第二章第六節治療處置-114.09.01",
+      "tables": [
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-2"
+      ],
+      "table_count": 1,
+      "code_range": "49001-49033",
+      "title": "三、大腸肛門處置 Colon and Anus Treatment",
+      "hierarchy": {
+        "level": 5,
+        "part": 2,
+        "chapter": 2,
+        "section": 6,
+        "item": 1,
+        "subsection": 3
+      }
+    },
+    "subsection-2-2-6-1-4": {
+      "doc_id": "2-2-6第二部第二章第六節治療處置-114.09.01",
+      "tables": [
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-3"
+      ],
+      "table_count": 1,
+      "code_range": "50001-50036",
+      "title": "四、泌尿系統處置 Urinary Treatment",
+      "hierarchy": {
+        "level": 5,
+        "part": 2,
+        "chapter": 2,
+        "section": 6,
+        "item": 1,
+        "subsection": 4
+      }
+    },
+    "subsection-2-2-6-1-5": {
+      "doc_id": "2-2-6第二部第二章第六節治療處置-114.09.01",
+      "tables": [
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-4"
+      ],
+      "table_count": 1,
+      "code_range": "51001-51033",
+      "title": "五、皮膚處置 Dermatology Treatment",
+      "hierarchy": {
+        "level": 5,
+        "part": 2,
+        "chapter": 2,
+        "section": 6,
+        "item": 1,
+        "subsection": 5
+      }
+    },
+    "subsection-2-2-6-1-6": {
+      "doc_id": "2-2-6第二部第二章第六節治療處置-114.09.01",
+      "tables": [
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-5"
+      ],
+      "table_count": 1,
+      "code_range": "52001-52015",
+      "title": "六、骨骼處置 Orthopedic Treatment",
+      "hierarchy": {
+        "level": 5,
+        "part": 2,
+        "chapter": 2,
+        "section": 6,
+        "item": 1,
+        "subsection": 6
+      }
+    },
+    "subsection-2-2-6-1-7": {
+      "doc_id": "2-2-6第二部第二章第六節治療處置-114.09.01",
+      "tables": [
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-6"
+      ],
+      "table_count": 1,
+      "code_range": "53001-53034",
+      "title": "七、眼科處置 Ocular Treatment",
+      "hierarchy": {
+        "level": 5,
+        "part": 2,
+        "chapter": 2,
+        "section": 6,
+        "item": 1,
+        "subsection": 7
+      }
+    },
+    "subsection-2-2-6-1-8": {
+      "doc_id": "2-2-6第二部第二章第六節治療處置-114.09.01",
+      "tables": [
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-7"
+      ],
+      "table_count": 1,
+      "code_range": "54001-54045",
+      "title": "八、耳鼻喉處置 E.N.T. Treatment",
+      "hierarchy": {
+        "level": 5,
+        "part": 2,
+        "chapter": 2,
+        "section": 6,
+        "item": 1,
+        "subsection": 8
+      }
+    },
+    "subsection-2-2-6-1-9": {
+      "doc_id": "2-2-6第二部第二章第六節治療處置-114.09.01",
+      "tables": [
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-8"
+      ],
+      "table_count": 1,
+      "code_range": "55001-55027",
+      "title": "九、婦科處置 GYN & OBS Treatment",
+      "hierarchy": {
+        "level": 5,
+        "part": 2,
+        "chapter": 2,
+        "section": 6,
+        "item": 1,
+        "subsection": 9
+      }
+    },
+    "subsection-2-2-6-1-10": {
+      "doc_id": "2-2-6第二部第二章第六節治療處置-114.09.01",
+      "tables": [
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-9"
+      ],
+      "table_count": 1,
+      "code_range": "56001-56043",
+      "title": "十、外科處置 General Surgery Treatment",
+      "hierarchy": {
+        "level": 5,
+        "part": 2,
+        "chapter": 2,
+        "section": 6,
+        "item": 1,
+        "subsection": 10
+      }
+    },
+    "subsection-2-2-6-1-11": {
+      "doc_id": "2-2-6第二部第二章第六節治療處置-114.09.01",
+      "tables": [
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-10"
+      ],
+      "table_count": 1,
+      "code_range": "57001-57034",
+      "title": "十一、呼吸治療處置 Respiratory Therapy",
+      "hierarchy": {
+        "level": 5,
+        "part": 2,
+        "chapter": 2,
+        "section": 6,
+        "item": 1,
+        "subsection": 11
+      }
+    },
+    "subsection-2-2-6-1-12": {
+      "doc_id": "2-2-6第二部第二章第六節治療處置-114.09.01",
+      "tables": [
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-11"
+      ],
+      "table_count": 1,
+      "code_range": "57101-57126",
+      "title": "十二、嬰幼兒處置 Infant and Child Treatment",
+      "hierarchy": {
+        "level": 5,
+        "part": 2,
+        "chapter": 2,
+        "section": 6,
+        "item": 1,
+        "subsection": 12
+      }
+    },
+    "subsection-2-2-6-2": {
+      "doc_id": "2-2-6第二部第二章第六節治療處置-114.09.01",
+      "tables": [
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-12"
+      ],
+      "table_count": 1,
+      "code_range": "58001-58031",
+      "title": "第二項 透析治療 Dialysis Therapy",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 6,
+        "item": 2
+      }
+    },
+    "subsection-2-2-6-3": {
+      "doc_id": "2-2-6第二部第二章第六節治療處置-114.09.01",
+      "tables": [
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-13"
+      ],
+      "table_count": 1,
+      "code_range": "59002-59016",
+      "title": "第三項 高壓氧治療 Hyperbaric Oxygen Therapy",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 6,
+        "item": 3
+      }
+    },
+    "subsection-2-2-6-4": {
+      "doc_id": "2-2-6第二部第二章第六節治療處置-114.09.01",
+      "tables": [
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-14"
+      ],
+      "table_count": 1,
+      "code_range": "60001-60016",
+      "title": "第四項 眼科雷射治療 Ocular Laser Therapy",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 6,
+        "item": 4
+      }
+    },
+    "subsection-2-2-6-5": {
+      "doc_id": "2-2-6第二部第二章第六節治療處置-114.09.01",
+      "tables": [
+        "2-2-6第二部第二章第六節治療處置-114.09.01-section-sec_46-table-15"
+      ],
+      "table_count": 1,
+      "code_range": "61001-61020",
+      "title": "第五項 骨骼外固定器使用 Application of External Fixation Apparatus",
+      "hierarchy": {
+        "level": 4,
+        "part": 2,
+        "chapter": 2,
+        "section": 6,
+        "item": 5
+      }
+    },
+    "chapter-3-0": {
+      "title": "第一章 掛號及診療費",
+      "tables": [
+        "doc-table-3第三部牙醫-114.05.01-s0-t0",
+        "doc-table-3第三部牙醫-114.05.01-s0-t1"
+      ],
+      "table_count": 2,
+      "hierarchy": {
+        "level": 2,
+        "part": 3,
+        "chapter": 0
+      },
+      "doc_id": "3第三部牙醫-114.05.01",
+      "code_range": "00121-00318"
+    },
+    "section-3-0-1": {
+      "title": "第一節 牙科門診診察費",
+      "tables": [
+        "doc-table-3第三部牙醫-114.05.01-s0-t0"
+      ],
+      "table_count": 1,
+      "code_range": "00121-01273",
+      "hierarchy": {
+        "level": 3,
+        "part": 3,
+        "chapter": 0,
+        "section": 1
+      },
+      "doc_id": "3第三部牙醫-114.05.01",
+      "row_range": "2-18"
+    },
+    "section-3-0-2": {
+      "title": "第二節 感染管制加強實施",
+      "tables": [
+        "doc-table-3第三部牙醫-114.05.01-s0-t1"
+      ],
+      "table_count": 1,
+      "code_range": "00305-00318",
+      "hierarchy": {
+        "level": 3,
+        "part": 3,
+        "chapter": 0,
+        "section": 2
+      },
+      "doc_id": "3第三部牙醫-114.05.01",
+      "row_range": "2-20"
+    },
+    "chapter-3-1": {
+      "title": "第二章 基本診療",
+      "tables": [
+        "doc-table-3第三部牙醫-114.05.01-s0-t2",
+        "doc-table-3第三部牙醫-114.05.01-s0-t3"
+      ],
+      "table_count": 2,
+      "hierarchy": {
+        "level": 2,
+        "part": 3,
+        "chapter": 1
+      },
+      "doc_id": "3第三部牙醫-114.05.01",
+      "code_range": "34001-89115"
+    },
+    "section-3-1-1": {
+      "title": "第一節 齲齒治療",
+      "tables": [
+        "doc-table-3第三部牙醫-114.05.01-s0-t3"
+      ],
+      "table_count": 1,
+      "code_range": "89001-89115",
+      "hierarchy": {
+        "level": 3,
+        "part": 3,
+        "chapter": 1,
+        "section": 1
+      },
+      "doc_id": "3第三部牙醫-114.05.01",
+      "row_range": "1-39"
+    },
+    "section-3-1-2": {
+      "title": "第二節 影像檢查",
+      "tables": [
+        "doc-table-3第三部牙醫-114.05.01-s0-t2"
+      ],
+      "table_count": 1,
+      "code_range": "34001-34006",
+      "hierarchy": {
+        "level": 3,
+        "part": 3,
+        "chapter": 1,
+        "section": 2
+      },
+      "doc_id": "3第三部牙醫-114.05.01",
+      "row_range": "0-5"
+    },
+    "chapter-3-2": {
+      "title": "第三章 根管及牙周治療",
+      "tables": [
+        "doc-table-3第三部牙醫-114.05.01-s0-t4",
+        "doc-table-3第三部牙醫-114.05.01-s0-t5",
+        "doc-table-3第三部牙醫-114.05.01-s0-t11"
+      ],
+      "table_count": 3,
+      "hierarchy": {
+        "level": 2,
+        "part": 3,
+        "chapter": 2
+      },
+      "doc_id": "3第三部牙醫-114.05.01",
+      "code_range": "90001-91114"
+    },
+    "section-3-2-1": {
+      "title": "第一節 根管治療",
+      "tables": [
+        "doc-table-3第三部牙醫-114.05.01-s0-t4"
+      ],
+      "table_count": 1,
+      "code_range": "90001-90112",
+      "hierarchy": {
+        "level": 3,
+        "part": 3,
+        "chapter": 2,
+        "section": 1
+      },
+      "doc_id": "3第三部牙醫-114.05.01",
+      "row_range": "0-33"
+    },
+    "section-3-2-2": {
+      "title": "第二節 牙周治療",
+      "tables": [
+        "doc-table-3第三部牙醫-114.05.01-s0-t5",
+        "doc-table-3第三部牙醫-114.05.01-s0-t11"
+      ],
+      "table_count": 2,
+      "code_range": "91001-91114",
+      "hierarchy": {
+        "level": 3,
+        "part": 3,
+        "chapter": 2,
+        "section": 2
+      },
+      "doc_id": "3第三部牙醫-114.05.01",
+      "row_range": "0-36"
+    },
+    "chapter-3-3": {
+      "title": "第四章 牙科手術",
+      "tables": [
+        "doc-table-3第三部牙醫-114.05.01-s0-t6",
+        "doc-table-3第三部牙醫-114.05.01-s0-t7",
+        "doc-table-3第三部牙醫-114.05.01-s0-t8"
+      ],
+      "table_count": 3,
+      "hierarchy": {
+        "level": 2,
+        "part": 3,
+        "chapter": 3
+      },
+      "doc_id": "3第三部牙醫-114.05.01",
+      "code_range": "92001-92230"
+    },
+    "section-3-3-1": {
+      "title": "第一節 簡單手術",
+      "tables": [
+        "doc-table-3第三部牙醫-114.05.01-s0-t6",
+        "doc-table-3第三部牙醫-114.05.01-s0-t7"
+      ],
+      "table_count": 2,
+      "code_range": "92001-92161",
+      "hierarchy": {
+        "level": 3,
+        "part": 3,
+        "chapter": 3,
+        "section": 1
+      },
+      "doc_id": "3第三部牙醫-114.05.01",
+      "row_range": "0-86"
+    },
+    "section-3-3-2": {
+      "title": "第二節 複雜手術",
+      "tables": [
+        "doc-table-3第三部牙醫-114.05.01-s0-t8"
+      ],
+      "table_count": 1,
+      "code_range": "92201-92230",
+      "hierarchy": {
+        "level": 3,
+        "part": 3,
+        "chapter": 3,
+        "section": 2
+      },
+      "doc_id": "3第三部牙醫-114.05.01",
+      "row_range": "0-28"
+    },
+    "section-3-misc": {
+      "title": "其他項目",
+      "tables": [
+        "doc-table-3第三部牙醫-114.05.01-s0-t10"
+      ],
+      "table_count": 1,
+      "code_range": "96001-96001",
+      "hierarchy": {
+        "level": 2,
+        "part": 3,
+        "chapter": 99
+      },
+      "doc_id": "3第三部牙醫-114.05.01",
+      "row_range": "0-0"
+    },
+    "chapter-5-0": {
+      "title": "第一章 基本計價與護理項目",
+      "doc_id": "5第五部居家照護-113.09.01",
+      "tables": [],
+      "table_count": 0,
+      "hierarchy": {
+        "level": 2,
+        "part": 5,
+        "chapter": 0
+      }
+    },
+    "section-5-0-1": {
+      "title": "計價規則",
+      "doc_id": "5第五部居家照護-113.09.01",
+      "tables": [
+        "doc-table-5第五部居家照護-113.09.01-s0-t0"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-66",
+      "hierarchy": {
+        "level": 3,
+        "part": 5,
+        "chapter": 0,
+        "section": 1
+      }
+    },
+    "section-5-0-2": {
+      "title": "護理項目",
+      "doc_id": "5第五部居家照護-113.09.01",
+      "tables": [
+        "doc-table-5第五部居家照護-113.09.01-s0-t1",
+        "doc-table-5第五部居家照護-113.09.01-s0-t2"
+      ],
+      "table_count": 2,
+      "code_range": null,
+      "row_range": "0-20",
+      "hierarchy": {
+        "level": 3,
+        "part": 5,
+        "chapter": 0,
+        "section": 2
+      }
+    },
+    "chapter-5-1": {
+      "title": "第二章 檢查與診療項目",
+      "doc_id": "5第五部居家照護-113.09.01",
+      "tables": [],
+      "table_count": 0,
+      "hierarchy": {
+        "level": 2,
+        "part": 5,
+        "chapter": 1
+      }
+    },
+    "section-5-1-1": {
+      "title": "檢查項目",
+      "doc_id": "5第五部居家照護-113.09.01",
+      "tables": [
+        "doc-table-5第五部居家照護-113.09.01-s0-t3"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-4",
+      "hierarchy": {
+        "level": 3,
+        "part": 5,
+        "chapter": 1,
+        "section": 1
+      }
+    },
+    "section-5-1-2": {
+      "title": "針灸與其他診療",
+      "doc_id": "5第五部居家照護-113.09.01",
+      "tables": [
+        "doc-table-5第五部居家照護-113.09.01-s0-t4",
+        "doc-table-5第五部居家照護-113.09.01-s0-t5"
+      ],
+      "table_count": 2,
+      "code_range": null,
+      "row_range": "0-24",
+      "hierarchy": {
+        "level": 3,
+        "part": 5,
+        "chapter": 1,
+        "section": 2
+      }
+    },
+    "chapter-5-2": {
+      "title": "第三章 特殊醫療項目",
+      "doc_id": "5第五部居家照護-113.09.01",
+      "tables": [],
+      "table_count": 0,
+      "hierarchy": {
+        "level": 2,
+        "part": 5,
+        "chapter": 2
+      }
+    },
+    "section-5-2-1": {
+      "title": "精神復健",
+      "doc_id": "5第五部居家照護-113.09.01",
+      "tables": [
+        "doc-table-5第五部居家照護-113.09.01-s0-t6"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-2",
+      "hierarchy": {
+        "level": 3,
+        "part": 5,
+        "chapter": 2,
+        "section": 1
+      }
+    },
+    "section-5-2-2": {
+      "title": "精神衛生用藥",
+      "doc_id": "5第五部居家照護-113.09.01",
+      "tables": [
+        "doc-table-5第五部居家照護-113.09.01-s0-t7"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-51",
+      "hierarchy": {
+        "level": 3,
+        "part": 5,
+        "chapter": 2,
+        "section": 2
+      }
+    },
+    "section-5-2-3": {
+      "title": "安寧緩和療護",
+      "doc_id": "5第五部居家照護-113.09.01",
+      "tables": [
+        "doc-table-5第五部居家照護-113.09.01-s0-t8"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-10",
+      "hierarchy": {
+        "level": 3,
+        "part": 5,
+        "chapter": 2,
+        "section": 3
+      }
+    },
+    "chapter-4-0": {
+      "title": "第一章 門診診察費",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t0"
+      ],
+      "table_count": 1,
+      "hierarchy": {
+        "level": 2,
+        "part": 4,
+        "chapter": 0
+      }
+    },
+    "section-4-0-1": {
+      "title": "一般門診診察費",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t0"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-53",
+      "hierarchy": {
+        "level": 3,
+        "part": 4,
+        "chapter": 0,
+        "section": 1
+      }
+    },
+    "chapter-4-1": {
+      "title": "第二章 藥費",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t1"
+      ],
+      "table_count": 1,
+      "hierarchy": {
+        "level": 2,
+        "part": 4,
+        "chapter": 1
+      }
+    },
+    "section-4-1-1": {
+      "title": "每日藥費",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t1"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-0",
+      "hierarchy": {
+        "level": 3,
+        "part": 4,
+        "chapter": 1,
+        "section": 1
+      }
+    },
+    "chapter-4-2": {
+      "title": "第三章 藥品調劑費",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t2"
+      ],
+      "table_count": 1,
+      "hierarchy": {
+        "level": 2,
+        "part": 4,
+        "chapter": 2
+      }
+    },
+    "section-4-2-1": {
+      "title": "藥品調劑費",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t2"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-3",
+      "hierarchy": {
+        "level": 3,
+        "part": 4,
+        "chapter": 2,
+        "section": 1
+      }
+    },
+    "chapter-4-3": {
+      "title": "第四章 針灸治療處置費",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t3"
+      ],
+      "table_count": 1,
+      "hierarchy": {
+        "level": 2,
+        "part": 4,
+        "chapter": 3
+      }
+    },
+    "section-4-3-1": {
+      "title": "一般針灸",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t3"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-15",
+      "hierarchy": {
+        "level": 3,
+        "part": 4,
+        "chapter": 3,
+        "section": 1
+      }
+    },
+    "chapter-4-4": {
+      "title": "第五章 傷科治療處置費",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t4"
+      ],
+      "table_count": 1,
+      "hierarchy": {
+        "level": 2,
+        "part": 4,
+        "chapter": 4
+      }
+    },
+    "section-4-4-1": {
+      "title": "一般傷科",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t4"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-27",
+      "hierarchy": {
+        "level": 3,
+        "part": 4,
+        "chapter": 4,
+        "section": 1
+      }
+    },
+    "chapter-4-5": {
+      "title": "第六章 針灸合併傷科治療處置費",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t5"
+      ],
+      "table_count": 1,
+      "hierarchy": {
+        "level": 2,
+        "part": 4,
+        "chapter": 5
+      }
+    },
+    "section-4-5-1": {
+      "title": "針灸合併傷科",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t5"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-124",
+      "hierarchy": {
+        "level": 3,
+        "part": 4,
+        "chapter": 5,
+        "section": 1
+      }
+    },
+    "chapter-4-6": {
+      "title": "第七章 其他",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t6",
+        "doc-table-4第四部中醫-114.05.01-s0-t7"
+      ],
+      "table_count": 2,
+      "hierarchy": {
+        "level": 2,
+        "part": 4,
+        "chapter": 6
+      }
+    },
+    "section-4-6-1": {
+      "title": "特殊檢查",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t6"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-2",
+      "hierarchy": {
+        "level": 3,
+        "part": 4,
+        "chapter": 6,
+        "section": 1
+      }
+    },
+    "section-4-6-2": {
+      "title": "特定疾病門診加強照護",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t7"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-8",
+      "hierarchy": {
+        "level": 3,
+        "part": 4,
+        "chapter": 6,
+        "section": 2
+      }
+    },
+    "chapter-4-7": {
+      "title": "第八章 特定疾病代碼",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t8",
+        "doc-table-4第四部中醫-114.05.01-s0-t9",
+        "doc-table-4第四部中醫-114.05.01-s0-t10",
+        "doc-table-4第四部中醫-114.05.01-s0-t11",
+        "doc-table-4第四部中醫-114.05.01-s0-t12",
+        "doc-table-4第四部中醫-114.05.01-s0-t13",
+        "doc-table-4第四部中醫-114.05.01-s0-t14",
+        "doc-table-4第四部中醫-114.05.01-s0-t15",
+        "doc-table-4第四部中醫-114.05.01-s0-t16",
+        "doc-table-4第四部中醫-114.05.01-s0-t17"
+      ],
+      "table_count": 10,
+      "hierarchy": {
+        "level": 2,
+        "part": 4,
+        "chapter": 7
+      }
+    },
+    "section-4-7-1": {
+      "title": "疾病代碼條件 (G43-G50)",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t8"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-22",
+      "hierarchy": {
+        "level": 3,
+        "part": 4,
+        "chapter": 7,
+        "section": 1
+      }
+    },
+    "section-4-7-2": {
+      "title": "疾病代碼條件 (A15-B01)",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t9"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-69",
+      "hierarchy": {
+        "level": 3,
+        "part": 4,
+        "chapter": 7,
+        "section": 2
+      }
+    },
+    "section-4-7-3": {
+      "title": "疾病代碼條件 (A80-C96)",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t10"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-82",
+      "hierarchy": {
+        "level": 3,
+        "part": 4,
+        "chapter": 7,
+        "section": 3
+      }
+    },
+    "section-4-7-4": {
+      "title": "疾病代碼條件 (G45-G54)",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t11"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-66",
+      "hierarchy": {
+        "level": 3,
+        "part": 4,
+        "chapter": 7,
+        "section": 4
+      }
+    },
+    "section-4-7-5": {
+      "title": "疾病代碼條件 (M02-M35)",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t12"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-282",
+      "hierarchy": {
+        "level": 3,
+        "part": 4,
+        "chapter": 7,
+        "section": 5
+      }
+    },
+    "section-4-7-6": {
+      "title": "傷害代碼條件 (S03-S03.1)",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t13"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-23",
+      "hierarchy": {
+        "level": 3,
+        "part": 4,
+        "chapter": 7,
+        "section": 6
+      }
+    },
+    "section-4-7-7": {
+      "title": "傷害代碼條件 (S02-S12)",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t14"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-20",
+      "hierarchy": {
+        "level": 3,
+        "part": 4,
+        "chapter": 7,
+        "section": 7
+      }
+    },
+    "section-4-7-8": {
+      "title": "心血管循環系統疾病",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t15"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-24",
+      "hierarchy": {
+        "level": 3,
+        "part": 4,
+        "chapter": 7,
+        "section": 8
+      }
+    },
+    "section-4-7-9": {
+      "title": "腦血管疾病",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t16"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-6",
+      "hierarchy": {
+        "level": 3,
+        "part": 4,
+        "chapter": 7,
+        "section": 9
+      }
+    },
+    "section-4-7-10": {
+      "title": "控制標準",
+      "doc_id": "4第四部中醫-114.05.01",
+      "tables": [
+        "doc-table-4第四部中醫-114.05.01-s0-t17"
+      ],
+      "table_count": 1,
+      "code_range": null,
+      "row_range": "0-2",
+      "hierarchy": {
+        "level": 3,
+        "part": 4,
+        "chapter": 7,
+        "section": 10
+      }
+    }
+  }
+}

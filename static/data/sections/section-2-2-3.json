@@ -1,0 +1,30 @@
+{
+  "children": [
+    {
+      "id": "section-2-2-3-sub-0",
+      "type": "subsection",
+      "label": "一、本節各診療項目所定點數包括各該項目之",
+      "level": 4,
+      "parent_id": "section-2-2-3",
+      "has_children": false,
+      "content": "一、本節各診療項目所定點數包括各該項目之注射技術費及注射所用棉球、膠帶、 敷料等材料與器材之折舊費用。",
+      "metadata": {
+        "parent_section": "section-2-2-3",
+        "index": 0
+      }
+    },
+    {
+      "id": "section-2-2-3-sub-1",
+      "type": "subsection",
+      "label": "二、對於被保險人施行之簡單注射，如皮下肌",
+      "level": 4,
+      "parent_id": "section-2-2-3",
+      "has_children": false,
+      "content": "二、對於被保險人施行之簡單注射，如皮下肌肉，小量靜脈注射及 IV Push等，其注射技術費包括於門診診察費及住院病房費(含護理費)內，不另給付，但使用之塑膠空針等特殊材料另計。",
+      "metadata": {
+        "parent_section": "section-2-2-3",
+        "index": 1
+      }
+    }
+  ]
+}

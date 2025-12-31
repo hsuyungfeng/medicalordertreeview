@@ -1,0 +1,24 @@
+{
+  "total_items": 2669,
+  "chunks": [
+    {
+      "id": "chunk-0",
+      "range": "0-999",
+      "count": 1000,
+      "file": "data/csv-items/chunk-0.json"
+    },
+    {
+      "id": "chunk-1",
+      "range": "1000-1999",
+      "count": 1000,
+      "file": "data/csv-items/chunk-1.json"
+    },
+    {
+      "id": "chunk-2",
+      "range": "2000-2668",
+      "count": 669,
+      "file": "data/csv-items/chunk-2.json"
+    }
+  ],
+  "generated_at": "2025-12-19T11:02:43.513817"
+}

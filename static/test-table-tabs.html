@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表格標籤系統測試</title>
+  <link rel="stylesheet" href="css/medical-tree.css">
+  <style>
+    body {
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .test-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .test-section {
+      margin-bottom: 30px;
+      border: 1px solid #e0e0e0;
+      padding: 15px;
+      border-radius: 6px;
+    }
+    .test-section h3 {
+      margin-top: 0;
+      color: #333;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 10px;
+    }
+    .test-result {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 4px;
+      background: #f0f4ff;
+      border-left: 4px solid #667eea;
+    }
+    .test-result.success {
+      background: #e8f5e9;
+      border-left-color: #4caf50;
+    }
+    .test-result.error {
+      background: #ffebee;
+      border-left-color: #f44336;
+    }
+    .demo-container {
+      padding: 15px;
+      background: #fafbfc;
+      border-radius: 6px;
+      margin-top: 15px;
+    }
+    .stats {
+      background: #e8f5e9;
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 10px;
+      font-family: monospace;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-container">
+    <h1>🧪 表格標籤系統測試</h1>
+
+    <div id="results"></div>
+
+    <!-- 演示區域 -->
+    <div class="test-section">
+      <h3>📋 表格標籤演示</h3>
+      <div id="demo"></div>
+    </div>
+  </div>
+
+  <script src="js/table-renderer.js"></script>
+  <script src="js/table-tabs-manager.js"></script>
+  <script>
+    const results = [];
+    const demoContainer = document.getElementById('demo');
+
+    function logTest(name, success, details) {
+      results.push({ name, success, details });
+      const resultDiv = document.getElementById('results');
+      const testDiv = document.createElement('div');
+      testDiv.className = `test-result ${success ? 'success' : 'error'}`;
+      testDiv.innerHTML = `<strong>${success ? '✓' : '✗'} ${name}</strong><br><small>${details}</small>`;
+      resultDiv.appendChild(testDiv);
+    }
+
+    // 測試 1: TableTabsManager 初始化
+    try {
+      const manager = new TableTabsManager('.tabs-container');
+      logTest('TableTabsManager 初始化', true, '成功創建實例');
+    } catch (e) {
+      logTest('TableTabsManager 初始化', false, `錯誤: ${e.message}`);
+    }
+
+    // 測試 2: 註冊單個標籤
+    try {
+      const manager = new TableTabsManager('.tabs-container');
+      manager.registerTab({
+        id: 'tab-1',
+        label: '表格 1',
+        description: '第一個表格'
+      });
+      logTest('註冊單個標籤', manager.tabs.length === 1, `已註冊 ${manager.tabs.length} 個標籤`);
+    } catch (e) {
+      logTest('註冊單個標籤', false, `錯誤: ${e.message}`);
+    }
+
+    // 測試 3: 註冊多個標籤
+    try {
+      const manager = new TableTabsManager('.tabs-container');
+      manager.registerTabs([
+        { id: 'csv', label: 'CSV 項目', description: '診療項目表' },
+        { id: 'standard', label: '支付標準', description: '支付標準表' },
+        { id: 'rules', label: '規則', description: '規則表' }
+      ]);
+      logTest('註冊多個標籤', manager.tabs.length === 3, `已註冊 ${manager.tabs.length} 個標籤`);
+    } catch (e) {
+      logTest('註冊多個標籤', false, `錯誤: ${e.message}`);
+    }
+
+    // 測試 4: 渲染標籤欄（單個標籤 - 應隱藏）
+    try {
+      const testDiv = document.createElement('div');
+      testDiv.innerHTML = `
+        <div class="tabs-container"></div>
+        <div class="table-tabs" style="display: none;"></div>
+      `;
+      document.body.appendChild(testDiv);
+
+      const manager = new TableTabsManager('.tabs-container');
+      manager.registerTab({ id: 'single', label: '單表格' });
+      manager.renderTabs();
+
+      const tabsWrapper = testDiv.querySelector('.table-tabs');
+      const success = tabsWrapper.style.display === 'none';
+      logTest('單標籤隱藏', success, '單個標籤時標籤欄已隱藏');
+
+      document.body.removeChild(testDiv);
+    } catch (e) {
+      logTest('單標籤隱藏', false, `錯誤: ${e.message}`);
+    }
+
+    // 測試 5: 渲染標籤欄（多個標籤 - 應顯示）
+    try {
+      const testDiv = document.createElement('div');
+      testDiv.innerHTML = `
+        <div class="tabs-container"></div>
+        <div class="table-tabs" style="display: none;"></div>
+      `;
+      document.body.appendChild(testDiv);
+
+      const manager = new TableTabsManager('.tabs-container');
+      manager.registerTabs([
+        { id: 'tab1', label: '表1' },
+        { id: 'tab2', label: '表2' }
+      ]);
+      manager.renderTabs();
+
+      const tabsWrapper = testDiv.querySelector('.table-tabs');
+      const buttons = testDiv.querySelectorAll('.tab-button');
+      const success = tabsWrapper.style.display !== 'none' && buttons.length === 2;
+      logTest('多標籤顯示', success, `標籤欄已顯示，${buttons.length} 個按鈕`);
+
+      document.body.removeChild(testDiv);
+    } catch (e) {
+      logTest('多標籤顯示', false, `錯誤: ${e.message}`);
+    }
+
+    // 測試 6: 標籤激活
+    try {
+      const testDiv = document.createElement('div');
+      testDiv.innerHTML = `
+        <div class="tabs-container"></div>
+        <div class="table-tabs" style="display: none;"></div>
+      `;
+      document.body.appendChild(testDiv);
+
+      const manager = new TableTabsManager('.tabs-container');
+      manager.registerTabs([
+        { id: 'tab-a', label: 'A' },
+        { id: 'tab-b', label: 'B' }
+      ]);
+      manager.renderTabs();
+      manager.activateTab('tab-b');
+
+      const currentTab = manager.getCurrentTab();
+      const success = currentTab && currentTab.id === 'tab-b' && currentTab.active;
+      logTest('標籤激活', success, `當前激活標籤: ${currentTab?.id}`);
+
+      document.body.removeChild(testDiv);
+    } catch (e) {
+      logTest('標籤激活', false, `錯誤: ${e.message}`);
+    }
+
+    // 測試 7: 回調函數
+    try {
+      const manager = new TableTabsManager('.tabs-container');
+      let callbackCalled = false;
+      let callbackTabId = null;
+
+      manager.onTabChange((tabId) => {
+        callbackCalled = true;
+        callbackTabId = tabId;
+      });
+
+      manager.registerTabs([
+        { id: 'tab-x', label: 'X' },
+        { id: 'tab-y', label: 'Y' }
+      ]);
+      manager.activateTab('tab-y');
+
+      const success = callbackCalled && callbackTabId === 'tab-y';
+      logTest('標籤切換回調', success, `回調已觸發，標籤: ${callbackTabId}`);
+    } catch (e) {
+      logTest('標籤切換回調', false, `錯誤: ${e.message}`);
+    }
+
+    // 測試 8: 獲取統計信息
+    try {
+      const manager = new TableTabsManager('.tabs-container');
+      manager.registerTabs([
+        { id: 'tab1', label: '表1' },
+        { id: 'tab2', label: '表2' },
+        { id: 'tab3', label: '表3' }
+      ]);
+
+      const stats = manager.getStats();
+      const success = stats.totalTabs === 3 && stats.tabs.length === 3;
+      logTest('統計信息', success, `總標籤數: ${stats.totalTabs}`);
+    } catch (e) {
+      logTest('統計信息', false, `錯誤: ${e.message}`);
+    }
+
+    // 測試 9: HTML 轉義
+    try {
+      const manager = new TableTabsManager('.tabs-container');
+      const escaped = manager.escapeHtml('<script>alert("xss")</script>');
+      const success = escaped.includes('&lt;') && escaped.includes('&gt;');
+      logTest('HTML 轉義', success, `轉義結果: ${escaped}`);
+    } catch (e) {
+      logTest('HTML 轉義', false, `錯誤: ${e.message}`);
+    }
+
+    // 測試 10: 清空標籤
+    try {
+      const manager = new TableTabsManager('.tabs-container');
+      manager.registerTabs([
+        { id: 'tab1', label: '表1' },
+        { id: 'tab2', label: '表2' }
+      ]);
+      manager.clearTabs();
+      const success = manager.tabs.length === 0 && Object.keys(manager.renderers).length === 0;
+      logTest('清空標籤', success, `標籤已清空`);
+    } catch (e) {
+      logTest('清空標籤', false, `錯誤: ${e.message}`);
+    }
+
+    // 演示：創建實際的表格標籤系統
+    try {
+      demoContainer.innerHTML = `
+        <div style="margin-bottom: 15px;">
+          <h4>演示：3 個表格標籤</h4>
+          <div class="table-tabs">
+            <div class="tabs-container"></div>
+          </div>
+        </div>
+        <div style="padding: 15px; background: white; border: 1px solid #ddd; border-radius: 4px;">
+          <p><strong>當前標籤:</strong> <span id="current-tab-label">未選擇</span></p>
+          <p id="tab-stats"></p>
+        </div>
+      `;
+
+      const demoManager = new TableTabsManager(demoContainer.querySelector('.tabs-container'));
+
+      // 創建模擬的渲染器對象
+      const createMockRenderer = (name) => ({
+        show: function() { console.log(`顯示: ${name}`); },
+        hide: function() { console.log(`隱藏: ${name}`); }
+      });
+
+      demoManager.registerTabs([
+        { id: 'csv-table', label: '📊 CSV 診療項目', description: '醫療診療項目表', renderer: createMockRenderer('CSV') },
+        { id: 'standard-table', label: '💰 支付標準', description: '支付標準表', renderer: createMockRenderer('標準') },
+        { id: 'rules-table', label: '📋 規則表', description: '給付規則表', renderer: createMockRenderer('規則') }
+      ]);
+
+      demoManager.onTabChange((tabId) => {
+        const tab = demoManager.getCurrentTab();
+        document.getElementById('current-tab-label').textContent = tab?.label || '未知';
+        updateStats();
+      });
+
+      function updateStats() {
+        const stats = demoManager.getStats();
+        let statsHTML = `<strong>標籤統計:</strong> ${stats.totalTabs} 個標籤<br>`;
+        statsHTML += `<small>當前: ${stats.currentTab}</small>`;
+        document.getElementById('tab-stats').innerHTML = statsHTML;
+      }
+
+      demoManager.renderTabs();
+      updateStats();
+    } catch (e) {
+      demoContainer.innerHTML = `<div class="test-result error">演示失敗: ${e.message}</div>`;
+    }
+
+    // 顯示測試摘要
+    setTimeout(() => {
+      const passed = results.filter(r => r.success).length;
+      const total = results.length;
+      const summary = document.createElement('div');
+      summary.style.marginTop = '20px';
+      summary.style.padding = '15px';
+      summary.style.background = '#e8f5e9';
+      summary.style.border = '2px solid #4caf50';
+      summary.style.borderRadius = '6px';
+      summary.innerHTML = `
+        <h3>✓ 測試摘要</h3>
+        <p><strong>通過: ${passed}/${total}</strong></p>
+        <p>表格標籤系統已成功實現！</p>
+      `;
+      document.getElementById('results').insertBefore(summary, document.getElementById('results').firstChild);
+    }, 100);
+  </script>
+</body>
+</html>

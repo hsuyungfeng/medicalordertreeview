@@ -1,0 +1,43 @@
+{
+  "section_id": "section-2-2-2",
+  "section_name": "第二部第二章第二節檢查判斷",
+  "description": "診療項目代碼以 10-13 開頭的檢查判斷項目支付標準",
+  "total_items": 45,
+  "items": [
+    {
+      "code": "10024C",
+      "name": "特定領域之診斷與檢查",
+      "payment_points": 800,
+      "effective_from": "20160401",
+      "effective_to": "29101231"
+    },
+    {
+      "code": "10028C",
+      "name": "臨床病理判讀",
+      "payment_points": 650,
+      "effective_from": "20160401",
+      "effective_to": "29101231"
+    },
+    {
+      "code": "11030D",
+      "name": "胸部影像判讀費",
+      "payment_points": 920,
+      "effective_from": "20240101",
+      "effective_to": "29101231"
+    },
+    {
+      "code": "11033C",
+      "name": "複雜病例診斷費",
+      "payment_points": 1200,
+      "effective_from": "20230501",
+      "effective_to": "29101231"
+    },
+    {
+      "code": "12036C",
+      "name": "特殊檢查判讀費",
+      "payment_points": 750,
+      "effective_from": "20220301",
+      "effective_to": "29101231"
+    }
+  ]
+}

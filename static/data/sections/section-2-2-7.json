@@ -1,0 +1,238 @@
+{
+  "children": [
+    {
+      "id": "section-2-2-7-sub-0",
+      "type": "subsection",
+      "label": "三、各項手術所需之「手術一般材料費」及「",
+      "level": 4,
+      "parent_id": "section-2-2-7",
+      "has_children": false,
+      "content": "三、各項手術所需之「手術一般材料費」及「過程面特殊材料費」，得依本節所定點數及表列加計比率計算；未表列者，其「手術一般材料費」，均依本節所定點數之百分之五十三計算之，包括：手術中使用之敷料，各類縫合線、刀片、外用消毒藥劑及生理鹽水、開刀巾、一般材料與器械折舊等費用在內。需用及特殊治療材料者，依全民健康保險藥物給付項目及支付標準相關規定申報。",
+      "metadata": {
+        "parent_section": "section-2-2-7",
+        "index": 0
+      }
+    },
+    {
+      "id": "section-2-2-7-sub-1",
+      "type": "subsection",
+      "label": "四、各項所定點數均包括表面麻醉、浸潤麻醉",
+      "level": 4,
+      "parent_id": "section-2-2-7",
+      "has_children": false,
+      "content": "四、各項所定點數均包括表面麻醉、浸潤麻醉或簡單之傳導麻醉等之費用。如使用特殊藥劑或特殊治療材料或其他麻醉時，得另加算申報。",
+      "metadata": {
+        "parent_section": "section-2-2-7",
+        "index": 1
+      }
+    },
+    {
+      "id": "section-2-2-7-sub-2",
+      "type": "subsection",
+      "label": "六、同一手術野或同一病巢內，同時做兩種以",
+      "level": 4,
+      "parent_id": "section-2-2-7",
+      "has_children": false,
+      "content": "六、同一手術野或同一病巢內，同時做兩種以上手術時，或依病情可同時手術，而未同時施行者，依下列規定辦理：\n(一)施行之多項同類手術或兩側性手術，第一項手術（支付點數較高者）按其所定點數申報，第二項手術及第三項手術均按其所定點數之一半計算;其餘不計。其餘附帶施行之手術則不另計算。\n(二)施行多項不同類手術時，第一項及第二項均依其所定支付點數計算；第三項依其所定支付點數之一半計算，其餘不計。\n(三)施行手術時，附加非治療必須之其他手術，不另給付。本條所稱同一手術野或同一病巢，係指在同一手術區內，有不同器官，因同一病灶影響，須同時手術者，同類手術，係指手術項目列在本支付標準表之手術章中同項內之各手術項屬之（如第二部第二章第七節第一項皮膚之各項手術 62001C-62072B，均依同類手術項目計費，其餘類推）。\n(四)多重創傷（ISS>=16）符合重大創傷之重大傷病資格者，進行胸、腹多項手術均依其所定支付點數計算。",
+      "metadata": {
+        "parent_section": "section-2-2-7",
+        "index": 2
+      }
+    },
+    {
+      "id": "section-2-2-7-sub-3",
+      "type": "subsection",
+      "label": "七、凡為達手術最終目的過程中之各項切開、",
+      "level": 4,
+      "parent_id": "section-2-2-7",
+      "has_children": false,
+      "content": "七、凡為達手術最終目的過程中之各項切開、剝離、摘除、吻合、切片、縫合、灌洗等，附帶之手術及處置，雖為本標準表所列項目亦不得視為副手術另報。",
+      "metadata": {
+        "parent_section": "section-2-2-7",
+        "index": 3
+      }
+    },
+    {
+      "id": "section-2-2-7-sub-4",
+      "type": "subsection",
+      "label": "八、因第一次手術所引起併發症之手術，依其",
+      "level": 4,
+      "parent_id": "section-2-2-7",
+      "has_children": false,
+      "content": "八、因第一次手術所引起併發症之手術，依其所定支付點數之一半計算之，並僅計算一項；但第一次手術在他院者不受限制。",
+      "metadata": {
+        "parent_section": "section-2-2-7",
+        "index": 4
+      }
+    },
+    {
+      "id": "section-2-2-7-sub-5",
+      "type": "subsection",
+      "label": "十一、急診病人因緊急傷病而必需立即手術者",
+      "level": 4,
+      "parent_id": "section-2-2-7",
+      "has_children": false,
+      "content": "十一、急診病人因緊急傷病而必需立即手術者，其「手術費」得按本節所定點數加算百分之三十，但「手術一般材料費」不得另按比例加算。",
+      "metadata": {
+        "parent_section": "section-2-2-7",
+        "index": 5
+      }
+    },
+    {
+      "id": "section-2-2-7-sub-6",
+      "type": "subsection",
+      "label": "十二、本節各項手術均為提升兒童加成項目，",
+      "level": 4,
+      "parent_id": "section-2-2-7",
+      "has_children": false,
+      "content": "十二、本節各項手術均為提升兒童加成項目，但「手術一般材料費 」不得另按比例加算。加成率如下：病人年齡未滿六個月者，依表定點數加計百分之百；年齡在六個月以上但未滿二歲者，依表定點數加計百分之八十；年齡在二歲以上至未滿七歲者，依表定點數加計百分之六十，若同時符合緊急傷病必須立即手術者，依加成率合計後一併加成。\n第一項 皮膚 Integumentary System (62001-62075，63017)\n註：本項編號63017與「第二項 乳房」為共同項目。\n第二項 乳房 Breast (63001-63017)\n註：本項編號63017與「第一項 皮膚」為共同項目。\n第三項 筋骨Musculoskeletal System (64001-64285)\n通則：骨折或關節脫位手術，不另支付徒手整復費用。\n第四項 呼吸器 Reapiratory System",
+      "metadata": {
+        "parent_section": "section-2-2-7",
+        "index": 6
+      }
+    },
+    {
+      "id": "section-2-2-7-sub-7",
+      "type": "subsection",
+      "label": "三、縱膈與橫膈膜Mediasrinuma",
+      "level": 4,
+      "parent_id": "section-2-2-7",
+      "has_children": false,
+      "content": "三、縱膈與橫膈膜Mediasrinumand Diaphragm (70401-70420)\n第六項 心臟及心包膜(68001-68060)\n第七項 動脈與靜脈 (69001-69043)\n第八項 造血與淋巴系統 Hemic & Lymphatic System",
+      "metadata": {
+        "parent_section": "section-2-2-7",
+        "index": 7
+      }
+    },
+    {
+      "id": "section-2-2-7-sub-8",
+      "type": "subsection",
+      "label": "二、根除性淋巴結切除Radical Ly",
+      "level": 4,
+      "parent_id": "section-2-2-7",
+      "has_children": false,
+      "content": "二、根除性淋巴結切除Radical Lymphadenectomy (70201-70216)\n第九項 消化器 Digestive System",
+      "metadata": {
+        "parent_section": "section-2-2-7",
+        "index": 8
+      }
+    },
+    {
+      "id": "section-2-2-7-sub-9",
+      "type": "subsection",
+      "label": "三、腸(除大腸、直腸外) Intesti",
+      "level": 4,
+      "parent_id": "section-2-2-7",
+      "has_children": false,
+      "content": "三、腸(除大腸、直腸外) Intestine (Except Colon and Rectum) (73001-73010、73020、73022-73025、73030-73037、73039、73041、73043-73044、73049-73055)\n註：本項編號73001-73009，73020，73022，73030-73032，73037，73039，73043，73051-73053與「第十項大腸、直腸、肛門」為共同項目。",
+      "metadata": {
+        "parent_section": "section-2-2-7",
+        "index": 9
+      }
+    },
+    {
+      "id": "section-2-2-7-sub-10",
+      "type": "subsection",
+      "label": "六、其他腹部手術(75801-75826",
+      "level": 4,
+      "parent_id": "section-2-2-7",
+      "has_children": false,
+      "content": "六、其他腹部手術(75801-75826)\n第十項 大腸、直腸、肛門 (73001-73009、73011-73015、73017-73018、73020、73022、73026-73032、73037-73040、73042-73043、73045-73048、73051-73053、73056-73057、74201-74225、74401-74420)\n註：本項編號73001-73009，73020，73022，73030-73032，73037，73039，73043，73051-73053與「第九項消化器 三、腸(除大腸、直腸外)」為共同項目。\n第十一項　肝、膽、胰 (75001-75034、75201-75222、75401-75430)\n第十二項 泌尿及男性生殖",
+      "metadata": {
+        "parent_section": "section-2-2-7",
+        "index": 10
+      }
+    },
+    {
+      "id": "section-2-2-7-sub-11",
+      "type": "subsection",
+      "label": "八、輸精管及精囊 Vas Deferen",
+      "level": 4,
+      "parent_id": "section-2-2-7",
+      "has_children": false,
+      "content": "八、輸精管及精囊 Vas Deferens & Seminal Vesicle (79001-79002)",
+      "metadata": {
+        "parent_section": "section-2-2-7",
+        "index": 11
+      }
+    },
+    {
+      "id": "section-2-2-7-sub-12",
+      "type": "subsection",
+      "label": "十一、會陰 Perineum (7960",
+      "level": 4,
+      "parent_id": "section-2-2-7",
+      "has_children": false,
+      "content": "十一、會陰 Perineum (79601-79602、79604-79605)\n註：本項與「第十三項、女性生殖」項下「 一、會陰」為相同項目，但沒有79603C女陰白斑切除術。\n第十三項 女性生殖",
+      "metadata": {
+        "parent_section": "section-2-2-7",
+        "index": 12
+      }
+    },
+    {
+      "id": "section-2-2-7-sub-13",
+      "type": "subsection",
+      "label": "一、會陰 Perineum (79601",
+      "level": 4,
+      "parent_id": "section-2-2-7",
+      "has_children": false,
+      "content": "一、會陰 Perineum (79601-79605)\n註：本項與「第十二項 泌尿及男性生殖」項下「十一、會陰」為相同項目，但有79603C女陰白斑切除術。",
+      "metadata": {
+        "parent_section": "section-2-2-7",
+        "index": 13
+      }
+    },
+    {
+      "id": "section-2-2-7-sub-14",
+      "type": "subsection",
+      "label": "六、輸卵管 Oviduct (80603",
+      "level": 4,
+      "parent_id": "section-2-2-7",
+      "has_children": false,
+      "content": "六、輸卵管 Oviduct (80603-80608)\n註：輸卵管之各項手術均包含單側、雙側，全部或部份之輸卵管，不得重複申報。",
+      "metadata": {
+        "parent_section": "section-2-2-7",
+        "index": 14
+      }
+    },
+    {
+      "id": "section-2-2-7-sub-15",
+      "type": "subsection",
+      "label": "八、自然生產、剖腹產及流產 Delive",
+      "level": 4,
+      "parent_id": "section-2-2-7",
+      "has_children": false,
+      "content": "八、自然生產、剖腹產及流產 Deliverysection、Cesarean & Abortion (81001-81037)\n通則：",
+      "metadata": {
+        "parent_section": "section-2-2-7",
+        "index": 15
+      }
+    },
+    {
+      "id": "section-2-2-7-sub-16",
+      "type": "subsection",
+      "label": "1.剖腹產適應症如下（須符合下列任一情況",
+      "level": 4,
+      "parent_id": "section-2-2-7",
+      "has_children": false,
+      "content": "1.剖腹產適應症如下（須符合下列任一情況）：\n(1)Fetal distress（須附胎兒監視器報告）。\n(2)Failure to progress in active labor（產程進展不良）。\n(3)APH（placenta previa, abruptio placenta)（產前出血）。\n(4)Malpresentation（including twin with malpresentation）（胎位不正）。\n(5)Cord prolapse（臍帶脫垂）。\n(6)Induction failure（催生失敗者）。\n(7)Active genital herpes（生殖道疱疹者）。\n(8)Previous C/S（前次剖腹產）。請註明前次剖腹產之理由，前次為自行要求剖腹產者，如無特殊理由須再度剖腹產者，僅得以自行要求剖腹產項目申報。\n(9)Previous uterine surgery（先前有子宮手術者）。\n(10)Vulvar and/or vaginal condyloma acuminata, diffuse（陰部或陰道長尖形濕疣）。\n(11)Treatable fetal anomalies（e.g.gastroschisis, omphalocele, hydrocephaly）（胎兒先天不正常可治療者）。\n(12)Preeclampsia（子癇前症）with Uncorrectable severe preeclampsia，HELLP syndrome，Eclampsia。\n(13)Extremly premature fetus<1500gm（限有NICU設備者）（嬰兒體重<1500公克）。\n(14)Pelvic deformity（Sequal of poliomyelitis or traffic accident,etc.）（骨盤畸型）。\n(15)Fetal macrosomia（>4000gm EBW)（胎兒超音波預估體重過重>4000公克）。\n(16)Cephalopelvic disproportion（CPD)（胎頭骨盆不對稱）。\n(17)Obstructive labor（e.g.myoma,ovarian tumor）。\n(18)Major medical complications（主要內科併發症）。\n(19)經診斷為HIV（+）者。\n(20)曾因陰道分娩造成四度裂傷併發肛門瘻管者。\n(21)多胞胎妊娠。\n(22)其他特殊適應症，但須詳細說明。",
+      "metadata": {
+        "parent_section": "section-2-2-7",
+        "index": 16
+      }
+    },
+    {
+      "id": "section-2-2-7-sub-17",
+      "type": "subsection",
+      "label": "2.醫院夜間（晚上十時至隔日早上六時）及",
+      "level": 4,
+      "parent_id": "section-2-2-7",
+      "has_children": false,
+      "content": "2.醫院夜間（晚上十時至隔日早上六時）及例假日（週六之零時至週日二十四時、國定假日零時至二十四時）之自然產手術案件（81017C、81018C、81019C、81024C、81025C、81026C、81034C），其「手術費」得按本節所定點數加算百分之三十，但「手術一般材料費」不得另按比例加算。同時符合夜間及例假日者，僅加計百分之三十。\n第十四項 內分泌器Endocrine System (82001-82019)\n第十五項 神經外科Neurosurgery (83001-83105)\n第十六項 聽器Auditory System (84001-84038)\n第十七項 視器 Visual System\n通則：簡單手術如翼狀贅肉切除，眼瞼縫合，限門診為之。",
+      "metadata": {
+        "parent_section": "section-2-2-7",
+        "index": 17
+      }
+    }
+  ]
+}

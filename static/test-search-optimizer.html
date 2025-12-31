@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>搜尋優化器測試 - Search Optimizer Test</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: white;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .control-panel {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .control-section {
+      margin-bottom: 20px;
+    }
+
+    .control-section h3 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #667eea;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-success {
+      background: #48bb78;
+      color: white;
+    }
+
+    .btn-success:hover {
+      background: #38a169;
+    }
+
+    .btn-warning {
+      background: #ed8936;
+      color: white;
+    }
+
+    .btn-warning:hover {
+      background: #dd6b20;
+    }
+
+    .btn-danger {
+      background: #f56565;
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: #e53e3e;
+    }
+
+    input[type="text"], select {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 15px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .stat-label {
+      opacity: 0.9;
+      margin-bottom: 5px;
+    }
+
+    .stat-value {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .test-results {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .test-results h2 {
+      color: #333;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 10px;
+    }
+
+    .test-item {
+      padding: 15px;
+      margin-bottom: 10px;
+      background: #f7fafc;
+      border-left: 4px solid #667eea;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .test-item.passed {
+      border-left-color: #48bb78;
+    }
+
+    .test-item.failed {
+      border-left-color: #f56565;
+    }
+
+    .test-item.pending {
+      border-left-color: #ed8936;
+    }
+
+    .test-name {
+      flex: 1;
+      font-weight: 500;
+      color: #333;
+    }
+
+    .test-result {
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    .test-result.passed {
+      background: #c6f6d5;
+      color: #22543d;
+    }
+
+    .test-result.failed {
+      background: #fed7d7;
+      color: #742a2a;
+    }
+
+    .test-result.pending {
+      background: #feebc8;
+      color: #7c2d12;
+    }
+
+    .performance-chart {
+      background: #f7fafc;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 15px;
+      overflow-x: auto;
+    }
+
+    .chart-bar {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .chart-label {
+      width: 150px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .chart-bar-bg {
+      flex: 1;
+      height: 30px;
+      background: #edf2f7;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chart-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .comparison-table {
+      width: 100%;
+      margin-top: 15px;
+      border-collapse: collapse;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .comparison-table th {
+      background: #f7fafc;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .comparison-table tr:hover {
+      background: #f0f4f8;
+    }
+
+    .improvement {
+      color: #48bb78;
+      font-weight: 600;
+    }
+
+    .console {
+      background: #1a202c;
+      color: #68d391;
+      font-family: 'Courier New', monospace;
+      padding: 15px;
+      border-radius: 6px;
+      max-height: 300px;
+      overflow-y: auto;
+      font-size: 12px;
+      line-height: 1.5;
+      margin-top: 15px;
+    }
+
+    .console-log {
+      margin-bottom: 5px;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .status-ready {
+      background: #c6f6d5;
+      color: #22543d;
+    }
+
+    .status-running {
+      background: #bee3f8;
+      color: #2c5282;
+    }
+
+    .status-done {
+      background: #c6f6d5;
+      color: #22543d;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔍 搜尋優化器測試</h1>
+
+    <!-- 控制面板 -->
+    <div class="control-panel">
+      <div class="control-section">
+        <h3>📊 生成測試數據</h3>
+        <div class="button-group">
+          <button class="btn-primary" onclick="generateData(100)">100 筆</button>
+          <button class="btn-primary" onclick="generateData(500)">500 筆</button>
+          <button class="btn-primary" onclick="generateData(1000)">1000 筆</button>
+          <button class="btn-primary" onclick="generateData(2000)">2000 筆</button>
+          <button class="btn-primary" onclick="generateData(5000)">5000 筆</button>
+        </div>
+      </div>
+
+      <div class="control-section">
+        <h3>🧪 運行測試</h3>
+        <div class="button-group">
+          <button class="btn-success" onclick="runBasicTest()">基本測試</button>
+          <button class="btn-success" onclick="runPerformanceTest()">性能測試</button>
+          <button class="btn-success" onclick="runIncrementalTest()">增量搜尋測試</button>
+          <button class="btn-success" onclick="runCacheTest()">快取測試</button>
+          <button class="btn-success" onclick="runAllTests()">運行全部測試</button>
+        </div>
+      </div>
+
+      <div class="control-section">
+        <h3>🔧 工具</h3>
+        <div class="button-group">
+          <button class="btn-warning" onclick="printStats()">打印統計</button>
+          <button class="btn-warning" onclick="printReport()">性能報告</button>
+          <button class="btn-danger" onclick="clearData()">清空數據</button>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">當前數據量</div>
+          <div class="stat-value"><span id="data-count">0</span> 筆</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">索引關鍵詞數</div>
+          <div class="stat-value"><span id="keyword-count">0</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">搜尋命中率</div>
+          <div class="stat-value"><span id="hit-rate">0%</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">平均搜尋時間</div>
+          <div class="stat-value"><span id="avg-time">0</span>ms</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 測試結果 -->
+    <div class="test-results">
+      <h2>✅ 測試結果</h2>
+      <div id="test-list"></div>
+      <div class="console" id="console"></div>
+    </div>
+
+    <!-- 性能比較 -->
+    <div class="test-results">
+      <h2>⚡ 性能比較</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>操作</th>
+            <th>普通搜尋</th>
+            <th>優化搜尋</th>
+            <th>性能提升</th>
+          </tr>
+        </thead>
+        <tbody id="comparison-tbody">
+          <tr><td colspan="4" style="text-align: center; color: #999;">運行性能測試查看結果</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 引入優化器 -->
+  <script src="js/search-optimizer.js"></script>
+
+  <script>
+    let optimizer = null;
+    let testData = [];
+    const consoleLogs = [];
+
+    // 自定義 console.log
+    const originalLog = console.log;
+    console.log = function(...args) {
+      originalLog.apply(console, args);
+      const message = args.map(arg =>
+        typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
+      ).join(' ');
+      consoleLogs.push(message);
+      updateConsole();
+    };
+
+    function updateConsole() {
+      const console_el = document.getElementById('console');
+      console_el.innerHTML = consoleLogs.slice(-50).map(log =>
+        `<div class="console-log">${log}</div>`
+      ).join('');
+      console_el.scrollTop = console_el.scrollHeight;
+    }
+
+    // 生成測試數據
+    function generateData(count) {
+      console.log(`📝 正在生成 ${count} 筆測試數據...`);
+
+      const categories = ['檢查', '治療', '藥物', '手術', '神經', '復健'];
+      const names = ['基本', '詳細', '進階', '特殊', '複合', '綜合'];
+
+      testData = [];
+      for (let i = 0; i < count; i++) {
+        testData.push({
+          code: String(i).padStart(6, '0'),
+          name: `${categories[i % categories.length]}${names[i % names.length]}項目${i}`,
+          points: Math.floor(Math.random() * 1000),
+          description: `這是第 ${i+1} 個項目的描述文本，包含各種醫療相關信息和規則說明。`,
+          category: categories[i % categories.length]
+        });
+      }
+
+      // 初始化優化器
+      optimizer = new SearchOptimizer();
+      const columns = [
+        { key: 'code', type: 'string' },
+        { key: 'name', type: 'string' },
+        { key: 'description', type: 'string' },
+        { key: 'category', type: 'string' }
+      ];
+      optimizer.initialize(testData, columns);
+
+      updateStats();
+      console.log(`✓ 數據生成完成，已初始化搜尋優化器`);
+    }
+
+    // 更新統計
+    function updateStats() {
+      if (!optimizer) return;
+
+      const stats = optimizer.getStats();
+      document.getElementById('data-count').textContent = testData.length;
+      document.getElementById('keyword-count').textContent = stats.index.uniqueKeywords;
+      document.getElementById('hit-rate').textContent = stats.cache.hitRate;
+      document.getElementById('avg-time').textContent = stats.search.avgSearchTime;
+    }
+
+    // 基本測試
+    function runBasicTest() {
+      if (!optimizer) {
+        alert('請先生成測試數據');
+        return;
+      }
+
+      console.log('\n═══ 基本功能測試開始 ═══\n');
+      const testList = document.getElementById('test-list');
+      testList.innerHTML = '';
+
+      const tests = [
+        {
+          name: '倒排索引構建',
+          fn: () => optimizer.indexBuilder.getStats().uniqueKeywords > 0
+        },
+        {
+          name: '基本搜尋功能',
+          fn: () => optimizer.search('檢查').results.length > 0
+        },
+        {
+          name: '快取機制',
+          fn: () => {
+            optimizer.search('治療');
+            return optimizer.searchCache.cache.size > 0;
+          }
+        },
+        {
+          name: '增量搜尋',
+          fn: () => {
+            const result = optimizer.incrementalSearch('治', '治療');
+            return result.isIncremental && result.results.length > 0;
+          }
+        },
+        {
+          name: '空搜尋處理',
+          fn: () => optimizer.search('').results.length === 0
+        },
+        {
+          name: '統計信息',
+          fn: () => {
+            const stats = optimizer.getStats();
+            return stats.index && stats.cache && stats.search;
+          }
+        }
+      ];
+
+      tests.forEach((test, idx) => {
+        try {
+          const passed = test.fn();
+          addTestResult(testList, test.name, passed);
+          console.log(`${passed ? '✓' : '✗'} ${test.name}`);
+        } catch (e) {
+          addTestResult(testList, test.name, false);
+          console.log(`✗ ${test.name}: ${e.message}`);
+        }
+      });
+
+      console.log('\n═══ 基本功能測試完成 ═══\n');
+      updateStats();
+    }
+
+    // 性能測試
+    function runPerformanceTest() {
+      if (!optimizer) {
+        alert('請先生成測試數據');
+        return;
+      }
+
+      console.log('\n═══ 性能測試開始 ═══\n');
+      const keywords = ['檢查', '治療', '項目', '描述', '複合', '進階'];
+
+      const results = [];
+
+      // 普通搜尋
+      console.log('📊 普通搜尋性能:');
+      const normalStart = performance.now();
+      let normalResults = 0;
+      keywords.forEach(kw => {
+        const result = testData.filter(item =>
+          String(item.name).includes(kw) || String(item.description).includes(kw)
+        );
+        normalResults += result.length;
+      });
+      const normalTime = performance.now() - normalStart;
+      console.log(`  耗時: ${normalTime.toFixed(2)}ms, 結果: ${normalResults}`);
+      results.push({ method: '普通搜尋', time: normalTime });
+
+      // 優化搜尋 (索引)
+      console.log('📊 優化搜尋性能:');
+      const optimizedStart = performance.now();
+      let optimizedResults = 0;
+      keywords.forEach(kw => {
+        const result = optimizer.search(kw);
+        optimizedResults += result.results.length;
+      });
+      const optimizedTime = performance.now() - optimizedStart;
+      console.log(`  耗時: ${optimizedTime.toFixed(2)}ms, 結果: ${optimizedResults}`);
+      results.push({ method: '優化搜尋', time: optimizedTime });
+
+      // 快取搜尋 (第二次)
+      console.log('📊 快取搜尋性能:');
+      const cachedStart = performance.now();
+      let cachedResults = 0;
+      keywords.forEach(kw => {
+        const result = optimizer.search(kw);
+        cachedResults += result.results.length;
+      });
+      const cachedTime = performance.now() - cachedStart;
+      console.log(`  耗時: ${cachedTime.toFixed(2)}ms, 結果: ${cachedResults}`);
+      results.push({ method: '快取搜尋', time: cachedTime });
+
+      // 更新比較表
+      updateComparisonTable(results);
+
+      const improvement = ((normalTime - optimizedTime) / normalTime * 100).toFixed(1);
+      console.log(`\n⚡ 性能提升: ${improvement}% (${normalTime.toFixed(2)}ms → ${optimizedTime.toFixed(2)}ms)\n`);
+
+      console.log('═══ 性能測試完成 ═══\n');
+      updateStats();
+    }
+
+    // 增量搜尋測試
+    function runIncrementalTest() {
+      if (!optimizer) {
+        alert('請先生成測試數據');
+        return;
+      }
+
+      console.log('\n═══ 增量搜尋測試開始 ═══\n');
+
+      const sequence = ['檢', '檢查', '檢查項'];
+      console.log(`測試序列: ${sequence.join(' → ')}`);
+
+      let prevKeyword = '';
+      sequence.forEach((keyword, idx) => {
+        const result = optimizer.incrementalSearch(prevKeyword, keyword);
+        console.log(`${idx + 1}. "${keyword}": ${result.results.length} 結果, ${result.time}ms, ${result.isIncremental ? '增量' : '全量'}`);
+        prevKeyword = keyword;
+      });
+
+      console.log('\n═══ 增量搜尋測試完成 ═══\n');
+      updateStats();
+    }
+
+    // 快取測試
+    function runCacheTest() {
+      if (!optimizer) {
+        alert('請先生成測試數據');
+        return;
+      }
+
+      console.log('\n═══ 快取測試開始 ═══\n');
+
+      // 清空快取
+      optimizer.searchCache.clear();
+      console.log('快取已清空');
+
+      const testKeywords = ['檢查', '治療', '項目', '檢查', '治療', '項目', '檢查'];
+
+      testKeywords.forEach((kw, idx) => {
+        const result = optimizer.search(kw);
+        const source = result.source;
+        console.log(`搜尋 ${idx + 1}: "${kw}" → ${result.results.length} 結果 (${source})`);
+      });
+
+      const stats = optimizer.searchCache.getStats();
+      console.log(`\n快取統計:`);
+      console.log(`  - 命中率: ${stats.hitRate}`);
+      console.log(`  - 命中次數: ${stats.hits}`);
+      console.log(`  - 未命中次數: ${stats.misses}`);
+
+      console.log('\n═══ 快取測試完成 ═══\n');
+      updateStats();
+    }
+
+    // 運行所有測試
+    function runAllTests() {
+      if (!optimizer) {
+        alert('請先生成測試數據');
+        return;
+      }
+
+      runBasicTest();
+      setTimeout(() => runPerformanceTest(), 500);
+      setTimeout(() => runIncrementalTest(), 1000);
+      setTimeout(() => runCacheTest(), 1500);
+    }
+
+    // 添加測試結果
+    function addTestResult(container, name, passed) {
+      const item = document.createElement('div');
+      item.className = `test-item ${passed ? 'passed' : 'failed'}`;
+      item.innerHTML = `
+        <span class="test-name">${passed ? '✓' : '✗'} ${name}</span>
+        <span class="test-result ${passed ? 'passed' : 'failed'}">${passed ? 'PASS' : 'FAIL'}</span>
+      `;
+      container.appendChild(item);
+    }
+
+    // 打印統計
+    function printStats() {
+      if (!optimizer) {
+        alert('請先生成測試數據');
+        return;
+      }
+      optimizer.printReport();
+      updateStats();
+    }
+
+    // 打印報告
+    function printReport() {
+      if (!optimizer) {
+        alert('請先生成測試數據');
+        return;
+      }
+      console.log('\n');
+      optimizer.printReport();
+    }
+
+    // 清空數據
+    function clearData() {
+      optimizer = null;
+      testData = [];
+      document.getElementById('test-list').innerHTML = '';
+      document.getElementById('comparison-tbody').innerHTML = '<tr><td colspan="4" style="text-align: center; color: #999;">運行性能測試查看結果</td></tr>';
+      document.getElementById('data-count').textContent = '0';
+      document.getElementById('keyword-count').textContent = '0';
+      document.getElementById('hit-rate').textContent = '0%';
+      document.getElementById('avg-time').textContent = '0';
+      consoleLogs.length = 0;
+      updateConsole();
+      console.log('✓ 所有數據已清空');
+    }
+
+    // 更新比較表
+    function updateComparisonTable(results) {
+      const tbody = document.getElementById('comparison-tbody');
+      if (results.length === 0) return;
+
+      const normalTime = results[0].time;
+      const optimizedTime = results[1].time;
+
+      tbody.innerHTML = `
+        <tr>
+          <td>搜尋 6 個關鍵詞</td>
+          <td>${normalTime.toFixed(2)}ms</td>
+          <td>${optimizedTime.toFixed(2)}ms</td>
+          <td class="improvement">${((normalTime - optimizedTime) / normalTime * 100).toFixed(1)}% ↓</td>
+        </tr>
+      `;
+    }
+
+    // 初始化
+    console.log('🚀 搜尋優化器測試頁面已準備就緒');
+    console.log('步驟: 1. 生成測試數據 2. 運行測試 3. 查看結果');
+  </script>
+</body>
+</html>

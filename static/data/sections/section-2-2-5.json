@@ -1,0 +1,30 @@
+{
+  "children": [
+    {
+      "id": "section-2-2-5-sub-0",
+      "type": "subsection",
+      "label": "內容 1",
+      "level": 4,
+      "parent_id": "section-2-2-5",
+      "has_children": false,
+      "content": "第五節 精神醫療治療費 Psychiatric Treatment Fee (45001-45104)\n通則：",
+      "metadata": {
+        "parent_section": "section-2-2-5",
+        "index": 0
+      }
+    },
+    {
+      "id": "section-2-2-5-sub-1",
+      "type": "subsection",
+      "label": "二、本節各精神醫療治療項目除(45087",
+      "level": 4,
+      "parent_id": "section-2-2-5",
+      "has_children": false,
+      "content": "二、本節各精神醫療治療項目除(45087C~45089C、45013C、45090C、45091C、45046C、45085B、45092B、45093B、45098C、45099C、45103B、45104B)外，皆為兒童加成項目，意指病人年齡未滿二歲所實施之診療項目點數，依表定點數加計百分之三十；年齡在二歲以上至未滿七歲者依表定點數加計百分之二十。",
+      "metadata": {
+        "parent_section": "section-2-2-5",
+        "index": 1
+      }
+    }
+  ]
+}

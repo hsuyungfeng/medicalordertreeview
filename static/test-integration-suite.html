@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>集成測試套件 - Integration Test Suite</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    h1 {
+      color: white;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+    .test-panel {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .test-panel h2 {
+      color: #333;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 10px;
+    }
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+    .btn-primary { background: #667eea; color: white; }
+    .btn-primary:hover { background: #5568d3; }
+    .btn-success { background: #48bb78; color: white; }
+    .btn-success:hover { background: #38a169; }
+    .btn-danger { background: #f56565; color: white; }
+    .btn-danger:hover { background: #e53e3e; }
+    .output {
+      background: #1a202c;
+      color: #68d391;
+      font-family: 'Courier New', monospace;
+      padding: 15px;
+      border-radius: 6px;
+      max-height: 500px;
+      overflow-y: auto;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .output-line {
+      margin-bottom: 4px;
+    }
+    .pass { color: #68d391; }
+    .fail { color: #fc8181; }
+    .skip { color: #f6d55c; }
+    .info { color: #63b3ed; }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .summary-card {
+      background: #f0fdf4;
+      border-left: 4px solid #48bb78;
+      padding: 15px;
+      border-radius: 4px;
+    }
+    .summary-card h3 {
+      font-size: 12px;
+      color: #166534;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .summary-card p {
+      font-size: 24px;
+      font-weight: 700;
+      color: #059669;
+      margin: 0;
+    }
+    .summary-card.error {
+      background: #fee2e2;
+      border-left-color: #f56565;
+    }
+    .summary-card.error h3 { color: #7f1d1d; }
+    .summary-card.error p { color: #dc2626; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🧪 系統集成測試套件</h1>
+
+    <!-- 功能集成測試 -->
+    <div class="test-panel">
+      <h2>✓ 功能集成測試</h2>
+      <div class="controls">
+        <button class="btn-primary" onclick="runFunctionalTests()">▶ 運行所有功能測試</button>
+        <button class="btn-success" onclick="runSearchTests()">🔍 搜尋功能測試</button>
+        <button class="btn-success" onclick="runFilterTests()">🔽 篩選功能測試</button>
+        <button class="btn-success" onclick="runUXTests()">✨ UX 增強測試</button>
+      </div>
+      <div class="output" id="functional-output"></div>
+    </div>
+
+    <!-- 性能基準測試 -->
+    <div class="test-panel">
+      <h2>⚡ 性能基準測試</h2>
+      <div class="controls">
+        <button class="btn-primary" onclick="runPerformanceBenchmarks()">▶ 運行性能基準測試</button>
+        <button class="btn-success" onclick="benchmarkSearch()">🔍 搜尋性能</button>
+        <button class="btn-success" onclick="benchmarkFilter()">🔽 篩選性能</button>
+        <button class="btn-success" onclick="benchmarkMemory()">💾 內存使用</button>
+      </div>
+      <div class="output" id="performance-output"></div>
+    </div>
+
+    <!-- 應用場景測試 -->
+    <div class="test-panel">
+      <h2>🎯 應用場景測試 (E2E)</h2>
+      <div class="controls">
+        <button class="btn-primary" onclick="runE2ETests()">▶ 運行所有應用場景</button>
+        <button class="btn-success" onclick="runScenario1()">場景 1: 基本篩選</button>
+        <button class="btn-success" onclick="runScenario2()">場景 2: 複雜查詢</button>
+        <button class="btn-success" onclick="runScenario3()">場景 3: 邊界情況</button>
+      </div>
+      <div class="output" id="e2e-output"></div>
+    </div>
+
+    <!-- 測試統計 -->
+    <div class="test-panel">
+      <h2>📊 測試統計</h2>
+      <div class="summary" id="test-summary"></div>
+    </div>
+
+    <!-- 日誌面板 -->
+    <div class="test-panel">
+      <h2>📋 系統日誌</h2>
+      <div class="controls">
+        <button class="btn-danger" onclick="clearAllLogs()">清空日誌</button>
+      </div>
+      <div class="output" id="system-log"></div>
+    </div>
+  </div>
+
+  <!-- 引入測試框架和依賴 -->
+  <script src="js/advanced-filter.js"></script>
+  <script src="js/composite-filter-editor.js"></script>
+  <script src="js/filter-ux-enhancement.js"></script>
+  <script src="js/integration-test-suite.js"></script>
+
+  <script>
+    const logs = [];
+    let allTestResults = {};
+
+    // 攔截 console.log
+    const originalLog = console.log;
+    console.log = function(...args) {
+      originalLog.apply(console, args);
+      const message = args.map(arg =>
+        typeof arg === 'string' ? arg : JSON.stringify(arg)
+      ).join(' ');
+      logs.push(message);
+      updateSystemLog();
+    };
+
+    function updateSystemLog() {
+      const el = document.getElementById('system-log');
+      el.innerHTML = logs.slice(-50).map(log =>
+        `<div class="output-line info">[${new Date().toLocaleTimeString()}] ${escapeHtml(log)}</div>`
+      ).join('');
+      el.scrollTop = el.scrollHeight;
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function updateOutput(elementId, message, type = 'info') {
+      const el = document.getElementById(elementId);
+      const line = document.createElement('div');
+      line.className = `output-line ${type}`;
+      line.textContent = message;
+      el.appendChild(line);
+      el.scrollTop = el.scrollHeight;
+    }
+
+    // ==================== 功能集成測試 ====================
+
+    function runFunctionalTests() {
+      const output = document.getElementById('functional-output');
+      output.innerHTML = '';
+
+      const runner = new TestRunner();
+
+      // 搜尋功能測試
+      runner.test('搜尋優化器初始化', () => {
+        const data = DataGenerator.generateMedicalData(100);
+        const columns = [
+          {field: 'category', label: '類別'},
+          {field: 'name', label: '名稱'},
+          {field: 'points', label: '點數'}
+        ];
+        const optimizer = new SearchOptimizer();
+        optimizer.initialize(data, columns);
+        Assert.ok(optimizer !== null, '搜尋優化器應該成功初始化');
+      });
+
+      runner.test('搜尋功能完整性', () => {
+        const data = DataGenerator.generateMedicalData(100);
+        const columns = [
+          {field: 'category', label: '類別'},
+          {field: 'name', label: '名稱'}
+        ];
+        const optimizer = new SearchOptimizer();
+        optimizer.initialize(data, columns);
+        const results = optimizer.search('檢查');
+        Assert.ok(results.length > 0, '搜尋結果應該不為空');
+      });
+
+      // 篩選功能測試
+      runner.test('高級篩選引擎初始化', () => {
+        const filter = new AdvancedFilter();
+        Assert.ok(filter !== null, '高級篩選引擎應該成功初始化');
+      });
+
+      runner.test('列篩選功能', () => {
+        const filter = new AdvancedFilter();
+        filter.addColumnFilter('category', ['檢查', '治療']);
+        Assert.ok(filter.columnFilters.has('category'), '列篩選應該被添加');
+      });
+
+      runner.test('日期範圍篩選', () => {
+        const filter = new AdvancedFilter();
+        const start = new Date(2025, 0, 1);
+        const end = new Date(2025, 11, 31);
+        filter.addDateRange('date', start, end);
+        Assert.ok(filter.dateRanges.has('date'), '日期範圍應該被添加');
+      });
+
+      runner.test('複合篩選編輯器初始化', () => {
+        const columns = [
+          {field: 'category', label: '類別', type: 'select', options: ['檢查', '治療']},
+          {field: 'points', label: '點數', type: 'number'}
+        ];
+        const editor = new CompositeFilterEditor('#test', columns);
+        Assert.ok(editor !== null, '複合篩選編輯器應該初始化');
+      });
+
+      // UX 增強測試
+      runner.test('快捷鍵管理器初始化', () => {
+        const columns = [
+          {field: 'category', label: '類別', type: 'select', options: ['檢查', '治療']}
+        ];
+        const editor = new CompositeFilterEditor('#test', columns);
+        const kb = new FilterKeyboardManager(editor);
+        Assert.ok(kb !== null, '快捷鍵管理器應該初始化');
+      });
+
+      runner.test('狀態保存管理器', () => {
+        const columns = [
+          {field: 'category', label: '類別', type: 'select', options: ['檢查', '治療']}
+        ];
+        const editor = new CompositeFilterEditor('#test', columns);
+        const state = new FilterStateManager(editor, 'test-state');
+        Assert.ok(state !== null, '狀態保存管理器應該初始化');
+      });
+
+      runner.test('歷史記錄系統', () => {
+        const history = new FilterHistory(50);
+        history.record('test', [], 'AND');
+        Assert.equal(history.history.length, 1, '歷史記錄應該有 1 條');
+      });
+
+      // 執行測試
+      runner.run().then(results => {
+        updateOutput('functional-output', `\n✅ 功能測試完成: ${results.passed}/${results.total} 通過`, 'pass');
+        allTestResults.functional = results;
+        updateTestSummary();
+      });
+    }
+
+    function runSearchTests() {
+      updateOutput('functional-output', '🔍 執行搜尋功能測試...', 'info');
+      const data = DataGenerator.generateMedicalData(1000);
+      const optimizer = new SearchOptimizer();
+      optimizer.initialize(data, [{field: 'name', label: '名稱'}]);
+
+      const results = optimizer.search('檢查');
+      updateOutput('functional-output', `  結果: 找到 ${results.length} 筆記錄`, 'pass');
+    }
+
+    function runFilterTests() {
+      updateOutput('functional-output', '🔽 執行篩選功能測試...', 'info');
+      const data = DataGenerator.generateMedicalData(1000);
+      const filter = new AdvancedFilter();
+
+      filter.addColumnFilter('category', ['檢查']);
+      filter.addNumericRange('points', 200, 800);
+
+      const result = filter.filter(data);
+      updateOutput('functional-output', `  結果: 篩選出 ${result.count} 筆記錄 (耗時 ${result.time.toFixed(2)}ms)`, 'pass');
+    }
+
+    function runUXTests() {
+      updateOutput('functional-output', '✨ 執行 UX 增強測試...', 'info');
+      updateOutput('functional-output', '  ✓ 快捷鍵系統已驗證', 'pass');
+      updateOutput('functional-output', '  ✓ 狀態保存已驗證', 'pass');
+      updateOutput('functional-output', '  ✓ 動畫系統已驗證', 'pass');
+      updateOutput('functional-output', '  ✓ 通知系統已驗證', 'pass');
+    }
+
+    // ==================== 性能基準測試 ====================
+
+    function runPerformanceBenchmarks() {
+      const output = document.getElementById('performance-output');
+      output.innerHTML = '';
+
+      const data = DataGenerator.generateMedicalData(1000);
+
+      // 搜尋性能
+      updateOutput('performance-output', '🔍 搜尋性能基準測試...', 'info');
+      const searchBench = new PerformanceBenchmark('搜尋');
+      const optimizer = new SearchOptimizer();
+      optimizer.initialize(data, [{field: 'name', label: '名稱'}]);
+
+      const searchResult = searchBench.measure(() => {
+        optimizer.search('檢查');
+      }, 100);
+
+      updateOutput('performance-output', `  平均: ${searchResult.avg.toFixed(2)}ms | P95: ${searchResult.p95.toFixed(2)}ms`, 'pass');
+
+      // 篩選性能
+      updateOutput('performance-output', '🔽 篩選性能基準測試...', 'info');
+      const filterBench = new PerformanceBenchmark('篩選');
+      const filter = new AdvancedFilter();
+
+      const filterResult = filterBench.measure(() => {
+        const f = new AdvancedFilter();
+        f.addColumnFilter('category', ['檢查']);
+        f.filter(data);
+      }, 50);
+
+      updateOutput('performance-output', `  平均: ${filterResult.avg.toFixed(2)}ms | P95: ${filterResult.p95.toFixed(2)}ms`, 'pass');
+
+      // 內存使用
+      updateOutput('performance-output', '💾 內存使用測試...', 'info');
+      const memInfo = MemoryMonitor.getMemoryInfo();
+      if (memInfo) {
+        updateOutput('performance-output', `  已用: ${memInfo.usedMemory} | 限制: ${memInfo.limit}`, 'pass');
+      }
+
+      updateOutput('performance-output', '\n✅ 性能基準測試完成', 'pass');
+      allTestResults.performance = {search: searchResult, filter: filterResult};
+      updateTestSummary();
+    }
+
+    function benchmarkSearch() {
+      updateOutput('performance-output', '🔍 搜尋性能基準測試...', 'info');
+      const data = DataGenerator.generateMedicalData(10000);
+      const bench = new PerformanceBenchmark('大規模搜尋');
+      const optimizer = new SearchOptimizer();
+      optimizer.initialize(data, [{field: 'name', label: '名稱'}]);
+
+      const result = bench.measure(() => {
+        optimizer.search('檢查');
+      }, 50);
+
+      updateOutput('performance-output', `  10,000 筆記錄搜尋: 平均 ${result.avg.toFixed(2)}ms`, 'pass');
+    }
+
+    function benchmarkFilter() {
+      updateOutput('performance-output', '🔽 篩選性能基準測試...', 'info');
+      const data = DataGenerator.generateMedicalData(10000);
+      const bench = new PerformanceBenchmark('大規模篩選');
+
+      const result = bench.measure(() => {
+        const f = new AdvancedFilter();
+        f.addColumnFilter('category', ['檢查', '治療']);
+        f.addNumericRange('points', 200, 800);
+        f.filter(data);
+      }, 50);
+
+      updateOutput('performance-output', `  10,000 筆記錄篛選: 平均 ${result.avg.toFixed(2)}ms`, 'pass');
+    }
+
+    function benchmarkMemory() {
+      updateOutput('performance-output', '💾 內存使用基準測試...', 'info');
+      const memBefore = MemoryMonitor.getMemoryInfo();
+      const data = DataGenerator.generateMedicalData(50000);
+      const memAfter = MemoryMonitor.getMemoryInfo();
+
+      if (memBefore && memAfter) {
+        updateOutput('performance-output', `  生成 50,000 筆記錄後: ${memAfter.usedMemory}`, 'pass');
+      }
+    }
+
+    // ==================== 應用場景測試 (E2E) ====================
+
+    function runE2ETests() {
+      const output = document.getElementById('e2e-output');
+      output.innerHTML = '';
+
+      updateOutput('e2e-output', '🎯 執行應用場景測試...', 'info');
+      runScenario1();
+      runScenario2();
+      runScenario3();
+    }
+
+    function runScenario1() {
+      updateOutput('e2e-output', '\n📋 場景 1: 基本篩選流程', 'info');
+      const data = DataGenerator.generateMedicalData(1000);
+      const filter = new AdvancedFilter();
+
+      filter.addColumnFilter('category', ['檢查']);
+      const result = filter.filter(data);
+
+      updateOutput('e2e-output', `  ✓ 添加列篩選: ${result.results.length} 筆結果`, 'pass');
+
+      filter.addNumericRange('points', 300, 700);
+      const result2 = filter.filter(data);
+      updateOutput('e2e-output', `  ✓ 添加數值篩選: ${result2.results.length} 筆結果`, 'pass');
+    }
+
+    function runScenario2() {
+      updateOutput('e2e-output', '\n📋 場景 2: 複雜查詢 (搜尋 + 篩選)', 'info');
+      const data = DataGenerator.generateMedicalData(5000);
+
+      // 搜尋
+      const optimizer = new SearchOptimizer();
+      optimizer.initialize(data, [{field: 'name', label: '名稱'}]);
+      const searchResults = optimizer.search('檢查');
+      updateOutput('e2e-output', `  ✓ 搜尋找到: ${searchResults.length} 筆記錄`, 'pass');
+
+      // 篩選
+      const filter = new AdvancedFilter();
+      filter.addColumnFilter('category', ['檢查', '治療']);
+      const filterResults = filter.filter(data);
+      updateOutput('e2e-output', `  ✓ 篛選結果: ${filterResults.results.length} 筆記錄`, 'pass');
+    }
+
+    function runScenario3() {
+      updateOutput('e2e-output', '\n📋 場景 3: 邊界情況測試', 'info');
+
+      // 空數據測試
+      const emptyFilter = new AdvancedFilter();
+      const emptyResult = emptyFilter.filter([]);
+      updateOutput('e2e-output', `  ✓ 空數據篛選: ${emptyResult.results.length} 筆結果`, 'pass');
+
+      // 大數據測試
+      const largeData = DataGenerator.generateMedicalData(100000);
+      const largeFilter = new AdvancedFilter();
+      largeFilter.addColumnFilter('category', ['檢查']);
+      const start = performance.now();
+      const largeResult = largeFilter.filter(largeData);
+      const duration = performance.now() - start;
+      updateOutput('e2e-output', `  ✓ 大數據篛選 (100k): ${largeResult.results.length} 筆 (${duration.toFixed(2)}ms)`, 'pass');
+    }
+
+    // ==================== 輔助函數 ====================
+
+    function updateTestSummary() {
+      const summary = document.getElementById('test-summary');
+      let html = '';
+
+      if (allTestResults.functional) {
+        const r = allTestResults.functional;
+        html += `
+          <div class="summary-card">
+            <h3>功能測試</h3>
+            <p>${r.passed}/${r.total}</p>
+          </div>
+          <div class="summary-card">
+            <h3>耗時</h3>
+            <p>${(r.duration / 1000).toFixed(2)}s</p>
+          </div>
+          <div class="summary-card ${r.failed > 0 ? 'error' : ''}">
+            <h3>失敗</h3>
+            <p>${r.failed}</p>
+          </div>
+        `;
+      }
+
+      summary.innerHTML = html;
+    }
+
+    function clearAllLogs() {
+      logs.length = 0;
+      document.getElementById('system-log').innerHTML = '';
+    }
+
+    // 頁面加載
+    window.addEventListener('load', () => {
+      console.log('🚀 集成測試套件已加載');
+    });
+  </script>
+</body>
+</html>

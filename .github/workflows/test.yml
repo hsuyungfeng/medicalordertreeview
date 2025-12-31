@@ -1,0 +1,100 @@
+name: 測試與構建
+
+on:
+  push:
+    branches: [ master, develop ]
+  pull_request:
+    branches: [ master, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12"]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: 設定 Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: 安裝 uv
+      run: |
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        export PATH="$HOME/.local/bin:$PATH"
+
+    - name: 同步依賴
+      working-directory: ./backend
+      run: |
+        export PATH="$HOME/.local/bin:$PATH"
+        uv sync --dev
+
+    - name: 安裝 Playwright 瀏覽器
+      working-directory: ./backend
+      run: |
+        export PATH="$HOME/.local/bin:$PATH"
+        uv run playwright install chromium
+
+    - name: 執行後端單元測試
+      working-directory: ./backend
+      run: |
+        export PATH="$HOME/.local/bin:$PATH"
+        uv run pytest test_backend.py -v
+
+    - name: 執行 E2E 測試
+      working-directory: ./backend
+      run: |
+        export PATH="$HOME/.local/bin:$PATH"
+        uv run pytest test_e2e.py -v
+
+    - name: 生成測試報告
+      if: always()
+      working-directory: ./backend
+      run: |
+        export PATH="$HOME/.local/bin:$PATH"
+        uv run pytest test_backend.py test_e2e.py --junit-xml=test-results.xml
+
+    - name: 上傳測試結果
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results-${{ matrix.python-version }}
+        path: backend/test-results.xml
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: 設定 Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.12"
+
+    - name: 安裝 uv
+      run: |
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        export PATH="$HOME/.local/bin:$PATH"
+
+    - name: 同步依賴
+      working-directory: ./backend
+      run: |
+        export PATH="$HOME/.local/bin:$PATH"
+        uv sync --dev
+
+    - name: 檢查代碼格式（可選）
+      working-directory: ./backend
+      run: |
+        export PATH="$HOME/.local/bin:$PATH"
+        # uv run ruff check . || true  # 如需啟用
+
+    - name: 類型檢查（可選）
+      working-directory: ./backend
+      run: |
+        export PATH="$HOME/.local/bin:$PATH"
+        # uv run mypy . || true  # 如需啟用

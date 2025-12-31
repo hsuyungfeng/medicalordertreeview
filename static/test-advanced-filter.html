@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>高級篩選功能測試 - Advanced Filter Test</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    h1 {
+      color: white;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+    .control-panel {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .control-section {
+      margin-bottom: 20px;
+    }
+    .control-section h3 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .button-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .btn-primary { background: #667eea; color: white; }
+    .btn-primary:hover { background: #5568d3; }
+    .btn-success { background: #48bb78; color: white; }
+    .btn-success:hover { background: #38a169; }
+    .btn-danger { background: #f56565; color: white; }
+    .btn-danger:hover { background: #e53e3e; }
+    .results {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .results h2 {
+      color: #333;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 10px;
+    }
+    .test-item {
+      padding: 12px;
+      background: #f7fafc;
+      border-left: 4px solid #667eea;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    .test-item.passed { border-left-color: #48bb78; background: #f0fdf4; }
+    .console {
+      background: #1a202c;
+      color: #68d391;
+      font-family: 'Courier New', monospace;
+      padding: 15px;
+      border-radius: 6px;
+      max-height: 300px;
+      overflow-y: auto;
+      font-size: 12px;
+      margin-top: 15px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    th { background: #f7fafc; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔍 高級篩選功能測試</h1>
+
+    <div class="control-panel">
+      <div class="control-section">
+        <h3>📊 生成測試數據</h3>
+        <div class="button-group">
+          <button class="btn-primary" onclick="generateData(100)">100 筆</button>
+          <button class="btn-primary" onclick="generateData(500)">500 筆</button>
+          <button class="btn-primary" onclick="generateData(1000)">1000 筆</button>
+        </div>
+      </div>
+
+      <div class="control-section">
+        <h3>🧪 運行測試</h3>
+        <div class="button-group">
+          <button class="btn-success" onclick="testColumnFilter()">列篩選測試</button>
+          <button class="btn-success" onclick="testDateRange()">日期範圍測試</button>
+          <button class="btn-success" onclick="testNumericRange()">數值範圍測試</button>
+          <button class="btn-success" onclick="testCompositeFilter()">複合篩選測試</button>
+          <button class="btn-danger" onclick="clearResults()">清空結果</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="results">
+      <h2>✅ 測試結果</h2>
+      <div id="test-results"></div>
+      <div class="console" id="console"></div>
+    </div>
+  </div>
+
+  <script src="js/advanced-filter.js"></script>
+  <script>
+    let advancedFilter = null;
+    let testData = [];
+    const consoleLogs = [];
+
+    const originalLog = console.log;
+    console.log = function(...args) {
+      originalLog.apply(console, args);
+      const message = args.join(' ');
+      consoleLogs.push(message);
+      updateConsole();
+    };
+
+    function updateConsole() {
+      const el = document.getElementById('console');
+      el.innerHTML = consoleLogs.slice(-30).map(log =>
+        `<div>${log}</div>`
+      ).join('');
+      el.scrollTop = el.scrollHeight;
+    }
+
+    function generateData(count) {
+      console.log(`\n📝 正在生成 ${count} 筆測試數據...`);
+      
+      const categories = ['檢查', '治療', '藥物'];
+      testData = [];
+      const today = new Date();
+
+      for (let i = 0; i < count; i++) {
+        const date = new Date(today);
+        date.setDate(date.getDate() - Math.floor(Math.random() * 365));
+
+        testData.push({
+          id: String(i).padStart(6, '0'),
+          category: categories[i % categories.length],
+          name: `項目${i}`,
+          points: Math.floor(Math.random() * 1000) + 100,
+          effectiveDate: date.toISOString().split('T')[0],
+          status: Math.random() > 0.5 ? '有效' : '無效'
+        });
+      }
+
+      advancedFilter = new AdvancedFilter();
+      console.log(`✓ 生成完成 - ${count} 筆數據`);
+    }
+
+    function testColumnFilter() {
+      if (!advancedFilter) {
+        alert('請先生成測試數據');
+        return;
+      }
+
+      console.log('\n═══ 列篩選測試開始 ═══\n');
+
+      advancedFilter.clear();
+      advancedFilter.addColumnFilter('category', ['檢查', '治療']);
+
+      const result = advancedFilter.filter(testData);
+      addTestResult(`列篩選 (category=['檢查','治療'])`, 
+        `找到 ${result.count} 筆結果 (${result.time}ms)`, true);
+
+      console.log(`✓ 結果: ${result.count} 筆\n`);
+    }
+
+    function testDateRange() {
+      if (!advancedFilter) {
+        alert('請先生成測試數據');
+        return;
+      }
+
+      console.log('\n═══ 日期範圍測試開始 ═══\n');
+
+      advancedFilter.clear();
+      const startDate = new Date();
+      startDate.setDate(startDate.getDate() - 180);
+      const endDate = new Date();
+
+      advancedFilter.addDateRange('effectiveDate', startDate, endDate);
+
+      const result = advancedFilter.filter(testData);
+      addTestResult(`日期範圍篩選 (最近180天)`, 
+        `找到 ${result.count} 筆結果 (${result.time}ms)`, true);
+
+      console.log(`✓ 結果: ${result.count} 筆\n`);
+    }
+
+    function testNumericRange() {
+      if (!advancedFilter) {
+        alert('請先生成測試數據');
+        return;
+      }
+
+      console.log('\n═══ 數值範圍測試開始 ═══\n');
+
+      advancedFilter.clear();
+      advancedFilter.addNumericRange('points', 200, 800);
+
+      const result = advancedFilter.filter(testData);
+      addTestResult(`數值範圍篩選 (points 200-800)`, 
+        `找到 ${result.count} 筆結果 (${result.time}ms)`, true);
+
+      console.log(`✓ 結果: ${result.count} 筆\n`);
+    }
+
+    function testCompositeFilter() {
+      if (!advancedFilter) {
+        alert('請先生成測試數據');
+        return;
+      }
+
+      console.log('\n═══ 複合篩選測試開始 ═══\n');
+
+      advancedFilter.clear();
+      advancedFilter.addColumnFilter('category', ['檢查']);
+      advancedFilter.addNumericRange('points', 200, 500);
+
+      const startDate = new Date();
+      startDate.setDate(startDate.getDate() - 180);
+      advancedFilter.addDateRange('effectiveDate', startDate, new Date());
+
+      const result = advancedFilter.filter(testData);
+      addTestResult(`複合篩選 (category + points + date)`, 
+        `找到 ${result.count} 筆結果 (${result.time}ms)`, true);
+
+      advancedFilter.printReport();
+      console.log(`\n✓ 複合篩選完成\n`);
+    }
+
+    function addTestResult(name, result, passed) {
+      const container = document.getElementById('test-results');
+      const item = document.createElement('div');
+      item.className = `test-item ${passed ? 'passed' : 'failed'}`;
+      item.innerHTML = `<strong>${passed ? '✓' : '✗'} ${name}</strong><br><small>${result}</small>`;
+      container.appendChild(item);
+    }
+
+    function clearResults() {
+      document.getElementById('test-results').innerHTML = '';
+      consoleLogs.length = 0;
+      updateConsole();
+      console.log('✓ 結果已清空');
+    }
+
+    console.log('🚀 高級篩選測試頁面已準備就緒');
+  </script>
+</body>
+</html>

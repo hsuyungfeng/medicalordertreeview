@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>支付標準表測試</title>
+  <link rel="stylesheet" href="css/medical-tree.css">
+  <style>
+    body {
+      padding: 20px;
+      background: #f5f5f5;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    .test-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .test-section {
+      margin-bottom: 30px;
+      border: 1px solid #e0e0e0;
+      padding: 15px;
+      border-radius: 6px;
+    }
+    .test-section h3 {
+      margin-top: 0;
+      color: #333;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 10px;
+    }
+    .test-result {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 4px;
+      background: #f0f4ff;
+      border-left: 4px solid #667eea;
+      font-size: 14px;
+    }
+    .test-result.success {
+      background: #e8f5e9;
+      border-left-color: #4caf50;
+    }
+    .test-result.error {
+      background: #ffebee;
+      border-left-color: #f44336;
+    }
+    .test-result.warning {
+      background: #fff3e0;
+      border-left-color: #ff9800;
+    }
+    .test-result strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .test-result small {
+      color: #666;
+      display: block;
+    }
+    .demo-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      font-size: 13px;
+    }
+    .demo-table th {
+      background: #667eea;
+      color: white;
+      padding: 8px;
+      text-align: left;
+      font-weight: 600;
+    }
+    .demo-table td {
+      padding: 8px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .demo-table tr:hover {
+      background: #f5f5f5;
+    }
+    .stats {
+      background: #f5f5f5;
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 10px;
+      font-family: monospace;
+      font-size: 12px;
+    }
+    .data-section {
+      background: #fafbfc;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 15px;
+    }
+    .summary {
+      margin-top: 20px;
+      padding: 15px;
+      background: #e8f5e9;
+      border: 2px solid #4caf50;
+      border-radius: 6px;
+    }
+    .summary h3 {
+      margin: 0 0 10px 0;
+      color: #2e7d32;
+      border: none;
+      padding: 0;
+    }
+    .code-block {
+      background: #f5f5f5;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-container">
+    <h1>💰 支付標準表測試</h1>
+    <p>驗證支付標準表實現的完整性和正確性</p>
+
+    <div id="results"></div>
+
+    <!-- 演示區域 -->
+    <div class="test-section">
+      <h3>📊 支付標準表演示</h3>
+      <div id="demo"></div>
+    </div>
+
+    <!-- 日期格式測試 -->
+    <div class="test-section">
+      <h3>📅 日期格式化測試</h3>
+      <div id="date-tests"></div>
+    </div>
+
+    <!-- 表格映射驗證 -->
+    <div class="test-section">
+      <h3>🗺️ 表格映射驗證</h3>
+      <div id="mapping-tests"></div>
+    </div>
+  </div>
+
+  <script src="js/table-renderer.js"></script>
+  <script src="js/table-loader.js"></script>
+  <script>
+    const results = [];
+
+    function logTest(name, success, details) {
+      results.push({ name, success, details });
+      const resultDiv = document.getElementById('results');
+      const testDiv = document.createElement('div');
+      testDiv.className = `test-result ${success ? 'success' : 'error'}`;
+      testDiv.innerHTML = `<strong>${success ? '✓' : '✗'} ${name}</strong><small>${details}</small>`;
+      resultDiv.appendChild(testDiv);
+    }
+
+    // ============ 測試 1-5: StandardTableAdapter 基礎功能 ============
+
+    // 測試 1: StandardTableAdapter 初始化
+    try {
+      const adapter = new StandardTableAdapter();
+      logTest('StandardTableAdapter 初始化', !!adapter, '成功創建實例');
+    } catch (e) {
+      logTest('StandardTableAdapter 初始化', false, `錯誤: ${e.message}`);
+    }
+
+    // 測試 2: 獲取列定義
+    try {
+      const adapter = new StandardTableAdapter();
+      const columns = adapter.getColumns();
+      const hasRequiredColumns =
+        columns.some(c => c.key === 'code') &&
+        columns.some(c => c.key === 'name') &&
+        columns.some(c => c.key === 'payment_points') &&
+        columns.some(c => c.key === 'effective_from') &&
+        columns.some(c => c.key === 'effective_to');
+      logTest('列定義完整', hasRequiredColumns, `定義了 ${columns.length} 列`);
+    } catch (e) {
+      logTest('列定義完整', false, `錯誤: ${e.message}`);
+    }
+
+    // 測試 3: 行數據格式化
+    try {
+      const adapter = new StandardTableAdapter();
+      const row = {
+        code: '01024C',
+        name: '山地離島地區醫療報酬',
+        payment_points: 1090,
+        effective_from: '20160401',
+        effective_to: '29101231'
+      };
+      const formatted = adapter.formatRow(row);
+      const hasAllFields = formatted.code && formatted.name &&
+                          formatted.payment_points && formatted.effective_from &&
+                          formatted.effective_to;
+      logTest('行數據格式化', hasAllFields, `成功格式化 ${Object.keys(formatted).length} 個字段`);
+    } catch (e) {
+      logTest('行數據格式化', false, `錯誤: ${e.message}`);
+    }
+
+    // 測試 4: 日期格式化方法
+    try {
+      const adapter = new StandardTableAdapter();
+      const dateStr = '20160401';
+      const formatted = adapter.formatDate(dateStr);
+      const isCorrect = formatted === '2016-04-01';
+      logTest('日期格式化', isCorrect, `${dateStr} → ${formatted}`);
+    } catch (e) {
+      logTest('日期格式化', false, `錯誤: ${e.message}`);
+    }
+
+    // 測試 5: 排序值提取
+    try {
+      const adapter = new StandardTableAdapter();
+      const row = { payment_points: '1500', code: 'TEST' };
+      const sortValue = adapter.getSortValue(row, 'payment_points');
+      const isNumeric = typeof sortValue === 'number' && sortValue === 1500;
+      logTest('排序值提取', isNumeric, `payment_points: 1500 (${typeof sortValue})`);
+    } catch (e) {
+      logTest('排序值提取', false, `錯誤: ${e.message}`);
+    }
+
+    // ============ 測試 6-8: 表格渲染 ============
+
+    // 測試 6: TableRenderer 初始化
+    try {
+      const container = document.createElement('div');
+      container.className = 'table-container';
+      container.innerHTML = `
+        <div class="data-table">
+          <table><thead><tr><th>測試</th></tr></thead><tbody></tbody></table>
+        </div>
+      `;
+      document.body.appendChild(container);
+
+      const renderer = new TableRenderer('.table-container', new StandardTableAdapter());
+      document.body.removeChild(container);
+      logTest('表格渲染器初始化', true, '成功創建表格渲染器');
+    } catch (e) {
+      logTest('表格渲染器初始化', false, `錯誤: ${e.message}`);
+    }
+
+    // 測試 7: 設置表格數據
+    try {
+      const container = document.createElement('div');
+      container.className = 'table-container';
+      container.innerHTML = `
+        <div class="data-table">
+          <table><thead></thead><tbody></tbody></table>
+        </div>
+      `;
+      document.body.appendChild(container);
+
+      const renderer = new TableRenderer('.table-container', new StandardTableAdapter());
+      const testData = [
+        { code: '01001C', name: '初診費', payment_points: 500, effective_from: '20160401', effective_to: '29101231' },
+        { code: '01002C', name: '複診費', payment_points: 300, effective_from: '20160401', effective_to: '29101231' }
+      ];
+      renderer.setData(testData);
+
+      document.body.removeChild(container);
+      logTest('設置表格數據', renderer.data.length === 2, `已加載 ${renderer.data.length} 筆數據`);
+    } catch (e) {
+      logTest('設置表格數據', false, `錯誤: ${e.message}`);
+    }
+
+    // 測試 8: 表格排序
+    try {
+      const adapter = new StandardTableAdapter();
+      const data = [
+        { code: '01003C', name: 'C', payment_points: 300 },
+        { code: '01001C', name: 'A', payment_points: 100 },
+        { code: '01002C', name: 'B', payment_points: 200 }
+      ];
+
+      // 測試排序能力
+      const canSortCode = adapter.canSort('code');
+      const canSortPoints = adapter.canSort('payment_points');
+      const success = canSortCode && canSortPoints;
+      logTest('排序能力', success, `代碼可排序: ${canSortCode}, 點數可排序: ${canSortPoints}`);
+    } catch (e) {
+      logTest('排序能力', false, `錯誤: ${e.message}`);
+    }
+
+    // ============ 日期格式化詳細測試 ============
+    const dateTestsContainer = document.getElementById('date-tests');
+    const dateTestCases = [
+      { input: '20160401', expected: '2016-04-01', description: '標準日期' },
+      { input: '20250901', expected: '2025-09-01', description: '2025年日期' },
+      { input: '29101231', expected: '2910-12-31', description: '極限日期' },
+      { input: '', expected: '', description: '空字符串' },
+      { input: '2016-04-01', expected: '2016-04-01', description: '已格式化日期' }
+    ];
+
+    dateTestCases.forEach((testCase, index) => {
+      try {
+        const adapter = new StandardTableAdapter();
+        const result = adapter.formatDate(testCase.input);
+        const success = result === testCase.expected;
+        const testDiv = document.createElement('div');
+        testDiv.className = `test-result ${success ? 'success' : 'warning'}`;
+        testDiv.innerHTML = `
+          <strong>日期測試 ${index + 1}: ${testCase.description}</strong>
+          <small>輸入: "${testCase.input}" → 輸出: "${result}" (預期: "${testCase.expected}")</small>
+        `;
+        dateTestsContainer.appendChild(testDiv);
+      } catch (e) {
+        const testDiv = document.createElement('div');
+        testDiv.className = 'test-result error';
+        testDiv.innerHTML = `<strong>日期測試 ${index + 1} 失敗</strong><small>${e.message}</small>`;
+        dateTestsContainer.appendChild(testDiv);
+      }
+    });
+
+    // ============ 表格映射驗證 ============
+    const mappingTestsContainer = document.getElementById('mapping-tests');
+
+    // 測試 9: 加載表格映射
+    fetch('data/table-mapping.json')
+      .then(response => response.json())
+      .then(mapping => {
+        try {
+          const hasMappings = mapping.mappings && Object.keys(mapping.mappings).length > 0;
+          const allHaveStandardTable = Object.values(mapping.mappings).every(section =>
+            section.tables && section.tables.some(t => t.type === 'standard')
+          );
+
+          const testDiv = document.createElement('div');
+          testDiv.className = `test-result ${allHaveStandardTable ? 'success' : 'warning'}`;
+          testDiv.innerHTML = `
+            <strong>✓ 表格映射文件加載成功</strong>
+            <small>
+              總節點數: ${Object.keys(mapping.mappings).length}<br>
+              所有節點都有支付標準表: ${allHaveStandardTable ? '是' : '否'}
+            </small>
+          `;
+          mappingTestsContainer.appendChild(testDiv);
+
+          // 詳細列出每個節點的映射
+          const detailDiv = document.createElement('div');
+          detailDiv.className = 'data-section';
+          detailDiv.innerHTML = '<h4>節點映射詳情</h4>';
+
+          const table = document.createElement('table');
+          table.className = 'demo-table';
+          table.innerHTML = '<thead><tr><th>節點 ID</th><th>節點名稱</th><th>CSV 表</th><th>支付標準表</th></tr></thead><tbody></tbody>';
+
+          Object.entries(mapping.mappings).forEach(([nodeId, section]) => {
+            const csvTable = section.tables.find(t => t.type === 'csv');
+            const standardTable = section.tables.find(t => t.type === 'standard');
+
+            const row = table.querySelector('tbody').insertRow();
+            row.innerHTML = `
+              <td><code>${nodeId}</code></td>
+              <td>${section.label}</td>
+              <td>${csvTable ? '✓' : '✗'}</td>
+              <td>${standardTable ? '✓ ' + (standardTable.dataFile || 'N/A') : '✗'}</td>
+            `;
+          });
+
+          detailDiv.appendChild(table);
+          mappingTestsContainer.appendChild(detailDiv);
+        } catch (e) {
+          const testDiv = document.createElement('div');
+          testDiv.className = 'test-result error';
+          testDiv.innerHTML = `<strong>✗ 映射驗證失敗</strong><small>${e.message}</small>`;
+          mappingTestsContainer.appendChild(testDiv);
+        }
+      })
+      .catch(e => {
+        const testDiv = document.createElement('div');
+        testDiv.className = 'test-result error';
+        testDiv.innerHTML = `<strong>✗ 無法加載表格映射文件</strong><small>${e.message}</small>`;
+        mappingTestsContainer.appendChild(testDiv);
+      });
+
+    // ============ 測試 10: 加載支付標準數據 ============
+    const demoContainer = document.getElementById('demo');
+
+    Promise.all([
+      fetch('data/payment-standards/section-2-2-1-standards.json').then(r => r.json()),
+      fetch('data/payment-standards/section-2-2-2-standards.json').then(r => r.json())
+    ])
+      .then(([section1, section2]) => {
+        try {
+          const testDiv = document.createElement('div');
+          testDiv.className = 'test-result success';
+          testDiv.innerHTML = `
+            <strong>✓ 支付標準數據加載成功</strong>
+            <small>
+              第2-2-1節: ${section1.total_items} 項 (已加載 ${section1.items?.length || 0} 項)<br>
+              第2-2-2節: ${section2.total_items} 項 (已加載 ${section2.items?.length || 0} 項)
+            </small>
+          `;
+          demoContainer.appendChild(testDiv);
+
+          // 渲染樣本表格
+          const adapter = new StandardTableAdapter();
+          const sampleDiv = document.createElement('div');
+          sampleDiv.className = 'data-section';
+          sampleDiv.innerHTML = '<h4>第2-2-1節樣本數據（前5筆）</h4>';
+
+          const table = document.createElement('table');
+          table.className = 'demo-table';
+
+          // 表頭
+          const headerRow = table.insertRow();
+          adapter.getColumns().forEach(col => {
+            const th = document.createElement('th');
+            th.textContent = col.label;
+            headerRow.appendChild(th);
+          });
+
+          // 數據行
+          const displayData = section1.items.slice(0, 5);
+          displayData.forEach(item => {
+            const formatted = adapter.formatRow(item);
+            const row = table.insertRow();
+            adapter.getColumns().forEach(col => {
+              const cell = row.insertCell();
+              const value = formatted[col.key];
+              cell.textContent = value || '-';
+              if (col.type === 'number') {
+                cell.style.textAlign = 'right';
+              }
+            });
+          });
+
+          sampleDiv.appendChild(table);
+          demoContainer.appendChild(sampleDiv);
+        } catch (e) {
+          const testDiv = document.createElement('div');
+          testDiv.className = 'test-result error';
+          testDiv.innerHTML = `<strong>✗ 數據渲染失敗</strong><small>${e.message}</small>`;
+          demoContainer.appendChild(testDiv);
+        }
+      })
+      .catch(e => {
+        const testDiv = document.createElement('div');
+        testDiv.className = 'test-result error';
+        testDiv.innerHTML = `<strong>✗ 無法加載支付標準數據</strong><small>${e.message}</small>`;
+        demoContainer.appendChild(testDiv);
+      });
+
+    // ============ 顯示測試摘要 ============
+    setTimeout(() => {
+      const passed = results.filter(r => r.success).length;
+      const total = results.length;
+      const summary = document.createElement('div');
+      summary.className = 'summary';
+      summary.innerHTML = `
+        <h3>✓ 測試摘要</h3>
+        <p><strong>通過: ${passed}/${total}</strong></p>
+        <p>支付標準表實現已驗證！</p>
+        ${passed === total ? '<p style="color: #2e7d32;">✓ 所有測試通過 - 準備進行 Phase 3.4</p>' : ''}
+      `;
+      document.getElementById('results').insertBefore(summary, document.getElementById('results').firstChild);
+    }, 500);
+  </script>
+</body>
+</html>

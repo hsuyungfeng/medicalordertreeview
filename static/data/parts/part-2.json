@@ -1,0 +1,1144 @@
+{
+  "children": [
+    {
+      "id": "chapter-2-0",
+      "type": "chapter",
+      "label": "第二部 通則",
+      "level": 2,
+      "parent_id": "part-2",
+      "has_children": false,
+      "metadata": {
+        "filename": "2-0第二部西醫-114.07.01.doc",
+        "doc_id": "2-0"
+      },
+      "content": "第二部 西醫(本部通則自中華民國一百十四年七月一日生效)\n\n通則：西醫基層醫事服務機構實施西醫基層門診診療項目，其申報點數依「西醫基層相對合理門診點數給付原則」辦理核付，原則如下： \n一、適用對象：醫事人員執業登記於醫院，並至西醫基層醫療院所(以下稱西醫基層院所)支援之醫師。\n二、實施範圍定義：\n(一)醫療費用：\n1.申報西醫基層門診總額之總醫療費用點數(含部分負擔)。\n2.下列排除項目費用，不列入計算：\n(1)屬行政協助之代辦案件。\n(2)B型肝炎藥費、C型肝炎藥費、精神科長效針劑藥費。\n(3)其他政策鼓勵項目。\n(二)不適用地區：\n1.全民健康保險山地離島地區。\n2.全民健康保險西醫醫療資源不足地區改善方案施行鄉鎮。\n3.全民健康保險醫療資源缺乏地區。\n三、折付方式：執登於醫院之醫師，以醫師為單位計算各西醫基層院所各醫師合計折付點數上限，並與西醫基層院所審查核付點數比較，計算實際核付點數。\n(一)先計算每位醫師每月申報西醫基層門診醫療費用(=申報總醫療點數(含部分負擔)-排除項目費用點數)計算實際核付點數，點數在十萬點以下時維持原費用點數，超過十萬點時，乘以0.75予以折付方式，計算當月該醫師折付上限總點數。\n註1：各醫師每月申報費用之計算，係於每月底針對已受理並完成轉檔之資料，啟動全國醫師別總費用歸戶，將各西醫基層院所申報上月費用及當月補送上月以前之補報費用中該醫師申報之點數加計。因故上月執業費用於次次月以後申報者(限發生年月費用未曾申報者)，追溯計算費用發生年月該醫師於其他院所執業費用之點數，並按規定加計折算費用，原已完成歸戶計算費用之西醫基層院所則不予追扣或補付費用。\n註2：全國醫師別總費用歸戶後，申報醫師身分證檢核錯誤及醫師以A報B者均不予支付，且不得申復，但重大行政或系統問題所致者，由保險人衡酌處理，且同院所一年不得超過一次。\n(二)前開醫師折付上限總點數，按該醫師在多處院所申報醫療費用比例，計算該醫師在某院所之折付上限點數。\n(三)計算各西醫基層院所各醫師合計折付點數上限(=所有西醫基層院所及醫師折付上限點數合計+排除項目費用點數)。該院所審查核付點數如大於折付點數上限，按折付點數上限核給費用；如小於折付點數上限，按核付點數核給費用。\n四、核付院所費用後，若有申復，致使審查補付點數加原核定點數大於折付點數上限時，以折付點數上限為給付限額。"
+    },
+    {
+      "id": "chapter-2-1",
+      "type": "chapter",
+      "label": "第二部第一章基本診療",
+      "level": 2,
+      "parent_id": "part-2",
+      "has_children": false,
+      "metadata": {
+        "filename": "2-1第二部第一章基本診療-114.09.01.doc",
+        "doc_id": "2-1"
+      },
+      "content": "第一章  基本診療\n第一節  門診診察費\n通則：\n一、本節所定點數包括醫師診療、處方、護理人員服務、電子資料處理、污水及廢棄物處理及其他基本執業成本（如不計價藥材、建築與設備、醫療責任保險及水電等雜項支出）。",
+      "tables": [
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t0",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t1",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t2",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t3",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t4",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t5",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t6",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t7",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t8",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t9",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t10",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t11",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t12",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t13",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t14",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t15",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t16",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t17",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t18",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t19",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t20",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t21",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t22",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t23",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t24",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t25",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t26",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t27",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t28",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t29",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t30",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t31",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t32",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t33",
+        "doc-table-2-1第二部第一章基本診療-114.09.01-s0-t34"
+      ],
+      "table_count": 35
+    },
+    {
+      "id": "chapter-2-2",
+      "type": "chapter",
+      "label": "第二部第二章  檢查、放射線診療、注射、復健、精神醫療、治療處置、手術、輸血及造血幹細胞移植、石膏繃帶、麻醉費",
+      "level": 2,
+      "parent_id": "part-2",
+      "has_children": true,
+      "children": [
+        {
+          "id": "section-2-2-1",
+          "type": "section",
+          "label": "第二部第二章第一節  檢查",
+          "level": 3,
+          "parent_id": "chapter-2-2",
+          "has_children": true,
+          "metadata": {
+            "filename": "2-2-1第二部第二章第一節檢查-114.09.01.doc",
+            "doc_id": "2-2-1"
+          },
+          "children": [
+            {
+              "id": "subsection-2-2-1-1",
+              "label": "第一項  尿液檢查 Urine Test",
+              "type": "subsection",
+              "code_range": "06001-06513",
+              "parent_id": "section-2-2-1",
+              "children": [
+                {
+                  "id": "subsection-2-2-1-1-1",
+                  "label": "一般尿液檢查",
+                  "type": "subsection",
+                  "code_range": "06001-06017",
+                  "parent_id": "subsection-2-2-1-1"
+                },
+                {
+                  "id": "subsection-2-2-1-1-2",
+                  "label": "特殊尿液檢查",
+                  "type": "subsection",
+                  "code_range": "06503-06513",
+                  "parent_id": "subsection-2-2-1-1"
+                }
+              ]
+            },
+            {
+              "id": "subsection-2-2-1-2",
+              "label": "第二項  糞便檢查 Stool Test",
+              "type": "subsection",
+              "code_range": "07001-07018",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-3",
+              "label": "第三項  血液學檢查 Hematology Test",
+              "type": "subsection",
+              "code_range": "08001-08135",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-4",
+              "label": "第四項  生化學檢查 Biochemistry Exam",
+              "type": "subsection",
+              "code_range": "09001-10819",
+              "parent_id": "section-2-2-1",
+              "children": [
+                {
+                  "id": "subsection-2-2-1-4-1",
+                  "label": "一般生化學檢查",
+                  "type": "subsection",
+                  "code_range": "09001-09140",
+                  "parent_id": "subsection-2-2-1-4"
+                },
+                {
+                  "id": "subsection-2-2-1-4-2",
+                  "label": "微量元素測定",
+                  "type": "subsection",
+                  "code_range": "10001-10012",
+                  "parent_id": "subsection-2-2-1-4"
+                },
+                {
+                  "id": "subsection-2-2-1-4-3",
+                  "label": "血中藥物濃度測定 Therapeutic Drug Monitoring",
+                  "type": "subsection",
+                  "code_range": "10501-10537",
+                  "parent_id": "subsection-2-2-1-4"
+                },
+                {
+                  "id": "subsection-2-2-1-4-4",
+                  "label": "血中毒物濃度測定 Toxicologic Examination",
+                  "type": "subsection",
+                  "code_range": "10801-10819",
+                  "parent_id": "subsection-2-2-1-4"
+                }
+              ]
+            },
+            {
+              "id": "subsection-2-2-1-5",
+              "label": "第五項  輸血前檢查 Pre-transfusion",
+              "type": "subsection",
+              "code_range": "11001-11012",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-6",
+              "label": "第六項  免疫學檢查 Immunology",
+              "type": "subsection",
+              "code_range": "12001-12219",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-7",
+              "label": "第七項  細菌學與黴菌檢查 Bacteriology",
+              "type": "subsection",
+              "code_range": "13001-13032",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-8",
+              "label": "第八項  病毒學檢查 Virology",
+              "type": "subsection",
+              "code_range": "14001-14086",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-9",
+              "label": "第九項  細胞學檢查 Cytology",
+              "type": "subsection",
+              "code_range": "15001-15022",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-10",
+              "label": "第十項  穿剌液檢查 Fluid Exam",
+              "type": "subsection",
+              "code_range": "16001-16013",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-11",
+              "label": "第十一項  呼吸機能檢查 Respiratory Function",
+              "type": "subsection",
+              "code_range": "17001-17024",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-12",
+              "label": "第十二項  循環機能檢查 Circulative Function",
+              "type": "subsection",
+              "code_range": "18001-18047",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-13",
+              "label": "第十三項  超音波檢查 Sonography",
+              "type": "subsection",
+              "code_range": "19001-19018",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-14",
+              "label": "第十四項  神經系統檢查 Neurological Test",
+              "type": "subsection",
+              "code_range": "20001-20049",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-15",
+              "label": "第十五項  泌尿系統檢查 Urinology Test",
+              "type": "subsection",
+              "code_range": "21001-21012",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-16",
+              "label": "第十六項  耳鼻喉系統檢查 E.N.T.",
+              "type": "subsection",
+              "code_range": "22001-22041",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-17",
+              "label": "第十七項  眼部檢查 Ophthalmology",
+              "type": "subsection",
+              "code_range": "23001-23813",
+              "parent_id": "section-2-2-1",
+              "children": [
+                {
+                  "id": "subsection-2-2-1-17-1",
+                  "label": "屈光檢查 Refraction Ex.",
+                  "type": "subsection",
+                  "code_range": "23001-23004",
+                  "parent_id": "subsection-2-2-1-17"
+                },
+                {
+                  "id": "subsection-2-2-1-17-2",
+                  "label": "視網膜檢查 Retina Ex.",
+                  "type": "subsection",
+                  "code_range": "23101-23104",
+                  "parent_id": "subsection-2-2-1-17"
+                },
+                {
+                  "id": "subsection-2-2-1-17-3",
+                  "label": "斜視檢查 Strabismus Ex.",
+                  "type": "subsection",
+                  "code_range": "23201-23208",
+                  "parent_id": "subsection-2-2-1-17"
+                },
+                {
+                  "id": "subsection-2-2-1-17-4",
+                  "label": "青光眼檢查 Glaucoma Ex.",
+                  "type": "subsection",
+                  "code_range": "23301-23308",
+                  "parent_id": "subsection-2-2-1-17"
+                },
+                {
+                  "id": "subsection-2-2-1-17-5",
+                  "label": "細隙燈檢查 Slit Lamp Ex.",
+                  "type": "subsection",
+                  "code_range": "23401-23405",
+                  "parent_id": "subsection-2-2-1-17"
+                },
+                {
+                  "id": "subsection-2-2-1-17-6",
+                  "label": "眼底檢查 Fundus Ex.",
+                  "type": "subsection",
+                  "code_range": "23501-23506",
+                  "parent_id": "subsection-2-2-1-17"
+                },
+                {
+                  "id": "subsection-2-2-1-17-7",
+                  "label": "視神經檢查 Optic Nerve Ex.",
+                  "type": "subsection",
+                  "code_range": "23601-23610",
+                  "parent_id": "subsection-2-2-1-17"
+                },
+                {
+                  "id": "subsection-2-2-1-17-8",
+                  "label": "網膜電氣圖 Electroretinogram",
+                  "type": "subsection",
+                  "code_range": "23701-23707",
+                  "parent_id": "subsection-2-2-1-17"
+                },
+                {
+                  "id": "subsection-2-2-1-17-9",
+                  "label": "其他 Others",
+                  "type": "subsection",
+                  "code_range": "23801-23813",
+                  "parent_id": "subsection-2-2-1-17"
+                }
+              ]
+            },
+            {
+              "id": "subsection-2-2-1-18",
+              "label": "第十八項  負荷試驗 Loading Test",
+              "type": "subsection",
+              "code_range": "24001-24029",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-19",
+              "label": "第十九項  病理組織檢查 Specimen Exam",
+              "type": "subsection",
+              "code_range": "25001-25026",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-20",
+              "label": "第二十項  核子醫學檢查 Radioisotope Scanning",
+              "type": "subsection",
+              "code_range": "26001-27083",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-21",
+              "label": "第二十一項  內視鏡檢查 Endoscopy",
+              "type": "subsection",
+              "code_range": "28001-28046",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-22",
+              "label": "第二十二項  診斷穿剌 Diagnostic Puncture",
+              "type": "subsection",
+              "code_range": "29001-29035",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-23",
+              "label": "第二十三項  過敏免疫檢查 Allergy Immunologic",
+              "type": "subsection",
+              "code_range": "30001-30030",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-24",
+              "label": "第二十四項  伴隨式診斷 Companion Diagnostics",
+              "type": "subsection",
+              "code_range": "30101-30111",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-25",
+              "label": "第二十五項  次世代基因定序 NGS",
+              "type": "subsection",
+              "code_range": "30301-30307",
+              "parent_id": "section-2-2-1"
+            },
+            {
+              "id": "subsection-2-2-1-26",
+              "label": "第二十六項  其他檢查 Other Test",
+              "type": "subsection",
+              "code_range": "30501-30526",
+              "parent_id": "section-2-2-1"
+            }
+          ]
+        },
+        {
+          "id": "section-2-2-2",
+          "type": "section",
+          "label": "第二部第二章第二節  放射線診療",
+          "level": 3,
+          "parent_id": "chapter-2-2",
+          "has_children": true,
+          "metadata": {
+            "filename": "2-2-2第二部第二章第二節放射線診療-114.09.01.doc",
+            "doc_id": "2-2-2"
+          },
+          "children": [
+            {
+              "id": "subsection-2-2-2-1",
+              "type": "subsection",
+              "label": "X 光攝影 X-ray Imaging",
+              "level": 4,
+              "parent_id": "section-2-2-2",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-2第二部第二章第二節放射線診療-114.09.01",
+                "row_range": "0-25"
+              },
+              "content": "X 光檢查項目"
+            },
+            {
+              "id": "subsection-2-2-2-2",
+              "type": "subsection",
+              "label": "其他放射線診療 Advanced Imaging",
+              "level": 4,
+              "parent_id": "section-2-2-2",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-2第二部第二章第二節放射線診療-114.09.01",
+                "row_range": "26-249"
+              },
+              "content": "CT、超音波、MRI 等"
+            }
+          ]
+        },
+        {
+          "id": "section-2-2-3",
+          "type": "section",
+          "label": "第二部第二章第三節  注射",
+          "level": 3,
+          "parent_id": "chapter-2-2",
+          "has_children": true,
+          "metadata": {
+            "filename": "2-2-3第二部第二章第三節注射-114.05.01.doc",
+            "doc_id": "2-2-3"
+          },
+          "children": [
+            {
+              "id": "subsection-2-2-3-1",
+              "type": "subsection",
+              "label": "局部麻醉及靜脈注射",
+              "level": 4,
+              "parent_id": "section-2-2-3",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-3",
+                "row_range": "0-9"
+              }
+            },
+            {
+              "id": "subsection-2-2-3-2",
+              "type": "subsection",
+              "label": "靜脈曲張注射療法",
+              "level": 4,
+              "parent_id": "section-2-2-3",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-3",
+                "row_range": "10-22"
+              },
+              "content": "靜脈曲張注射療法\nInjection of sclerosing solution, multiple veins"
+            },
+            {
+              "id": "subsection-2-2-3-3",
+              "type": "subsection",
+              "label": "其他注射治療",
+              "level": 4,
+              "parent_id": "section-2-2-3",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-3",
+                "row_range": "23-28"
+              }
+            }
+          ]
+        },
+        {
+          "id": "section-2-2-4",
+          "type": "section",
+          "label": "第二部第二章第四節  復健治療",
+          "level": 3,
+          "parent_id": "chapter-2-2",
+          "has_children": true,
+          "metadata": {
+            "filename": "2-2-4第二部第二章第四節復健治療-114.05.01.doc",
+            "doc_id": "2-2-4"
+          },
+          "children": [
+            {
+              "id": "subsection-2-2-4-1",
+              "type": "subsection",
+              "label": "物理治療 Physical Therapy",
+              "level": 4,
+              "parent_id": "section-2-2-4",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-4第二部第二章第四節復健治療-114.05.01",
+                "row_range": "0-23"
+              },
+              "content": "物理治療項目"
+            },
+            {
+              "id": "subsection-2-2-4-2",
+              "type": "subsection",
+              "label": "職能治療與其他復健 Occupational Therapy & Others",
+              "level": 4,
+              "parent_id": "section-2-2-4",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-4第二部第二章第四節復健治療-114.05.01",
+                "row_range": "24-80"
+              },
+              "content": "職能治療、其他復健治療"
+            }
+          ]
+        },
+        {
+          "id": "section-2-2-5",
+          "type": "section",
+          "label": "第二部第二章第五節  精神醫療治療費",
+          "level": 3,
+          "parent_id": "chapter-2-2",
+          "has_children": true,
+          "metadata": {
+            "filename": "2-2-5第二部第二章第五節精神醫療治療費-114.05.01.doc",
+            "doc_id": "2-2-5"
+          },
+          "children": [
+            {
+              "id": "subsection-2-2-5-1",
+              "type": "subsection",
+              "label": "特殊心理治療",
+              "level": 4,
+              "parent_id": "section-2-2-5",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-5",
+                "row_range": "0-5"
+              }
+            },
+            {
+              "id": "subsection-2-2-5-2",
+              "type": "subsection",
+              "label": "深度心理治療",
+              "level": 4,
+              "parent_id": "section-2-2-5",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-5",
+                "row_range": "6-10"
+              }
+            },
+            {
+              "id": "subsection-2-2-5-3",
+              "type": "subsection",
+              "label": "心理評估",
+              "level": 4,
+              "parent_id": "section-2-2-5",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-5",
+                "row_range": "11-23"
+              }
+            },
+            {
+              "id": "subsection-2-2-5-4",
+              "type": "subsection",
+              "label": "生理心理功能檢查",
+              "level": 4,
+              "parent_id": "section-2-2-5",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-5",
+                "row_range": "24-27"
+              },
+              "content": "生理心理功能檢查\nPsychophysiological function examination"
+            },
+            {
+              "id": "subsection-2-2-5-5",
+              "type": "subsection",
+              "label": "精神科診斷與會談",
+              "level": 4,
+              "parent_id": "section-2-2-5",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-5",
+                "row_range": "28-39"
+              },
+              "content": "註：包括MSE(Mini Mental State Test, BDI等)"
+            },
+            {
+              "id": "subsection-2-2-5-6",
+              "type": "subsection",
+              "label": "其他精神醫療費用",
+              "level": 4,
+              "parent_id": "section-2-2-5",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-5",
+                "row_range": "40-46"
+              },
+              "content": "精神科診斷性會談(次) \nPsychiatric diagnostic interview (time)"
+            }
+          ]
+        },
+        {
+          "id": "section-2-2-6",
+          "type": "section",
+          "label": "第二部第二章第六節  治療處置",
+          "level": 3,
+          "parent_id": "chapter-2-2",
+          "has_children": true,
+          "metadata": {
+            "filename": "2-2-6第二部第二章第六節治療處置-114.09.01.doc",
+            "doc_id": "2-2-6"
+          },
+          "children": [
+            {
+              "id": "subsection-2-2-6-1",
+              "label": "第一項  處置費 Treatment",
+              "type": "subsection",
+              "code_range": "47001-57126",
+              "parent_id": "section-2-2-6",
+              "children": [
+                {
+                  "id": "subsection-2-2-6-1-1",
+                  "label": "一、一般處置 General Treatment",
+                  "type": "subsection",
+                  "code_range": "47001-47108",
+                  "parent_id": "subsection-2-2-6-1"
+                },
+                {
+                  "id": "subsection-2-2-6-1-2",
+                  "label": "二、創傷處置 Wound Treatment",
+                  "type": "subsection",
+                  "code_range": "48001-48035",
+                  "parent_id": "subsection-2-2-6-1"
+                },
+                {
+                  "id": "subsection-2-2-6-1-3",
+                  "label": "三、大腸肛門處置 Colon and Anus Treatment",
+                  "type": "subsection",
+                  "code_range": "49001-49033",
+                  "parent_id": "subsection-2-2-6-1"
+                },
+                {
+                  "id": "subsection-2-2-6-1-4",
+                  "label": "四、泌尿系統處置 Urinary Treatment",
+                  "type": "subsection",
+                  "code_range": "50001-50036",
+                  "parent_id": "subsection-2-2-6-1"
+                },
+                {
+                  "id": "subsection-2-2-6-1-5",
+                  "label": "五、皮膚處置 Dermatology Treatment",
+                  "type": "subsection",
+                  "code_range": "51001-51033",
+                  "parent_id": "subsection-2-2-6-1"
+                },
+                {
+                  "id": "subsection-2-2-6-1-6",
+                  "label": "六、骨骼處置 Orthopedic Treatment",
+                  "type": "subsection",
+                  "code_range": "52001-52015",
+                  "parent_id": "subsection-2-2-6-1"
+                },
+                {
+                  "id": "subsection-2-2-6-1-7",
+                  "label": "七、眼科處置 Ocular Treatment",
+                  "type": "subsection",
+                  "code_range": "53001-53034",
+                  "parent_id": "subsection-2-2-6-1"
+                },
+                {
+                  "id": "subsection-2-2-6-1-8",
+                  "label": "八、耳鼻喉處置 E.N.T. Treatment",
+                  "type": "subsection",
+                  "code_range": "54001-54045",
+                  "parent_id": "subsection-2-2-6-1"
+                },
+                {
+                  "id": "subsection-2-2-6-1-9",
+                  "label": "九、婦科處置 GYN & OBS Treatment",
+                  "type": "subsection",
+                  "code_range": "55001-55027",
+                  "parent_id": "subsection-2-2-6-1"
+                },
+                {
+                  "id": "subsection-2-2-6-1-10",
+                  "label": "十、外科處置 General Surgery Treatment",
+                  "type": "subsection",
+                  "code_range": "56001-56043",
+                  "parent_id": "subsection-2-2-6-1"
+                },
+                {
+                  "id": "subsection-2-2-6-1-11",
+                  "label": "十一、呼吸治療處置 Respiratory Therapy",
+                  "type": "subsection",
+                  "code_range": "57001-57034",
+                  "parent_id": "subsection-2-2-6-1"
+                },
+                {
+                  "id": "subsection-2-2-6-1-12",
+                  "label": "十二、嬰幼兒處置 Infant and Child Treatment",
+                  "type": "subsection",
+                  "code_range": "57101-57126",
+                  "parent_id": "subsection-2-2-6-1"
+                }
+              ]
+            },
+            {
+              "id": "subsection-2-2-6-2",
+              "label": "第二項  透析治療 Dialysis Therapy",
+              "type": "subsection",
+              "code_range": "58001-58031",
+              "parent_id": "section-2-2-6"
+            },
+            {
+              "id": "subsection-2-2-6-3",
+              "label": "第三項  高壓氧治療 Hyperbaric Oxygen Therapy",
+              "type": "subsection",
+              "code_range": "59002-59016",
+              "parent_id": "section-2-2-6"
+            },
+            {
+              "id": "subsection-2-2-6-4",
+              "label": "第四項  眼科雷射治療 Ocular Laser Therapy",
+              "type": "subsection",
+              "code_range": "60001-60016",
+              "parent_id": "section-2-2-6"
+            },
+            {
+              "id": "subsection-2-2-6-5",
+              "label": "第五項  骨骼外固定器使用 Application of External Fixation Apparatus",
+              "type": "subsection",
+              "code_range": "61001-61020",
+              "parent_id": "section-2-2-6"
+            }
+          ]
+        },
+        {
+          "id": "section-2-2-7",
+          "type": "section",
+          "label": "第二部第二章第七節  手術",
+          "level": 3,
+          "parent_id": "chapter-2-2",
+          "has_children": true,
+          "metadata": {
+            "filename": "2-2-7第二部第二章第七節手術-114.09.01.docx",
+            "doc_id": "2-2-7"
+          },
+          "children": [
+            {
+              "id": "subsection-2-2-7-1",
+              "type": "subsection",
+              "label": "第一項 皮膚 Integumentary System (62001-62075)",
+              "level": 4,
+              "parent_id": "section-2-2-7",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+                "codes": "62001-62075"
+              },
+              "content": "皮膚 Integumentary System"
+            },
+            {
+              "id": "subsection-2-2-7-2",
+              "type": "subsection",
+              "label": "第二項 乳房 Breast (63001-63017)",
+              "level": 4,
+              "parent_id": "section-2-2-7",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+                "codes": "63001-63017"
+              },
+              "content": "乳房 Breast"
+            },
+            {
+              "id": "subsection-2-2-7-3",
+              "type": "subsection",
+              "label": "第三項 筋骨 Musculoskeletal System (64001-64285)",
+              "level": 4,
+              "parent_id": "section-2-2-7",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+                "codes": "64001-64285"
+              },
+              "content": "筋骨 Musculoskeletal System"
+            },
+            {
+              "id": "subsection-2-2-7-4",
+              "type": "subsection",
+              "label": "第四項 呼吸器 Respiratory System (65001-66032)",
+              "level": 4,
+              "parent_id": "section-2-2-7",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+                "codes": "65001-66032"
+              },
+              "content": "呼吸器 Respiratory System"
+            },
+            {
+              "id": "subsection-2-2-7-5",
+              "type": "subsection",
+              "label": "第五項 胸腔 Thoracic (67001-70420)",
+              "level": 4,
+              "parent_id": "section-2-2-7",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+                "codes": "67001-70420"
+              },
+              "content": "胸腔 Thoracic"
+            },
+            {
+              "id": "subsection-2-2-7-6",
+              "type": "subsection",
+              "label": "第六項 心臟及心包膜 Cardiac & Pericardium (68001-68060)",
+              "level": 4,
+              "parent_id": "section-2-2-7",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+                "codes": "68001-68060"
+              },
+              "content": "心臟及心包膜 Cardiac & Pericardium"
+            },
+            {
+              "id": "subsection-2-2-7-7",
+              "type": "subsection",
+              "label": "第七項 動脈與靜脈 Vascular System (69001-69043)",
+              "level": 4,
+              "parent_id": "section-2-2-7",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+                "codes": "69001-69043"
+              },
+              "content": "動脈與靜脈 Vascular System"
+            },
+            {
+              "id": "subsection-2-2-7-8",
+              "type": "subsection",
+              "label": "第八項 造血與淋巴系統 Hemic & Lymphatic System (70001-70216)",
+              "level": 4,
+              "parent_id": "section-2-2-7",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+                "codes": "70001-70216"
+              },
+              "content": "造血與淋巴系統 Hemic & Lymphatic System"
+            },
+            {
+              "id": "subsection-2-2-7-9",
+              "type": "subsection",
+              "label": "第九項 消化器 Digestive System (71001-75625)",
+              "level": 4,
+              "parent_id": "section-2-2-7",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+                "codes": "71001-75625"
+              },
+              "content": "消化器 Digestive System"
+            },
+            {
+              "id": "subsection-2-2-7-10",
+              "type": "subsection",
+              "label": "第十項 大腸、直腸、肛門 Colon & Rectum (73001-74420)",
+              "level": 4,
+              "parent_id": "section-2-2-7",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+                "codes": "73001-74420"
+              },
+              "content": "大腸、直腸、肛門 Colon & Rectum"
+            },
+            {
+              "id": "subsection-2-2-7-11",
+              "type": "subsection",
+              "label": "第十一項 肝、膽、胰 Hepatobiliary & Pancreas (75001-75430)",
+              "level": 4,
+              "parent_id": "section-2-2-7",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+                "codes": "75001-75430"
+              },
+              "content": "肝、膽、胰 Hepatobiliary & Pancreas"
+            },
+            {
+              "id": "subsection-2-2-7-12",
+              "type": "subsection",
+              "label": "第十二項 泌尿及男性生殖 Urogenital & Male Reproductive (76001-78601)",
+              "level": 4,
+              "parent_id": "section-2-2-7",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+                "codes": "76001-78601"
+              },
+              "content": "泌尿及男性生殖 Urogenital & Male Reproductive"
+            },
+            {
+              "id": "subsection-2-2-7-13",
+              "type": "subsection",
+              "label": "第十三項 女性生殖 Female Reproductive (79001-80801)",
+              "level": 4,
+              "parent_id": "section-2-2-7",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+                "codes": "79001-80801"
+              },
+              "content": "女性生殖 Female Reproductive"
+            },
+            {
+              "id": "subsection-2-2-7-14",
+              "type": "subsection",
+              "label": "第十四項 內分泌器 Endocrine System (82001-82019)",
+              "level": 4,
+              "parent_id": "section-2-2-7",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+                "codes": "82001-82019"
+              },
+              "content": "內分泌器 Endocrine System"
+            },
+            {
+              "id": "subsection-2-2-7-15",
+              "type": "subsection",
+              "label": "第十五項 神經外科 Neurosurgery (83001-83105)",
+              "level": 4,
+              "parent_id": "section-2-2-7",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+                "codes": "83001-83105"
+              },
+              "content": "神經外科 Neurosurgery"
+            },
+            {
+              "id": "subsection-2-2-7-16",
+              "type": "subsection",
+              "label": "第十六項 聽器 Auditory System (84001-84038)",
+              "level": 4,
+              "parent_id": "section-2-2-7",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+                "codes": "84001-84038"
+              },
+              "content": "聽器 Auditory System"
+            },
+            {
+              "id": "subsection-2-2-7-17",
+              "type": "subsection",
+              "label": "第十七項 視器 Visual System (85001-86401)",
+              "level": 4,
+              "parent_id": "section-2-2-7",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+                "codes": "85001-86401"
+              },
+              "content": "視器 Visual System"
+            },
+            {
+              "id": "subsection-2-2-7-18",
+              "type": "subsection",
+              "label": "第十八項 治療性先天殘缺手術 Therapeutic Congenital Anomalies (88001-88064)",
+              "level": 4,
+              "parent_id": "section-2-2-7",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-7第二部第二章第七節手術-114.09.01",
+                "codes": "88001-88064"
+              },
+              "content": "治療性先天殘缺手術 Therapeutic Congenital Anomalies"
+            }
+          ]
+        },
+        {
+          "id": "section-2-2-8",
+          "type": "section",
+          "label": "第二部第二章第八節  輸血及造血幹細胞移植",
+          "level": 3,
+          "parent_id": "chapter-2-2",
+          "has_children": true,
+          "metadata": {
+            "filename": "2-2-8第二部第二章第八節輸血及造血幹細胞移植-114.09.01.doc",
+            "doc_id": "2-2-8"
+          },
+          "children": [
+            {
+              "id": "subsection-2-2-8-1",
+              "type": "subsection",
+              "label": "血液分離術",
+              "level": 4,
+              "parent_id": "section-2-2-8",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-8",
+                "row_range": "0-11"
+              }
+            },
+            {
+              "id": "subsection-2-2-8-2",
+              "type": "subsection",
+              "label": "血液成分分離術",
+              "level": 4,
+              "parent_id": "section-2-2-8",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-8",
+                "row_range": "12-23"
+              },
+              "content": "白血球＋分離術血小板：一次,相當於從 3000 c.c.\n血液分離出白血球及血小板濃厚液"
+            }
+          ]
+        },
+        {
+          "id": "section-2-2-9",
+          "type": "section",
+          "label": "第二部第二章第九節  石膏繃帶",
+          "level": 3,
+          "parent_id": "chapter-2-2",
+          "has_children": true,
+          "metadata": {
+            "filename": "2-2-9第二部第二章第九節石膏繃帶-093.06.14.doc",
+            "doc_id": "2-2-9"
+          },
+          "children": [
+            {
+              "id": "subsection-2-2-9-1",
+              "type": "subsection",
+              "label": "石膏固定",
+              "level": 4,
+              "parent_id": "section-2-2-9",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-9",
+                "row_range": "0-5"
+              }
+            },
+            {
+              "id": "subsection-2-2-9-2",
+              "type": "subsection",
+              "label": "步行石膏固定",
+              "level": 4,
+              "parent_id": "section-2-2-9",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-9",
+                "row_range": "6-14"
+              },
+              "content": "步行石膏固定 Walking cast"
+            },
+            {
+              "id": "subsection-2-2-9-3",
+              "type": "subsection",
+              "label": "石膏副木固定",
+              "level": 4,
+              "parent_id": "section-2-2-9",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-9",
+                "row_range": "15-25"
+              },
+              "content": "石膏副木固定 P.P splint"
+            }
+          ]
+        },
+        {
+          "id": "section-2-2-10",
+          "type": "section",
+          "label": "第二部第二章第十節  麻醉費",
+          "level": 3,
+          "parent_id": "chapter-2-2",
+          "has_children": true,
+          "metadata": {
+            "filename": "2-2-10第二部第二章第十節麻醉費-114.05.01.doc",
+            "doc_id": "2-2-10"
+          },
+          "children": [
+            {
+              "id": "subsection-2-2-10-1",
+              "type": "subsection",
+              "label": "基礎麻醉法",
+              "level": 4,
+              "parent_id": "section-2-2-10",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-10",
+                "row_range": "0-7"
+              }
+            },
+            {
+              "id": "subsection-2-2-10-2",
+              "type": "subsection",
+              "label": "傳導麻醉",
+              "level": 4,
+              "parent_id": "section-2-2-10",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-10",
+                "row_range": "8-13"
+              },
+              "content": "傳導麻醉 Conduction anesthesia"
+            },
+            {
+              "id": "subsection-2-2-10-3",
+              "type": "subsection",
+              "label": "吸入全身麻醉法",
+              "level": 4,
+              "parent_id": "section-2-2-10",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-10",
+                "row_range": "14-27"
+              },
+              "content": "半開放式或半閉鎖式面罩吸入全身麻醉法\nSemi-opened or semi-closed mask\nInhalation general anesthesia"
+            },
+            {
+              "id": "subsection-2-2-10-4",
+              "type": "subsection",
+              "label": "其他麻醉及輔助費用",
+              "level": 4,
+              "parent_id": "section-2-2-10",
+              "has_children": false,
+              "metadata": {
+                "doc_id": "2-2-10",
+                "row_range": "28-31"
+              },
+              "content": "麻醉前評估\n註：\n1.本項限施行96004C-96008C、 96011C、96012C、96017C-96022C、96029C、96030C者申報(基層院所住院比照申報)。\n2.不得另申報會診費。\n3.不得申報急診加成。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

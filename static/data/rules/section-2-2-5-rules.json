@@ -1,0 +1,44 @@
+{
+  "section_id": "section-2-2-5",
+  "section_name": "第二部第二章第五節手術",
+  "description": "手術 診療項目的給付規則和限制條款",
+  "total_rules": 6,
+  "items": [
+    {
+      "rule_code": "R01001",
+      "rule_name": "手術 給付規則 - 基本條件",
+      "applicable_condition": "適用於所有 手術 診療項目",
+      "remarks": "本規則適用於所有代碼以 30 開頭的 手術 項目，患者須符合健保給付條件。"
+    },
+    {
+      "rule_code": "R02001",
+      "rule_name": "手術 限制條款 - 次數限制",
+      "applicable_condition": "單一療程內的多次申請",
+      "remarks": "同一疾病在相同療程內進行相同項目檢查/治療，每次給付間隔應至少 7 天，特殊情況需專科醫師說明。"
+    },
+    {
+      "rule_code": "R02002",
+      "rule_name": "手術 限制條款 - 先前檢查",
+      "applicable_condition": "與最近一次同類檢查的間隔",
+      "remarks": "若患者於 3 個月內已接受類似檢查，應提供臨床理由說明重複檢查的必要性。"
+    },
+    {
+      "rule_code": "R03001",
+      "rule_name": "手術 特殊規定 - 兒童加成",
+      "applicable_condition": "年齡未滿七歲的兒童患者",
+      "remarks": "未滿六個月加成 60%、六月至二歲加成 30%、二至七歲加成 20%，特材費用不加成。"
+    },
+    {
+      "rule_code": "R03002",
+      "rule_name": "手術 特殊規定 - 急診加成",
+      "applicable_condition": "因緊急傷病必須立即進行",
+      "remarks": "急診病患因緊急傷病必須立即進行 手術 項目時，檢查/治療費用得加計 20%。"
+    },
+    {
+      "rule_code": "R04001",
+      "rule_name": "手術 例外情況 - 特殊病情",
+      "applicable_condition": "特定疾病或臨床情況",
+      "remarks": "癌症患者、臟器移植患者、糖尿病患者或加護病房患者的相關檢查，不受一般限制條件約束。"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "section_id": "section-2-2-7",
+  "section_name": "第二部第二章第七節復健",
+  "description": "診療項目代碼以 50-52 開頭的復健項目支付標準",
+  "total_items": 15,
+  "items": [
+    {
+      "code": "50001C",
+      "name": "復健項目基本費用",
+      "payment_points": 1000,
+      "effective_from": "20160401",
+      "effective_to": "29101231"
+    },
+    {
+      "code": "50002C",
+      "name": "復健項目進階費用",
+      "payment_points": 1500,
+      "effective_from": "20210101",
+      "effective_to": "29101231"
+    },
+    {
+      "code": "50003D",
+      "name": "復健項目特殊費用",
+      "payment_points": 2000,
+      "effective_from": "20230601",
+      "effective_to": "29101231"
+    }
+  ]
+}
